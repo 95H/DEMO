@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>优酷登录页面</title>
+	<style>
+        .btn{
+        	width: 50px;
+        	height: 50px;
+        	background: #ccc;
+        	border-radius: 50%;
+        	text-align: center;
+        	line-height: 50px;
+        	font-size: 20px;
+        	color: yellow;
+        	cursor: pointer;
+        }
+        .box{
+        	width: 760px;
+        	height: 350px;
+        	border:1px solid #ccc;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	bottom: 0;
+        	right: 0;
+        	margin:auto;
+        	background-image: url(1.jpg);
+        	background-repeat: no-repeat;
+            background-position: center;
+        }
+        .left{
+        	width: 25px;
+        	height:25px;
+            line-height: 25px;
+            text-align: center; 
+            cursor: pointer;
+            float: left;
+            font-size: 16px;
+            color: blue;
+        }
+        .right{
+        	width: 45%;
+        	height: 100%;
+        	float: right;
+        	/*border:1px solid #fff; */	
+        }
+        .rt{
+        	width: 320px;
+        	height: 35px;
+        	margin-top: 30px;
+        	font-size: 18px;
+        }
+        .rc{
+        	width: 320px;
+        	height: 194px;
+        }
+        .rb{
+        	width: 320px;
+        	height: 31px;
+        	margin-top: 30px;
+        }
+        .zh,.mm{
+        	width: 320px;
+        	height: 40px;
+        	border:1px solid #eee;
+        }
+        .mm{
+        	margin-top: 15px;
+        }
+        .dl{
+        	width: 320px;
+        	height: 40px;
+        	background:rgb(53,181,255);
+        	margin-top: 40px;
+        	font-size: 20px;
+            color:#fff;
+        }
+	</style>
+</head>
+<body>
+	<div class="btn">登录</div>
+	<script src="function.js"></script>
+	<script>
+
+       var btn=document.querySelector('.btn');
+       btn.onclick=function(){
+       	var box=document.createElement('div');
+       	box.className='box';
+       	document.body.appendChild(box);
+        //左边大盒子x
+       	var left=document.createElement('div');
+       	left.className='left';
+       	left.innerHTML='X';
+       	box.appendChild(left);
+       	//右边大盒子
+       	var right=document.createElement('div');
+       	right.className='right';
+       	box.appendChild(right);
+       	//右边上盒子
+       	var rt=document.createElement('div');
+       	rt.className='rt';
+       	rt.innerHTML='<h3>账号登录</h3>';
+       	right.appendChild(rt);
+        
+       	/*var h3=document.createElement('h3');
+       	h3.className='hh';
+       	h3.innerHTML='账号登录';
+       	rt.appendChild(h3);*/
+       	//右边中间盒子
+       	var rc=document.createElement('div');
+       	rc.className='rc';
+       	right.appendChild(rc);
+        var zh=document.createElement('input');
+        zh.className='zh';
+        zh.value='手机/邮箱/优酷土豆账号';
+        
+        var mm=document.createElement('input');
+        mm.className='mm';
+        mm.value='登录密码';
+        rc.appendChild(zh);
+        rc.appendChild(mm);
+        var dl=document.createElement('input');
+        dl.type='button';
+        dl.className='dl';
+        dl.value='登     录';
+        rc.appendChild(dl);
+
+       	//右边下盒子
+       	var rb=document.createElement('div');
+       	rb.className='rb';
+       	rb.innerHTML='其他方式';
+       	right.appendChild(rb);
+       
+       left.onclick=function(){
+       	   document.body.removeChild(box);
+       	   box=null
+       }
+   }
+	</script>
+</body>
+</html>

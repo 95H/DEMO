@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委派</title>
+	<style>
+       *{
+       	padding: 0;
+       	margin:0;
+       	list-style: none;
+       }
+       .box{
+       	width: 500px;
+       	height: 500px;
+       	background: #ccc;
+       }
+       .box ul{
+       	width: 400px;
+       	height: 400px;
+       	background: #fff;
+       	margin: 50px;
+       	float: left;
+       }
+       .box li{
+       	width:80px;
+       	height: 80px;
+       	background: #000;
+       	float: left;
+       	margin: 20px;
+       	text-align: center;
+       	font-size: 18px;
+       	color: #fff;
+       }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>001</li>
+			<li>002</li>
+			<li>003</li>
+			<li>004</li>
+			<li>005</li>
+			<li>006</li>
+			<li>007</li>
+			<li>008</li>
+			<li>009</li>
+		</ul>
+	</div>
+	<script>
+       var ulbox=document.querySelector('.box ul')
+       ulbox.onclick=function(e){
+       	var ev=e||window.event;
+       	var obj=ev.srcElement||ev.target;
+       	obj.style.backgroundColor='orange';
+       	//alert(obj.innerHTML)
+       }
+	</script>
+</body>
+</html>

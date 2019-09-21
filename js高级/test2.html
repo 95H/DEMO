@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+</head>
+<body>
+<script type="text/javascript" src="Stack.js"></script>
+<script>
+  // 创建一个队列实例
+  const stack = new Stack()
+  console.log(stack.size(), stack.isEmpty()) // 0 true
+  // 调用方法进行测试
+  stack.push(3)
+  stack.push('atguigu')
+  console.log(stack.size(), stack.isEmpty(), stack) // 2 false
+  console.log(stack.pop()) // 'atguigu'
+  console.log(stack.peek()) // 3
+  console.log(stack.size(), stack.isEmpty(), stack) // 1, false
+</script>
+</body>
+</html>

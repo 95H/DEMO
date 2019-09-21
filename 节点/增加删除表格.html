@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      
+	</style>
+</head>
+<body>
+<input type="button"  value="增加">
+<input type="button"  value="删除">
+   <table border=1 width="500" align="center">
+      <caption>成绩表</caption>
+      <tbody>
+         <tr>
+            <th>班级</th>
+            <th>姓名</th>
+            <th>html</th>
+            <th>css</th>
+            <th>js</th>
+         </tr>
+         <tr>
+            <td>1702B</td>
+            <td>欢</td>
+            <td>100</td>
+            <td>100</td>
+            <td>100</td>
+         </tr>
+      </tbody>
+   </table>
+   <script src='function.js '></script>
+   <script>
+      /*var add=document.getElementsByTagName('input')[0]; 
+      var del=document.getElementsByTagName('input')[1]; 
+      var tbody=document.getElementsByTagName('tbody')[0];
+      add.onclick=function(){
+         var last=getLast(tbody);
+         var clone=cloneObj(last,true);
+         appendObj(clone,tbody)
+      }
+      del.onclick=function(){
+         var childs=getChilds(tbody);
+         if(childs.length>2){
+            var last=getLast(tbody);
+            removeObj(last)
+         }
+      }*/
+      var add=document.getElementsByTagName('input')[0];
+      var del=document.getElementsByTagName('input')[1];
+      var tbody=document.getElementsByTagName('tbody')[0];
+      add.onclick=function(){
+         var last=getLast(tbody);
+         var clone=cloneObj(last,true);
+         appendObj(clone,tbody)
+    }    
+      del.onclick=function(){
+         var childs=getChilds
+      }
+   </script>   
+</body>
+</html>

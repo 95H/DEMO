@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+</style>
+<body>
+  <!-- <div id="box">我是第一个盒子</div>
+  <div id="box">我是第二个盒子</div>
+  <div id="box">我是第三个盒子</div>  -->
+  <!-- <form action="">
+    <input type="text" name="aa">
+  </form> -->
+  <!-- <div class="cla">yi</div>
+  <div class="cla">er</div>
+  <div class="cla">san</div> -->
+  <div class="bigbox">111</div>
+  <div class="bigbox" id="aa">222</div>
+  <form action="1.html" name="n1">
+      <input type="text">
+  </form>
+  <form action="1.php" name="n2">
+       <input type="button">
+  </form>
+
+	<script>
+	/*document.getElementById('box')
+	box.innerHTML='我是一个盒子'
+	box.style.width='200px';
+	box.style.height='200px';
+	box.style.backgroundColor='yellow'*/
+	//属性
+	  //title设置标题
+      //document.title='DOM开始啊'
+      //URL返回文档路径
+      //alert(document.URL)
+      //bgColor设置文档背景色
+      //document.bgColor='yellow'
+      // fgColor设置文档前景色
+      //document.fgColor='red'
+      //方法
+      //1.获取ID
+      /*var box=document.getElementById('box');
+      box.style.width='200px';
+      box.style.height='200px';
+      box.style.backgroundColor='yellow'*/
+      //2.获取标签方法后
+      //该类标签只有一个时，直接在方法后加下标0；有很多个时，for循环遍历 得到每一个元素
+       /*var divs=document.getElementsByTagName('div');
+       for(var i=0;i<divs.length;i++){
+       	divs[i].style.backgroundColor='red'
+       }*/
+       //第二种
+       /*var divs=document.getElementsByTagName('div');
+       divs[0].style.backgroundColor='red'
+       divs[1].style.backgroundColor='green'
+       divs[2].style.backgroundColor='red'*/
+       //直接写
+       /*var divs=document.getElementsByTagName('div')[0];
+       divs.style.backgroundColor='red'*/
+      // 3.获取name名
+       /*var aa=document.getElementsByName('aa')[0];
+       aa.style.backgroundColor='red'*/
+       //4.获取class名
+       //IE8不支持
+       /*var cla=document.getElementsByClassName('cla');
+       for(var i=0;i<cla.length;i++){
+       	cla[i].style.backgroundColor='blue'
+       }*/
+       //解决类名的兼容函数[]
+		/*支持获取类名方法
+		document.getElementsByClassName('cla')
+		不支持IE8以下
+		标签-->判断className==classname{
+			拿到
+		}
+	}*/
+	/*解决类名的兼容函数,classname 为形参
+       function getClass(classname){
+       	判断浏览器对获取类名方法的支持情况
+       	如果浏览器支持获取类名的方法
+       	if(document.getElementsByClassName){
+       		返回用这个方法获取的类名
+       		return document.getElementsByClassName(classname);
+       		否则
+       	}else{
+       		获取所有的标签名
+       		var tags=document.getElementsByClassName('*');
+       		建立一个新数组，放帅选到的标签
+       		var arr=[];
+       		遍历获取到的标签集合
+       		for(var i=0;i<tags.length;i++){
+       			判断每一个标签里的类名和实际传入的类名是否一致
+       			if(tags[i].className==classname){
+       			如果一致，将选择好的标签放入空数组	
+       				arr.push(tags[i])
+       			}
+       		}
+       		选择完毕，返回数组
+       		return arr;
+       	}
+       }
+       alert(getClass('cla').length)*/
+      //5.获取单个选择器的方法
+      //特点：(1)可以随意向括号中传css选择器;
+      //      (2)只能获取第一个匹配到的元素;
+      /*var bigbox=document.querySelector('.bigbox');
+      bigbox.style.backgroundColor='blue'*/
+      /*var bigbox=document.querySelector('.bigbox#aa');
+      bigbox.style.backgroundColor='blue'*/
+      //6.获取所有匹配的元素
+      /*var bigbox=document.querySelectorAll('.bigbox');
+      for(var i=0;i<bigbox.length;i++){
+      	bigbox[i].style.backgroundColor='green'
+      };*/
+      //三、document对象的集合
+      //alert(document.all.length)
+      //alert(document.forms.length)
+      //alert(document.forms[0].action)
+      //解决类名的兼容函数,classname 为形参
+       // function getClass(classname){
+       // 	判断浏览器对获取类名方法的支持情况
+       // 	如果浏览器支持获取类名的方法
+       // 	if(document.getElementsByClassName){
+       // 		返回用这个方法获取的类名
+       // 		return document.getElementsByClassName(classname);
+       // 		否则
+       // 	}else{
+       // 		获取所有的标签名
+       // 		var tags=document.getElementsByClassName('*');
+       // 		建立一个新数组，放帅选到的标签
+       // 		var arr=[];
+       // 		遍历获取到的标签集合
+       // 		for(var i=0;i<tags.length;i++){
+       // 			判断每一个标签里的类名和实际传入的类名是否一致
+       // 			if(tags[i].className==classname){
+       // 			如果一致，将选择好的标签放入空数组	
+       // 				arr.push(tags[i])
+       // 			}
+       // 		}
+       // 		选择完毕，返回数组
+       // 		return arr;
+       // 	}
+       // }
+       // alert(getClass('cla').length)
+	</script>
+</body>
+</html> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      .box{
+      	width: 100px;
+      	height: 100px;
+      	background: yellow;
+      }
+      .bigbox{
+      	width: 100px;
+      	height: 100px;
+      	background: pink;
+      }
+	</style>
+</head>
+<body>
+<div class="box">
+   <b>我是一个盒子</b>
+</div>
+<div class="bigbox"></div>
+	<script>
+       /*var box=document.querySelector('.box');
+       var text=box.innerHTML;
+       alert(text)
+        var box=document.querySelector('.box');
+       var text=box.innerText;
+       alert(text)*/
+       var box=document.querySelector('.box');
+       var bigbox=document.querySelector('.bigbox');
+       //var text=box.innerHTML;
+       //bigbox.innerHTML=text;
+       var text=box.innerText;
+       bigbox.innerText=text;
+	</script>
+</body>
+</html>

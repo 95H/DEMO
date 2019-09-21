@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>节点</title>
+  <style>
+      .box{
+        width: 500px;
+        height: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin:auto;
+        border: 1px solid #aaa;
+        overflow: hidden;
+      }
+      .innerbox{
+        width: 2500px;
+        height: 300px;
+      }
+      .inner{
+        float: left;
+        width: 500px;
+        height: 300px;
+      }
+      .inner img{
+        width: 500px;
+        height: 300px;
+      }
+      .left,.right{
+        width: 30px;
+        height: 50px;
+        background: rgb(0,0,0,0.1);
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+        position: absolute;
+        top: 125px;
+      }
+      .left{
+        left: 0;
+      }
+      .right{
+        right: 0;
+      }
+      .left:hover,.right:hover{
+        background: rgb(0,0,0,0.5);
+      }
+  </style>
+</head>
+<body>
+  <div class="box">
+     <div class="innerbox">
+        <div class="inner"><img src="images/1.jpg"></div>
+        <div class="inner"><img src="images/2.jpg"></div>
+        <div class="inner"><img src="images/3.jpg"></div>
+        <div class="inner"><img src="images/4.jpg"></div>
+        <div class="inner"><img src="images/5.jpg"></div>
+     </div>
+     <div class="left">&lt;</div>
+     <div class="right">&gt;</div>
+  </div>
+  <script src='animate.js'></script>
+  <script src='../节点/function.js'></script>
+  <script>
+      var innerbox=document.querySelector('.innerbox')
+       
+  </script>
+</body>
+</html>

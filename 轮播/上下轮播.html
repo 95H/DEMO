@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <style>
+     .box{
+     	width: 350px;
+     	height: 400px;
+     	position: absolute;
+     	top:0;
+     	left:0;
+     	bottom: 0;
+     	right:0;
+     	margin:auto;
+     	overflow: hidden;
+     }
+     .innerbox{
+     	width: 350px;
+     	height: 1000px;
+     }
+     .inner{
+     	width: 350px;
+     	height: 200px;
+     }
+     .inner img{
+     	width: 350px;
+     	height: 200px;
+     }
+    </style>
+</head>
+<body>
+<div class="box">
+	<div class="innerbox">
+		<div class="inner"><img src="images/mengchong1.jpg"></div>
+		<div class="inner"><img src="images/mengchong2.jpg"></div>
+		<div class="inner"><img src="images/mengchong3.jpg"></div>
+		<div class="inner"><img src="images/mengchong4.jpg"></div>
+		<div class="inner"><img src="images/mengchong5.jpg"></div>
+	</div>
+</div>
+<script src='animate.js'></script>
+<script src='../节点/function.js'></script>
+	<script>
+	var innerbox=document.querySelector('.innerbox');
+	setInterval(move,1000)
+	function move(){
+        var last=getLast(innerbox);
+        var first=getFirst(innerbox);
+        last.style.height=0;
+        addBefore(last,first);
+      animate(last,{height:200},500)
+    }
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三秒后提交</title>
+</head>
+<body>
+<!-- <form action="" name="myform">
+   输入名字：<br>
+   <input type="text" name="name1">
+   <input type="button" value="提交" name="sub">
+</form> -->
+<form action="1.html" name="myform">
+姓名：<input type="text" name="text">
+    性别：<input type="text" name="text">
+    年龄：<input type="text" name="text">
+    <input type="submit" value='提交'>
+</form>
+
+
+	<script>
+      /* var sub=document.myform.sub;
+       sub.onclick=function(){
+       	document.myform.submit();
+       }*/
+       /*setTimeout(function(){
+       	document.myform.submit();
+       },3000)*///三秒后提交
+       var text=document.myform.text;
+  myform.onsubmit=function(){     //myform为表单提交
+    for(var i=0;i<text.length;i++){
+    if(text[i].value==''){
+      alert('请输入内容！');
+      return false;
+      }
+    }
+  }
+  
+  //onsubmit：表单提交事件
+	</script>
+</body>
+</html>

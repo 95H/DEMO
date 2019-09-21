@@ -1,0 +1,307 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	.bigbox{
+		width: 150px;
+		height: 150px;
+		border:1px solid;
+		position:absolute;
+    	top: 0;
+    	left:0;
+    	bottom: 0;
+    	right: 0;
+    	margin:auto; 
+	}
+    .box{
+    	width: 100px;
+    	height: 100px;
+    	border: 1px solid;
+    	position:absolute;
+    	top: 0;
+    	left:0;
+    	bottom: 0;
+    	right: 0;
+    	border-radius: 50%;
+    	margin:auto;
+    	text-align: center;
+    	line-height: 100px;
+    	color: orange;
+    }
+    .btn{
+        border-radius: 50%;
+        position: relative;
+        top: 125px;
+        left:100px;
+    }
+	</style>
+</head>
+<body>
+<div class="bigbox">
+<div class="box"></div>
+<button class="btn">点击</button>
+</div>
+	<script>
+	    //1.AJAX调取数据
+	 var box=document.querySelector('.box')
+     var btn=document.querySelector('.btn')
+     btn.onclick=function(){
+        var xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=callBack;
+        xhr.open('get','aa.txt',true);
+        xhr.send(); 
+        function callBack(){
+               if(xhr.status==200){
+                if(xhr.readyState==4){
+                  box.innerHTML=xhr.responseText;
+                }
+              }
+        }
+     }   
+	</script>
+</body>
+</html> -->
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	    2.轮播思路(关于节点轮播)  
+	    (1)布局一个box盒子里面包含一个innerbox盒子，盒子大小为box盒子的五倍，innerbox里面包含五个小inner，每个inner里面包含一张图片。
+	    (2)五个inner排成一排
+	    (3)引入animate function类库
+	    (4)获取innerbox 
+	    (5)用animate动画 
+	    (6)动画完成后获取innerbox的第一个孩子,并将第一个孩子插入到innerbox盒子最后并将innerbox盒子marginLeft变为0
+	    (7)实现循环轮播
+	    (8)鼠标放在box盒子上，动画停止，否则，动画开始；
+	    (9)点击左按钮正常轮播
+	   (10)点击右按钮，获取innerbox第一个孩子与最后一个孩子，并将innerbox盒子的marginLeft变为inner的宽度，用来放最后一个孩子，完后将最后一个孩子插入到第一个孩子前面，并让innerbox的marginLeft变为0；
+	
+	    3.日期对象
+	             getYear() getHours() getMouth() getTime() getWeek() getSeconds()getDay() getDate() getMinutes() getTime()
+	    4.委派案例
+	     
+        5.事件
+         鼠标事件：onclick() ondblclick() onmouseover() onmouseout() onmouseleave() onmouseenter() onmousemove() onscroll() onmousedown() onmouseup()
+         键盘事件：onkeyup() onkeydown() onkeypress()
+         表单事件：onchange() onsumbmit() onblur() onfoucs()
+         页面事件：onload() onresize()
+        </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委派</title>
+	<style>
+       *{
+       	padding: 0;
+       	margin:0;
+       	list-style: none;
+       }
+       .box{
+       	width: 500px;
+       	height: 500px;
+       	background: #ccc;
+       	position: absolute;
+       	top: 0;
+       	left:0;
+       	bottom: 0;
+       	right:0;
+       	margin:auto;
+       }
+       .box ul{
+       	width: 400px;
+       	height: 400px;
+       	background: #fff;
+       	margin: 50px;
+       	float: left;
+       }
+       .box li{
+       	width:80px;
+       	height: 80px;
+       	background: #000;
+       	float: left;
+       	margin: 25px;
+       	text-align: center;
+       	line-height: 80px;
+       	font-size: 18px;
+       	color: #fff;
+       	border-radius: 50%;
+       }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>001</li>
+			<li>002</li>
+			<li>003</li>
+			<li>004</li>
+			<li>005</li>
+			<li>006</li>
+			<li>007</li>
+			<li>008</li>
+			<li>009</li>
+		</ul>
+	</div>
+	<script>
+       var ulbox=document.querySelector('.box ul')
+       ulbox.onclick=function(e){
+       	var ev=e||window.event;
+       	var obj=ev.srcElement||ev.target;
+       	obj.style.backgroundColor='orange';
+       	//alert(obj.innerHTML)
+       }
+	</script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全屏滚动</title>
+	<style>
+     html,body{
+     	overflow: hidden;
+     }
+     *{
+     	margin:0;
+     	padding:0;
+     }
+     .box{
+     	width: 100%;
+     	height: 100%
+     }
+     .inner{
+     	width: 100%;
+     	font-size: 300px;
+     	line-height: 600px;
+     	text-align: center;
+     }
+     .inner:nth-of-type(1){
+     	background: orange;
+     }
+     .inner:nth-of-type(2){
+     	background: green;
+     }
+     .inner:nth-of-type(3){
+     	background: blue;
+     }
+     .inner:nth-of-type(4){
+     	background: yellow;
+     }
+     .inner:nth-of-type(5){
+     	background: red;
+     }
+     .btnbox{
+     	width: 50px;
+     	height: 280px;
+     	position: fixed;
+     	top: 300px;
+     	right: 30px;
+     }
+     .btn{
+     	width: 35px;
+     	height: 35px;
+     	background: #000;
+     	border-radius: 50px;
+     	margin-top: 20px;
+     }
+     .btn:nth-of-type(1){
+     	background: #ccc;
+     }
+	</style>
+</head>
+<body>
+<div class="box">
+   <div class="inner">001</div>
+   <div class="inner">002</div>
+   <div class="inner">003</div>
+   <div class="inner">004</div>
+   <div class="inner">005</div>
+</div>
+<div class="btnbox">
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+  <div class="btn"></div>
+</div>
+<script src="function.js"></script>
+<script src="animate.js"></script>
+		<script>
+      var box=document.querySelector('.box');
+      var inner=document.querySelectorAll('.inner');
+      var btn=document.querySelectorAll('.btn');
+      var h=document.documentElement.clientHeight;
+      var num=0;
+      var flag=true;
+      for (var i = 0; i<inner.length; i++;) {
+      	inner[i].style.height=h+'px';
+      }
+      for (var i = 0; i < btn.length; i++) {
+      	btn[i].index=i;
+      	btn[i].onclick=function(){
+      		num=this.index;
+      		for(var j=0;j<btn.length;j++){
+      			btn[j].style.backgroundColor='#000';
+      		}
+      		btn[num].style.backgroundColor='#ccc';
+      		animate(box,{marginTop:-h*num},500)
+      	}
+      }
+      mousewheel(box,function(){
+      	if(flag){
+      		flag=false
+      	num--;
+      	if(num<0){
+      		num=0;
+      	}
+      	for(var j=0;j<btn.length;j++){
+      			btn[j].style.backgroundColor='#000';
+      		}
+      		btn[num].style.backgroundColor='#ccc';
+      	animate(box,{marginTop:-h*num},500,function(){
+      		flag=true;
+      	})
+      }
+      },function(){
+      	if (flag) {
+      		flag=false
+        num++;
+        if(num>inner.length-1){
+        	num=inner.length-1;
+        }
+        for(var j=0;j<btn.length;j++){
+      			btn[j].style.backgroundColor='#000';
+      		}
+      		btn[num].style.backgroundColor='#ccc';
+        animate(box,{marginTop:-h*num},500,function(){
+        	flag=true;
+        })
+    }
+      })
+		</script>
+</body>
+</html>

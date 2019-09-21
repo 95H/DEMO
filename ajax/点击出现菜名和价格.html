@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+     /* .box{
+           width: 1250px;
+           height: 150px;
+           border:1px solid;
+           position: absolute;
+           left:0;
+           top: 0;
+           right: 0;
+           bottom: 0;
+           margin: auto;
+     }
+     .innerbox{
+           width: 230px;
+           height: 100px;
+           border: 1px solid;
+           margin-left: 8px;
+           float: left;
+     }
+     .btn{
+           width: 150px;
+           height: 40px;
+           margin-left:90px;
+           position: absolute;
+           top: 110px;
+           left:110px;
+     } */
+      *{
+            margin:0;
+            padding:0;
+            list-style: none;
+      }
+      .box{
+            width: 1200px;
+            height: 150px;
+            border: 1px solid
+      }
+      ul{
+            width: 1200px;
+            height: 150px;
+      }
+      li{
+            float: left;
+            width: 220px;
+            height: 100px;
+            border: 1px solid;
+      }
+      p{
+            width: 110px;
+            height: 70px;
+      }
+	</style>
+</head>
+<body>
+	<!-- <div class="box">
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div>
+            <div class="innerbox"></div> -->
+       <ul>
+             <li><p class="name"></p><p class="price"></p>
+             </li>
+             <li><p class="name"></p><p class="price"></p>
+             </li>
+             <li><p class="name"></p><p class="price"></p>
+             </li>
+             <li><p class="name"></p><p class="price"></p>
+             </li>
+             <li><p class="name"></p><p class="price"></p>
+             </li>
+       </ul>
+       <button class="btn">按钮</button>
+	</div>
+	
+	<script>
+      /* var btn=document.querySelector('.btn');
+       var box=document.querySelector('.box');
+       var inner=document.querySelectorAll('.innerbox');
+       btn.onclick=function(){
+       	var xhr=new XMLHttpRequest();
+       	xhr.onreadystatechange=callBack;
+       	xhr.open('get','Json文件/caidanJson.json',true);
+       	xhr.send();
+       	function callBack(){
+       		if(xhr.status==200){
+       			if(xhr.readyState==4){
+                  var aa=xhr.responseText;
+                  eval('var json='+aa);
+                  for(var i=0;i<inner.length;i++){
+                  	inner[i].innerHTML='名字'+json.breakfast_menu.food[i].name+'<br>'
+                  	inner[i].innerHTML+='价格'+json.breakfast_menu.food[i].price+'<br>'
+                  }
+       			}
+       		}
+       	}
+       }
+*/
+
+       var btn=document.querySelector('.btn')
+       var names=document.querySelectorAll('.name');
+       var prices=document.querySelectorAll('.price');
+     btn.onclick=function(){
+     	var xhr=new XMLHttpRequest();
+       	xhr.onreadystatechange=callBack;
+       	xhr.open('get','Json文件/caidanJson.json',true);
+       	xhr.send();
+       	function callBack(){
+       		if(xhr.status==200){
+       			if(xhr.readyState==4){
+       				
+       				var date=JSON.parse(xhr.responseText)['breakfast_menu']['food'];
+       				for(var i=0;i<date.length;i++){
+       					names[i].innerHTML='菜名'+date[i].name;
+       					prices[i].innerHTML='价格'+date[i].price;
+       				}
+       			}
+       		}
+       	}
+     }
+
+
+
+
+
+
+	</script>
+</body>
+</html>

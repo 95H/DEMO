@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      #box{
+      	width: 100px;
+      	height: 100px;
+      	background:red; 
+      }
+	</style>
+</head>
+<body>
+	<div id="box" onclick="aa()"></div>
+	<script>
+	//如何绑定事件
+	//在脚本中绑定
+	//在html元素中绑定
+    var box=document.getElementById('box');
+    //第一种方法
+    /*box.onclick=function(){
+    	box.style.backgroundColor='green';
+    }*/
+    //第二种方法 aa后面若加()表示直接调用函数里面的内容，加载出来颜色直接就变了，不需要点击
+    //box.onclick=aa;
+    function aa(){
+    	box.style.backgroundColor='green'
+    }
+	</script>
+</body>
+</html>

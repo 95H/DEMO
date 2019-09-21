@@ -1,0 +1,310 @@
+@font-face {
+    font-family: PingFangSC;
+    src:url('../../typeface/PingFang-SC-Regular.otf');
+}
+@font-face {
+    font-family: DINAlternate;
+    src:url('../../typeface/DIN Alternate.ttf');
+}
+.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.butto .click_a_b{
+    display: none;
+}
+.butto .click_a_h{
+    display: none;
+}
+body{
+    /*background-color:#f9f9f9;*/
+}
+.box{
+    width: 100%;
+    height: 52px;
+    background: #000;
+}
+.header{
+    height:52px;
+    position: relative;
+    z-index: 99;
+    padding: 0 20px;
+    background: #000;
+}
+.header-nav{
+    min-height:40px;
+    background:#000000;
+    color:#ffffff;
+    border: 0;
+}
+.navbar-toggle {
+    margin-bottom: 7px;
+    margin-top: 7px;
+    float: center;
+    margin-left: 10px;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    color:#666666;
+    padding-top: 14px;
+    padding-bottom: 4px;
+    margin: 0 15px;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 8px;
+}
+.header-nav>.container-fluid>.navbar-collapse>.nav>li:hover a{
+    color:#ffffff;
+    border-bottom: 3px solid #fff;
+}
+.navbtn{
+    font-size: 20px;
+    color: #ffffff!important;;
+    font-weight: 700!important;
+    margin:0 auto;
+}
+.navlx{
+    float:left;
+    /*display: none;*/
+}
+.navbar-headerbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+}
+
+.navbar{
+    height:48px;
+    width: 80%;
+    margin:0 auto;
+}
+.navlx{
+    float:left;
+    display: none;
+}
+.footer{
+    background: #ffffff;
+    color:#999999;
+    padding: 30px 10px 0;
+    border-top: 1px solid #e6e6e6;
+}
+.max768{
+    padding-bottom: 30px;
+}
+.max768 ul{
+    list-style: none;
+    display: flex;
+    max-width: 990px;
+    width: 100%;
+    margin: 0 auto;
+}
+.max768 ul li{
+    margin: 0 20px;
+}
+.max768 ul li:last-child{
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.big_box{
+    width: 100%;
+    height: 40px;
+    background: #fff;
+}
+.nav_body{
+    height: 40px;
+    line-height: 40px;
+    width: 1000px;
+    padding: 0 20px;
+    margin: 25px auto 0 auto;
+}
+.nav_body .nav_body_c{
+    margin: 0 auto;
+    height:100%;
+}
+.nav_body .nav_body_c ul{
+    display: flex;
+    padding:0;
+    margin: 0;
+    list-style: none;
+    justify-content: space-around;
+    height:100%;
+}
+.nav_body .nav_body_c .b-l{
+    opacity: 1;
+    width: 127px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 18px;
+    display: block;
+    font-family: PingFangSC-Semibold;
+    color: #020202
+}
+.nav_body .nav_body_c .b-c{
+    opacity: 1;
+    width: 73px;
+    height: 25px;
+    font-size: 18px;
+    line-height: 25px;
+    display: block;
+    font-family: PingFangSC-Regular;
+    color: #999999;
+    font-weight: normal;
+}
+.nav_body .nav_body_c .b-r{
+    opacity: 1;
+    line-height: 25px;
+    width: 109px;
+    height: 25px;
+    font-size: 18px;
+    display: block;
+    font-family: PingFangSC-Regular;
+    color: #999999;
+    font-weight: normal;
+}
+.nav_body .nav_body_c li a:hover{
+    color: #020202;
+    opacity: 1;
+}
+.nav_body .nav_body_c ul li{
+    margin: 0 30px;
+}
+.nav_body .nav_body_c ul li:nth-of-type(1){
+    margin-left: 0;
+}
+.nav_body .nav_body_c ul li:nth-of-type(3){
+    margin-right: 0;
+}
+.nav_body .nav_body_c ul .active_li{
+    border-bottom: 5px solid #000;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+.nav_body .nav_body_c ul a:hover{
+    text-decoration: none;
+}
+/*tab切换条结束*/
+/*经典作品-3*/
+.work{
+    background: #f9f9f9;
+    padding-top: 40px;
+    padding-bottom: 15px;
+}
+.work .work_c{
+    width: 980px;
+    padding: 0;
+}
+.work .work_c .work_t{
+    margin-bottom: 12px;
+}
+.work .work_c .work_t h4{
+    width: 80px;
+    height: 28px;
+    font-family: PingFangSC-Semibold;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+.work .work_c .work_t h5{
+    width: 150px;
+    height: 16px;
+    font-family: DINAlternate-Bold;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #999999;
+    padding: 0;
+    margin: 0;
+}
+.work .work_b{
+    width: 980px;
+    height: 290px;
+}
+.work .work_b .work_b_c{
+    width: 307px;
+    height: 290px;
+    padding: 0;
+    margin-right: 19px;
+    margin-bottom: 20px;
+}
+.work .work_b .work_b_c .work_b_img{
+    width: 307px;
+    height: 190px;
+}
+.work .work_b .work_b_c .work_b_img img{
+    width: 100%;
+    height: 100%;
+}
+.work .work_b .work_b_c .work_b_text{
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    border-top: none;
+}
+.work .work_b .work_b_c .work_b_text strong{
+    width: 131.6px;
+    height: 20px;
+    font-weight: 600px;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    padding: 0;
+    display: block;
+    margin: 0 0 27px 0;
+}
+.work .work_b .work_b_c .work_b_last{
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.work .work_b .work_b_c .work_b_last span:nth-of-type(1){
+    font-family: PingFangSC-Regular;
+    width: 45.9px;
+    height: 20px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+.work .work_b .work_b_c .work_b_last span:nth-of-type(2){
+    font-family: DINAlternate-Bold;
+    width: 57px;
+    height: 16px;
+    font-size: 14px;
+    color: #999999;
+}
+/*经典作品-3结束*/

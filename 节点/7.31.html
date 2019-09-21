@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+	//scrollTop/scrollLeft配合onscroll事件一起用
+	    //一、
+	    //1.兼容的解决调用scrollTop的对象
+	    //2.获取scrolltop值
+        var obj=document.body.scrollTop==0
+        ?document.documentElement//火狐显示为0
+        :document.body
+        var objt=obj.scrollTop;//谷歌显示为0
+        //二、直接兼容性获取scrollTop值
+        var obj=document.documentElement.scrollTop||document.body.scrollTop;
+        console.logo(objt)
+	</script>
+</body>
+</html>

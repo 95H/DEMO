@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+      // var qq='12345670';
+       //var reg=/^[1-9][0-9]{4,9}$/;
+       //test()判断正则是否与字符串匹配，成功true；则反；
+       //alert(reg.test(qq))
+       //if(reg.test(qq)){
+       //alert('qq合格')
+       //}else{
+       //alert('qq不合格')
+       //}
+       //创建正则表达式---------
+       //var arr=new Array();
+       //var obj=new Object();
+       //**(1)构造函数方式 
+       //var str='Hello world!Hello kitty';
+       //var reg=new RegExp('hello');
+       //var reg=new RegExp('hello','i');//i表示不区分大小写
+       //alert(reg.test(str));//false 有大小写区分
+       //(2)字面量形式(同上)
+       //var str='Hello world!Hello kitty';
+       //var reg1=/hello/i;
+       //alert(reg1.test(str));
+       //三、正则对象的方法  返回的是字母，不是单词
+       //(3.1)test() 返回boolean
+       //(3.2)exec() 返回匹配到的内容，成功返回匹配的内容，不成功返回null 后面有再多个，只返回一个
+       /*var str='Hello world!Hello kitty';
+       var reg1=/hello/i;
+       alert(reg1.exec(str));
+       var str='Hello world!Hello kitty,hello china';
+       var reg1=/ww/ig;//g表示全局匹配，此式中不成立
+       alert(reg1.exec(str));*/
+       //四、字符串对象的方法
+       //(1)match() 返回字符串内容
+       /*var str='Hello world!Hello kitty,hello china';
+       var reg=/hello/ig;
+       alert(str.match(reg))*///Hello,Hello,hello
+       //str reg 的位置
+       //(2)search() 返回字符串的位置 没有返回-1
+       /*var str='Hello world!Hello kitty,hello china';
+       var reg=/hello/ig;
+       var reg1=/www/ig;
+       alert(str.search(reg))//0
+       alert(str.search(reg1))//-1*/
+       //(3)replace() 
+       //var str='Hello world!Hello kitty,hello china';
+       //var reg=/hello/;
+       //var reg1=/hello/g;
+       //alert(str.replace(reg,'hehe')) //hehe world!Hello kitty,hello china
+       //alert(str.replace(reg1,'hehe')) //hehe world!hehe kitty,hehe china
+       /*var reg=/hello/i;
+       var str="Hello World,Hello Kitty";
+       alert(str.replace(reg,"Hehe"))*/
+       //(4)split()
+       /*var str='Hello world, kitty china,lil';
+       var reg=/,/g;
+       alert(str.split(reg))*/   //,world kitty china
+       //var str='Hello world!Hello kitty,hello china';
+       //var reg=/hello/i;
+       //alert(str.split(reg))  //,world!,kitty,,china
+       /*var reg=/hello/ig;
+       var str="Hello World,Hello Kitty";
+       alert(str.split(reg))*/
+       //五、匹配规则
+      //开始结束字符
+       // . 任意字符  ^ 开始    & 结束      //开始，结束加了表示null
+      /*var reg=/.o/ig;
+      var str='book look cook 2o 5o #o \no 5';
+      //var str='oo';
+      alert(str.match(reg)) //bo lo co 2o #o*/
+      /*var reg=/b.k/;
+      var str='book123';
+      alert(reg.test(str));*/
+      /*var reg=/o{2,}/
+       var str="booookbok";
+      alert(reg.exec(str))*/
+      //(3){m,n} 至少m 至多n
+      /*var reg=/^.o{2,5}/g;
+      var str='$o';
+      alert(str.match(reg))*///null
+      //{m,} 至少m
+      /*var reg=/^.o{2,}/g;
+      var str='$oooo';
+      alert(str.match(reg))*/ //$oooo
+      //{m} 正好m次
+      /*var reg=/^.o{2}/g;
+      var str='$oooo';
+      alert(str.match(reg))*/ //$oo
+      //(4) 限定某一位取值范围
+      /*var reg=/[0-9A-Za-z].{3}/g;
+      var str='A8abcd';
+      alert(str.match(reg))*/
+      //例一
+      //电话号码
+      /*var reg=/^1[3578]\d{9}$/
+      var phone=13623457752;
+      alert(reg.test(phone))*/
+      //QQ号 全是数字 不能以0开头 位数5-15
+      /*var reg=/^[1-9]\d{5,15}$/
+      ///^[1-9][0-9]{4-14}/
+      var qq=1069138153;
+      alert(reg.test(qq))*/
+      //（6）
+      /*var reg=/^\s+/g;
+      var str='    ool';
+      alert(str.match(reg)) //空白
+      alert(str.replace(reg,'***'))
+        //***ool*/
+       /* var str='tengqinqin.qq.com';
+        var reg=/\w+\.[a-z]{2}\.[a-z]{2,3}/*/
+      //(7) 
+      /*var str='baidu.com';
+      var reg=/[a-z0-9A-Z]+\.(com|cn)/g   
+      alert(reg.test(str))*/ 
+
+       /*var reg=/html|js|css/g;
+       var str='aa.html';
+       alert(str.match(reg))*/
+
+       /*var str='9+9=18';
+       var reg=/\d\+\d=\d+/g;
+       alert(reg.exec(str))*/
+
+      //8.分组
+       /*var reg=/html+/g; //html,htmllll
+       var reg=/(html)+/g;
+       var str='htmlhtmllll'
+       alert(str.match(reg))*///htmlhtml
+      
+       /*var str='hello world';
+       var reg=/(\w+)\s(\w+)/g;
+       alert(str.replace(reg,'$2 $1'))*/
+      //案例：手机中间四位换成****
+       var str='13623457752';
+       var reg=/(\d{3})\d{4}(\d{4})/g;
+       alert(str.replace(reg,'$1****$2'))
+      
+	</script>
+</body>
+</htm>

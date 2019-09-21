@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form action="1.html" name="myform">
+		<input type="text" name="text" value="请输入关键字">
+</form>
+   <!-- <input type="text" name="text" value="请输入关键字"
+     <input type="radio" name="sex" value="man" checked>
+     <input type="radio" name="sex" value="woman"> -->
+	<script>
+      /*var sex=document.myform.sex;
+	 sex[0].checked=true;
+	 if(sex[1].checked==false){
+            alert(sex[1].value)
+	 }
+	 if(sex[0].checked==true){
+	 	alert(sex[0].value)
+	 }
+       var text=document.myform.text;
+       text.onfocus=function(){
+       	if(text.value=="请输入关键字"){
+       		this.value=""
+       	}
+       }
+       text.onblur=function(){
+       	if(text.value==""){
+       		this.value="请输入关键字"
+       	}
+       }*/
+       
+//文本框文字onfocus与onblur事件
+	//获取时默认字消失，丢失是文字恢复
+	 var text=document.myform.text;
+	text.onfocus=function(){ 
+		if(text.value=="请输入关键字"){
+			this.value='';
+		}
+	}
+	text.onblur=function(){
+		if(text.value==''){
+			this.value="请输入关键字";
+		}
+	}
+
+	</script>
+</body>
+</html>

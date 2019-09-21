@@ -1,0 +1,174 @@
+<!-- 模板引擎：artTemplate (腾讯制作)
+		Template.js<==>jquery.js
+		Template-native.js<==>jquery.js
+		模板初始化的作用：是用来在js代码里获取到我们前面定义的模板。
+		初始化模板引擎的方法：Template() 传参两个 (1) 要确定模板script标签的id (2)传入一个对象，对象的内容要在模板中展示的数据
+		定义：template当成是一个用来实现编写模板功能的插件，所以在需要使用编写模板功能的时候，要先引入template.js这个包
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>原生语法</title>
+			<style>
+			 table{
+				width: 500px;
+				margin:0 auto;
+				border-collapse: collapse;
+			 }
+			 table th, table td{
+				border: 1px solid #ccc;
+				padding: 15px 5px;
+			 }
+			</style>
+		</head>
+		<body>
+		<table>
+			<thead>
+				<tr>
+					 <th>序号</th>
+					 <th>图片地址</th>
+					 <th>现价</th>
+					 <th>原价</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="4">数据加载中···</td>
+				</tr>
+			</tbody>
+		</table>
+			<script src="template.js">
+
+			</script>      
+					 引入template包
+					 编写模板
+					 1.定义解析方式
+					 2.编写模板内容
+					 2.1在先前定义好的模板script标签中写入html结构
+					 2.2木板的初始化  初始化的方法是template(),他有两个参数，第一个参数是要确定的模板script标签的id；第二个参数是一个对象 var xxx=template('id名',{xxx：data(后台获取来的数据)})
+					 3.数据的载入 模板引擎的原生语法
+					 3.1模板引擎的原生语法  <% 代码逻辑 %>
+					 3.2传入数据 模板引擎的原生语法
+								 <% 要传入的数据 %>
+				<script type="text/template" id="Allen">
+				script标签的type属性中text/后面跟的谁就表示这个script标签中的文本内容按照谁的语法格式来解析
+				获取data数组的长度QQ
+				<%for(var i=0;i<QQ.length;i++){%>
+				<% var item=QQ[i] %>
+					<tr>
+								<td><%= i+1 %></td>
+								<td><%= item.url %></td>
+								<td><%= item.nowPrice %></td>
+								<td><%= item.oldPrice %></td>
+							</tr>
+				<%}%>    
+				
+			</script>
+			<script src="jquery.min.js"></script>
+			<script>
+			var data = [
+				{
+						"url": "images/detail01.jpg",
+						"nowPrice": "10.00",
+						"oldPrice": "100.00"
+				},
+				{
+						"url": "images/detail01.jpg",
+						"nowPrice": "10.00",
+						"oldPrice": "100.00"
+				},
+				{
+						"url": "images/detail01.jpg",
+						"nowPrice": "10.00",
+						"oldPrice": "100.00"
+				}
+		];
+			// 模板的初始化
+			// 通过传参、定义模板的内容，确定是哪一个模板
+			// 1.确定是哪一个模板 通过id进行确定，因此，第一个参数就是要找的模板的id
+			// 2.定义模板内容 第二个参数是一个对象
+					var html=template('Allen',{QQ:data});
+					console.log(html);
+					$('tbody').html(html);
+			</script>
+		</body>
+		</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {
+            width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ccc;
+            padding: 15px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>图片地址</th>
+                <th>现价</th>
+                <th>原价</th>
+            </tr>
+        </thead>
+        <tr>
+            <td colspan="4">数据加载中···</td>
+        </tr>
+    </table>
+    <script src="jquery.min.js"></script>
+    <script src="template-native.js"></script>
+    <script type="text/template" id="Allen">
+        <% for(var i=0; i < QQ.length ; i++){%>
+		<% var item=QQ[i]%>
+		<tr>
+			<td><%=i+1%></td>
+			<td><%=item.url%></td>
+			<td><%=item.nowPrice%></td>
+			<td><%=item.oldPrice%></td>
+		</tr>
+		<%}%>
+	</script>
+    <script>
+        var data = [{
+                "url": "images/detail01.jpg",
+                "nowPrice": "10.00",
+                "oldPrice": "100.00"
+            },
+            {
+                "url": "images/detail01.jpg",
+                "nowPrice": "10.00",
+                "oldPrice": "100.00"
+            },
+            {
+                "url": "images/detail01.jpg",
+                "nowPrice": "10.00",
+                "oldPrice": "100.00"
+            }
+        ];
+        var html = template("Allen", {
+            QQ: data
+        });
+        console.log(html);
+        $('tbody').html(html);
+    </script>
+</body>
+
+</html>

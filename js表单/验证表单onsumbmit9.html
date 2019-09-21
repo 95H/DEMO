@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form action="" name="myform">
+   输入名字:
+   <input type="text" name="name1">
+   <input type="submit">
+</form>
+	<script>
+var name1=document.myform.name1;
+var myform=document.myform;
+        myform.onsubmit=function(){
+        	if(name1.value==''){
+        		alert('名字不能为空');
+        		return false;
+        	}
+        }
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		#box {
+			width: 300px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- id直接挂到window属性上 -->
+	<div id="box"></div>
+	<script type="text/javascript">
+		// 对象的解构赋值
+		// 1.普通结构赋值
+		// 2.对象的结构赋值是根据key(属性值)来--对应的
+		// 3.可以用：后加自己起的变量名来赋值
+		// let obj={name:"lilei",
+		// age:30,like:"football"
+		// };
+		// console.log(obj.name,obj.age,obj.like);//lilei 30 football
+		// 2.
+		// let {name,age,like}=obj;
+		// 转 name 为nikeName
+		// let {name:nikeName}=obj;
+		// console.log(name,age,like);//lilei 30 football
+		// console.log(nikeName,age,like);
+		// eg:取age 变量名==>cage orange
+		// let obj1={name:"lili",age:30,cartlist:['apple','orange','banana']};
+		// let {age:cage,cartlist:[,orange]} =obj1;
+		// console.log({cage,orange});
+
+		// res={
+		// 	code:200,
+		// 	msg:'success',
+		// 		books:[
+		//                  {
+		//                  	bookid:1,
+		//                  	bookname:'aaa'
+		//                  },
+		//                  {
+		//                  	bookid:2,
+		//                  	bookname:'bbb'
+		//                  }
+		// 		]
+		// 	}
+
+		// let{code,data:books}=res;
+
+
+
+		// 控制台写 console.dir(box)
+		// clientHeight
+		// clientLeft
+		// clientTop
+		// clientWidth
+
+		// let offsetHeight=box.offsetHeight;
+		// let offsetLeft=box.offsetLeft;
+		// let offsetTop=box.offsetTop;
+		// let offsetWidth=box.offsetWidth;
+		// ......
+		let {
+			offsetHeight,
+			offsetLeft,
+			offsetTop,
+			offsetWidth
+		} = box;
+		console.log(offsetHeight, offsetLeft, offsetTop, offsetWidth);
+
+		// 赋值为默认值的时候 只有绝对等于===undefind的时候才不会走默认值
+		// let obj2={name:'lili',like:'ball',age:null};
+		// let {name,age=20} = obj2;
+		// console.log(age);//null
+		// 
+		// 当对象结构赋值的右侧不是对象的时候会调用对象的方法把右侧转换为对象
+		// let obj3=1;
+		// console.log(Object(1))
+		// let {a} =obj3;
+		// console.log(__proto__,'1');
+
+		// let ar=[1,2,3];
+		// console.log(Object(ar),'数组');
+		// let length=ar;
+		// console.log(length);
+		// let {lengths,__proto__:p} = ar;
+		// console.log(length,p,'array转对象');
+
+		// 特殊情况
+		// let {a} =null;//Cannot destructure property `a` of 'undefined' or 'null'
+		// let {b} = undefined;
+		// 会报错 因为null 和undefined不能被转化为对象
+	</script>
+</body>
+
+</html>

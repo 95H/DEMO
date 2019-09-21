@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form action="" name="myform">
+  菜品：<br>
+  宫保鸡丁：<input type="checkbox" name="menu"><br>
+  红烧肉：<input type="checkbox" name="menu"><br>
+  鱼香肉丝：<input type="checkbox" name="menu"><br>
+  糖醋里脊：<input type="checkbox" name="menu"><br>
+  孜然羊肉：<input type="checkbox" name="menu"><br>
+  剁椒鱼头：<input type="checkbox" name="menu"><br>
+  北京烤鸭：<input type="checkbox" name="menu"><br>
+  疙瘩汤：<input type="checkbox" name="menu"><br>
+  四喜丸子：<input type="checkbox" name="menu"><br>
+  <hr>
+  全选：<input type="radio" name="quan">
+  全不选：<input type="radio" name="quan">
+  反选：<input type="radio" name="quan">
+</form>
+	<script>
+     var menu=document.myform.menu;
+     var quan=document.myform.quan;
+     quan[0].onclick=function(){
+     	for(var i=0;i<menu.length;i++){
+     		menu[i].checked=true
+     	}
+     }
+     quan[1].onclick=function(){
+     	for(var i=0;i<menu.length;i++){
+     		menu[i].checked=false
+     	}
+     }
+     quan[2].onclick=function(){
+     	for(var i=0;i<menu.length;i++){
+     		if(menu[i].checked==true){
+     			menu[i].checked=false
+     		}else{
+     			menu[i].checked=true
+     		}
+     	}
+     }
+	</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+//	(1)C语言的短路现象:
+//	&&前面是0时,&&符号后面的不计算.
+//	||前面不是0时,||号后面的不计算.
+//	(2)短路运算：
+//	  在短路运算中，整个式子的值是运算符两边起决定性作用的那个变量的值
+//	任何函数之前只要加new就是构造函数
+//	1.var arr=new Array(1,3,5);
+//	    //Array()  new实例化的过程
+//	  arr[3]='z';
+//	  arr2=arr.reverse();//arr翻转并且把arr翻转之后的值赋值给arr2
+//	  arr3=arr.concat(arr2);
+//	  alert(arr3)//z,5,3,1,z,5,3,1
+//	2.for(var i=0,j=0;i<10,j<6;i++,j++){
+//	       var k=i+j;
+//	     console.log(k);//0,2,4,6,8,10
+//	  }
+//	3.简述函数声明的几种方式三种{1.基本语法2.匿名3.对象形式}
+//	  函数声明: function(){}
+//	  函数表达式: var aa=function(){}
+//	  函数对象方式: var aa=new Function()
+//	4.编写阶乘函数，可以传入一个参数，当传入参数的时候，调用函数后，会输出该参数的阶乘结果。
+//	  面向过程
+//	  var getJiecheng=function(num){
+//	  	a用来接收阶乘的值
+//	     var a=1;
+//	     for (var i=1;i<=num;i++){
+//	       a*=i;
+//	     }
+//	  }
+//	  面向对象：
+//	  递归思想：在函数内部直接或间接的调用自身
+//	  var aa=function(){
+//	      a()
+//	  }
+
+
+	  var getJiecheng=function(n){
+	  	if(n==1){
+	  		return 1;
+	  	}else{
+	  		return n*getJiecheng(n-1)
+	  	}
+	  }
+	  console.log(getJiecheng(10));
+
+
+
+
+//   把表单序列化成一个数组
+//	函数是js中的一等公民，因为函数有特权
+//    在js中只有函数可以划分作用域，
+//    在一些强类型语言中只要是有大括号的都可以划分作用域
+
+
+
+//    原型链。。。。。。
+//    js的作用域链
+//    在js中，如果在一个作用域中查找某一变量，如果当前作用域有该变量，直接拿到这个变量，如果当前作用于没有要查找的变量，那么就向当前作用域的上一级作用域查找，如果找到，就直接拿，如果没找到，继续向上一级作用域查找，以此类推。直到找到全局作用域，如果还没有找到，那么就表示，该变量没有声明过，如果找到了，那就直接拿。
+//   一、分析需求
+//   .serializeArray()
+//   表单序列化方法
+//   把表单序列化成一个数组
+//    function count(a){
+//    if(a==1){
+//        return 1;
+//    }
+//    return a + arguments.callee(-a);
+//}
+//var mm = count(10);
+//alert(mm);
+    
+
+
+    // 9.13
+    // 1.
+   // var a=10,b=20,c=4;++b+c+a++==?//35
+   // alert(++b+c+a++)
+    // 2.   
+    // var arr1=[1,3,5,7];
+    // var arr2=arr1;//
+    // arr1[5]=10;
+    // arr2[6]=10;
+    // alert(arr1);//[1,3,5,,10,10]
+    // alert(arr2);//[1,3,5,,10,10]
+    // 数据类型：
+    // 1.初始类型
+    //   String Null Undefined Boolean Number
+    // 2.引用类型
+    //   Array(数组对象)  function(函数对象)  object(对象)
+    // 初始类型和引用类型之间的区别：
+    //   引用类型：取址  初始类型：取值
+    // 3.同源策略
+    // 4.jsonp==>json  
+    //   jsonp的原理：在前端 定义一个函数，在函数中写入一个形参，用来接收跨域请求回来的数据，在函数中对请求回来的数据进行操作 
+    //   跨域是通过我们前端html代码中的一些标签的src属性来实现的(src属性是html这门语言早期遗留下来的一个漏洞，它可以实现跨域的功能)
+    //   jsonp是个什么玩意？
+    //   jsonp是前人总结出来的一套通过src属性来实现跨域的方法
+    // (用来做跨域 只能用get方法 如果用post用Cors)
+    //   java==>javascript
+   
+
+
+    // 原型链:
+    //   var arr=new Array();//Array是一个构造函数 因为前面加了new
+    //   Array.protoType==++>arr的原型
+    //   arr的原型==++>对象
+    //   var obj=new Object();
+    //   Object.prototype==++>
+    //   无论什么样的对象都可以通过实例化object()来得到
+    //   Function.prototype===Function.__proto__  
+    
+
+//利用原生js实现冒泡排序，数据为23,45,18,37,92,13,24
+
+// var a=0;
+// for(var i=1;i<10;i++){
+// if(i%5==0){
+// continue
+// }
+// a++;
+// }
+// alert(a);
+
+
+// Array.prototype.arrSort = function(){
+// for(var i = 0;i<this.length-1;i++){
+// for(var j = 0;j<this.length-i-1;j++){
+// if(this[j]>this[j+1]){
+// var temp;
+// temp = this[j+1];
+// this[j+1] = this[j];
+// this[j] = temp;
+// }
+// }
+// }
+// return this;
+// }
+// var arr = new Array(23,45,18,37,92,13,24);
+// arr.arrSort()
+// console.log(arr);
+
+
+
+//冒泡 
+
+//按趟按次循环
+ var arr=[23,45,18,37,92,13,24];
+   for(var i=0; i<arr.length; i++){  //外层循环的是趟数
+   	for(var j=0; j<arr.length; j++){   //内层循环循环的是次数
+   	   if(arr[i]<arr[j]){
+   	   	var c;
+   	   	c=arr[i];
+   	   	arr[i]=arr[j];
+   	   	arr[j]=c;
+   	   }
+   	}
+   }
+ console.log(arr)
+// 博客
+// js的单线程多线程机制
+// AJAX即“Asynchronous Javascript And XML”（异步JavaScript和XML），是指一种创建交互式网页应用的网页开发技术。
+//AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。
+//AJAX 是一种用于创建快速动态网页的技术。
+//AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。[1]
+//通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。
+//传统的网页（不使用 AJAX）如果需要更新内容，必须重载整个网页页面
+//异步可以帮我们实现js中的伪多线程机制。
+//阮一峰 张鑫旭  sea.js
+//0：请求未初始化（还没有调用 open()）。
+//     1：请求已经建立，但是还没有发送（还没有调用 send()）。
+//
+//     2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。
+//
+//     3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。
+//
+//     4：响应已完成；您可以获取并使用服务器的响应了。
+//      简介js：
+//      答要点：
+//      1.js是一门弱类型语言：js是由多种语言拼凑而成，因此js要兼容多种语言的语法格式，这就使他注定是一门弱类型语言
+//      2.js这门语言中没有类的概念：因为js是一门弱类型语言，所以他没办法完全兼顾多种语言的语法，这样，为了避免冲突，js中就抛弃了类的概念
+//      3.js的发展史：js是由网景公司的布兰登艾奇创造的一门语言 最开始这门语言叫做livescript 后来在同年 java语言面世，大火 为了蹭热度 livescript遂更名为javascript
+//      4.因为js里面没有类的概念，所以如果想要实现继承，就引入了原型和对象的概念（面向对象编程的思想），我们js中和特殊的一点是作用域的划分。function（）{}的大括号可以划分作用域 在js中有且只有函数可以划分作用域，因此我们说函数是js中的一等公民
+
+
+//      ajax在前端中的占比：
+//      Css hack告诉我们如果设置一个css样式，在不同浏览器版本中的不同代码格式
+//      js中有兼容性问题jQuery解决
+//  $(function(){
+//    $.ajax({
+//
+//    })
+//    // ajax是一个函数
+//    // 只有函数的调用才是  函数名()
+//  })
+	</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     /* .bigbox{
+     	width: 600px;
+     	height: 400px;
+     	background: pink;
+     	margin:100px auto;
+     }
+     .top{
+     	width: 600px;
+     	height: 100px;
+     	background: yellow;
+     }
+     .top_c{
+     	float: left;
+     	width: 200px;
+     	height: 100px;
+        border:1px solid blue;
+     }
+     .bottom{
+     	position: relative;
+     	width: 600px;
+     	height: 500px;
+     	background: red;
+     }
+     .bottom_c{
+     	position: absolute;
+     	width: 200px;
+     	height: 500px;
+     	background: #ccc;
+     } */
+
+	</style>
+</head>
+<body>
+<!-- // 操作内容：
+	// innerHTML  innerText
+	// 操作属性
+	// 1、对象.属性
+	//    对象.属性=属性值
+	//    rightImg[i].index=i
+	 /*2、对象.getAttribute('属性')
+	    对象.setAttribute('属性','属性值')
+	    对象.hasAttribute('属性')
+	    对象.removeAttribute('属性')*/
+	   /* (1)适用性
+	    对象.属性=属性值（标准）
+	    对象.setAttribute('属性','属性值')（所有）*/
+	    /*(2)返回值
+	    对象.属性（所有类型）
+	    对象.getAttribute('属性')（字符串）*/
+	   /* (3)属性名
+	    对象.属性=属性值 （严格遵守js规范） 
+	    对象.setAttribute('属性','属性值')
+	        （随意）*/
+	// 操作样式
+	/*1、对象.style.属性=属性值
+	   对象.style.属性
+	   (单个\fontSize)
+    2、cssText
+       (多个、font-size)*/ -->
+
+    <!-- <div class="bigbox">
+       <div class="top">
+          <div class="top_c">今日必选</div>
+          <div class="top_c">品质甩尾</div>
+          <div class="top_c">发现好货</div>
+       </div>
+       <div class="bottom">
+           <div class="bottom_c">今日必选内容</div>
+           <div class="bottom_c">品质甩尾内容</div>
+           <div class="bottom_c">发现好货内容</div>
+       </div>
+    </div> -->
+	<script>
+       /*var top_c=document.querySelectorAll('.top_c');
+       var bottom_c=document.querySelectorAll('.bottom_c');
+       for(var i=0;i<top_c.length;i++){
+       	top_c[i].index=i;
+       	top_c[i].onclick=function(){
+       		for(var j=0;j<bottom_c.lengtn;j++){
+       			bottom_c[j].style.zIndex=0;
+       		}
+       		bottom_c[this.index].style.zIndex=2;
+       	}
+       }
+       获取样式的兼容函数*/
+       
+	</script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width:100px;
+		height:100px;
+		background: green;
+		position: absolute;
+		top:0;left:0;right:0;bottom: 0;
+		margin:auto;
+		border-radius: 50%;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+	var box=document.querySelector('.box');
+	var w=parseInt(getStyle(box,'width'));
+	var h=parseInt(getStyle(box,'height'));
+	setInterval(function(){
+		w+=1;
+		h+=1;
+		box.style.width=w+'px';
+		box.style.height=h+'px';
+		box.style.backgroundColor='rgb('+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+','+Math.floor(Math.random()*255)+')';
+	},100)
+
+	function getStyle(obj,attr){
+	if(document.getElementsByClassName){
+		return getComputedStyle(obj,null)[attr]
+	}else{
+		return  obj.currentStyle[attr] 
+	}
+	}
+	</script>
+</body>
+</html>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM作用</title>
+	<style>
+	.bigbox{
+		width:600px;
+		height:400px;
+		margin:100px auto;
+	}
+	.top{
+		width:100%;
+		height:40px;
+		line-height: 40px;
+		background: lightyellow;
+	}
+	.t-cot{
+		width:100px;
+		height:40px;
+		float: left;
+		background: pink;
+		font-size: 20px;
+		text-align: center;
+	}
+	.bottom{
+		width:100%;
+		height:360px;
+		line-height: 360px;
+		position: relative;
+	}
+	.b-cot{
+		width:100%;
+		height:100%;
+		position: absolute;
+		top:0;left:0;
+		font-size: 80px;
+		text-align: center;
+		background: lightgreen;
+	}
+	</style>
+</head>
+<body>
+	<div class="bigbox">
+		<div class="top">
+			<div class="t-cot">今日必抢</div>
+			<div class="t-cot">品质甩尾</div>
+			<div class="t-cot">新品速递</div>
+		</div>
+		<div class="bottom">
+			<div class="b-cot">今日必抢内容</div>
+			<div class="b-cot">品质甩尾内容</div>
+			<div class="b-cot">新品速递内容</div>
+		</div>
+	</div>
+	<script>
+	var tcot=document.querySelectorAll('.t-cot');
+	var bcot=document.querySelectorAll('.b-cot');
+	for(var i=0;i<tcot.length;i++){
+		tcot[i].index=i;
+		tcot[i].onclick=function(){
+			for(var j=0;j<bcot.length;j++){
+				bcot[j].style.zIndex=0;
+			}
+			bcot[this.index].style.zIndex=2;
+		}
+	}
+	</script>
+</body>
+</html>
+

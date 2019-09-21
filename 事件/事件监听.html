@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     #box{
+     	width: 100px;
+     	height: 100px;
+     	background: red;
+     }
+	</style>
+</head>
+<body>
+<div id="box"></div>
+	<script>
+var box=document.getElementById('box');
+/*box.addEventListener('click',aa,false)
+box.addEventListener('click',bb,false)
+box.removeEventListener('click',bb,false)
+function aa(){
+	alert('第一次点击')
+}
+function bb(){
+	alert('第二次点击')
+}*/
+	/*box.onclick=function aa(){
+		alert('第一次点击')
+	}
+	box.onclick=function bb(){
+		alert('第二次点击')
+	}
+	box.onclick=function(){
+         aa()
+         bb()
+	}*/
+    /*box.attachEvent("onclick",function(){alert(1)})
+    box.attachEvent("onclick",function(){alert(2)})*/
+    //先访问最后进去的 队列原则
+    // IE低版本事件监听方式
+  /*box.attachEvent("onclick",aa) 
+  box.attachEvent('onclick',bb)
+  box.detachEvent("onclick",bb) 
+  function aa(){
+    alert('第一次点击')
+  }
+  function bb(){
+    alert('第二次点击')
+  }
+  box.onclick=function(){
+    aa()	    bb()
+  }*/
+
+ var box=document.getElementById('box');
+  box.addEventListener("click",function(){aa('hello')},false) 
+  // box.addEventListener("click",aa,false) 
+  // box.removeEventListener("click",function(){alert(2)},false)
+  function aa(i){
+    alert(i)
+  } 
+  /*function bb(){
+    alert('第二次点击')
+  }*/
+// ff
+/*var box=document.getElementById('box');
+box.addEventListener("click",aa,false) 
+box.addEventListener("click",bb,false) 
+box.removeEventListener("click",aa,false)
+function aa(){
+    alert('第一次点击')
+  }
+  function bb(){
+    alert('第二次点击')
+  }*/
+	</script>
+</body>
+</html>

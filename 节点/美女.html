@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="生成美女">
+	<ul style="max-width:700px"></ul>
+	<script src="function.js"></script>
+	<script>
+var btn=document.getElementsByTagName('input')[0];
+var ul=document.getElementsByTagName('ul')[0];
+var arr=["西施","杨贵妃","王昭君","貂蝉"];
+btn.onclick=function(){
+for(var i=0;i<4;i++){
+var lis=document.createElement('li');
+ul.appendChild(lis);
+lis.style.width="60px";
+lis.style.height="60px";
+lis.style.float="left";
+lis.innerHTML=arr[i];
+lis.style.background='url(img/'+(i+1)+'.jpg)';
+lis.style.margin="20px 50px";
+lis.style.backgroundPosition="center bottom";
+lis.style.backgroundRepeat="no-repeat";
+lis.style.backgroundSize="60px 40px";
+var childs=getChilds(ul);
+for(var j=0;j<childs.length;j++){
+childs[j].onmouseover=function(){
+for(var k=0;k<childs.length;k++){
+childs[k].style.backgroundColor="";
+}
+this.style.backgroundColor="yellow";
+}
+}			
+}
+}
+	</script>
+</body>
+<ml>
+
+<!-- 1.布局 按钮与列表框
+2.效果，引入js类库
+3.获取所有要操作的对象
+4.循环创建出li
+5.给li赋值
+6.创建新数组，放四大美女
+7.将四大美女的值给每一个li设置
+8.设置每一个li的样式，主要是背景图的设置
+9.获取ul所有的孩子
+10.循环得到每一个孩子，并给每一个孩子添加抚摸事件
+11.让拥有抚摸事件的li变化背景色
+12.用for循环将每一个li初始化颜色
+ -->
+	

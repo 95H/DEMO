@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 浅拷贝
+    //    let obj = {a:1,w:['r',3,'dd']}
+    //    let cloneobj = copy(obj)
+    //    function copy(src){
+    //        let newobj = {}
+    //        for(let prop in src){
+    //            if(src.hasOwnProperty(prop)){
+    //                newobj[prop] = src[prop]
+    //            }
+    //        }
+    //         return newobj
+    //    }
+    //    console.log(obj)
+    //    console.log(cloneobj) 
+    // 递归深拷贝
+    // function clone(obj){
+    //     let newobj;
+    //     if(obj instanceof Array){
+    //         newobj =[]
+    //         let i = obj.length
+    //         while(i--){
+    //             newobj[i] = clone(obj[i])
+    //         }
+    //         return newobj
+    //     }else if(obj instanceof Object){
+    //         newobj = {}
+    //         for(let k in obj){
+    //             newobj[k] = clone(obj[k])
+    //             return newobj
+    //         }
+    //     }else{
+    //             return obj 
+    //         }
+    // }
+
+    function deepclone1(obj){
+        let objclone = Array.isArray(obj)?[]:{}
+        if(obj&&typeof obj ==='object'){
+            for(key in obj){
+                if(obj.hasOwnProperty(key)){
+
+                }
+            }
+        }
+    }
+
+
+    </script>
+</body>
+</html>

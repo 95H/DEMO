@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       .box{
+       	width: 500px;
+       	height: 500px;
+       	background: pink;
+       	font-size: 30px;
+       	color: yellow;
+       	border-radius: 50%;
+       	text-align: center;
+       	line-height: 100px;
+       	position: absolute;
+       	top: 0;
+       	left: 0;
+       	bottom: 0;
+       	right: 0;
+       	margin:auto;
+       	background: url(动画/images/11.jpg);
+       	background-size: 100% 100%;
+       }
+	</style>
+</head>
+<body>
+   <div class="box"></div>
+   <script>
+   var box=document.querySelector('.box');
+   /*document.onmousemove=function(e){
+      var ev=e||window.event;
+      var cx=ev.clientX;
+      var cy=ev.clientY;
+      var sx=ev.screenX;
+      var sy=ev.screenY;
+      box.innerHTML='cx:'+cx+';cy:'+cy+'<br>sx:'+sx+';sy:'+sy;
+  }*/
+  /*box.onclick=function(e){
+  	var ev=e||window.event;
+  	var ox=ev.offsetX;
+  	var oy=ev.offsetY;
+  	box.innerHTML='ox:'+ox+'oy:'+oy;
+  }*/
+   </script>
+</body>
+</html>

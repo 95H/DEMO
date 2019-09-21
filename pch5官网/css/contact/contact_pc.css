@@ -1,0 +1,382 @@
+@font-face {
+    font-family: PingFangSC;
+    src:url('../../typeface/PingFang-SC-Regular.otf');
+}
+@font-face {
+    font-family: DINAlternate;
+    src:url('../../typeface/DIN Alternate.ttf');
+}
+.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.butto .click_a_b{
+    display: none;
+}
+.butto .click_a_h{
+    display: none;
+}
+.box{
+    width: 100%;
+    height: 52px;
+    background: #000;
+}
+.header{
+    height:52px;
+    position: relative;
+    z-index: 99;
+    padding: 0 20px;
+    background: #000;
+}
+.header-nav{
+    min-height:40px;
+    background:#000000;
+    color:#ffffff;
+    border: 0;
+}
+.navbar-toggle {
+    margin-bottom: 7px;
+    margin-top: 7px;
+    margin-left: 10px;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 10px;
+}
+.navbar-default .navbar-nav>li>a {
+    color:#666666;
+    padding-top: 14px;
+    padding-bottom: 4px;
+    margin: 0 15px;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 8px;
+}
+.header-nav>.container-fluid>.navbar-collapse>.nav>li:hover a{
+    color:#ffffff;
+    border-bottom: 3px solid #fff;
+}
+.navbtn{
+    font-size: 20px;
+    color: #ffffff!important;;
+    font-weight: 700!important;
+    margin:0 auto;
+}
+.navlx{
+    float:left;
+    /*display: none;*/
+}
+.navbar-headerbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.navbar-nav {
+    float: right;
+    margin: 0;
+}
+
+.navbar{
+    height:48px;
+    width: 80%;
+    margin:0 auto;
+}
+.navlx{
+    float:left;
+    display: none;
+}
+.footer{
+    background: #ffffff;
+    color:#999999;
+    padding: 30px 10px 0;
+    border-top: 1px solid #e6e6e6;
+}
+.max768{
+    padding-bottom: 30px;
+}
+.max768 ul{
+    list-style: none;
+    display: flex;
+    max-width: 990px;
+    width: 100%;
+    margin: 0 auto;
+}
+.max768 ul li{
+    margin: 0 20px;
+}
+.max768 ul li:last-child{
+    margin-left: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*地图块*/
+.body{
+    width: 100%;
+    background: #f3f3f3;
+}
+.body-title{
+    background:#ffffff;
+    height: 383px;
+}
+.body-title .body-title-box{
+    min-width: 1000px;
+    padding: 1px 20px 0 20px;
+    margin: 0 auto;
+}
+.body-title .body-title-box h3{
+    width: 830px;
+    height: 82px;
+    font-family: PingFangSC-Regular;
+    font-size: 28px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.46;
+    letter-spacing: 2.2px;
+    text-align: center;
+    color: #171717;
+    margin:43px auto 54px auto;
+}
+.body-title .body-content{
+    display: flex;
+    min-width: 960px;
+    height: 314px;
+    background-color: #ffffff;
+    border: solid 1px #e8e8e8;
+    margin: 0 auto;
+    width: 500px;
+    display: block;
+}
+.body-title .body-content .body-content-imgbox{
+    width: 558px;
+    height: 314px;
+    float: left;
+}
+.body-title .body-content .body-content-imgbox img{
+    width: 100%;
+    height: 100%;
+}
+.map_h5{
+    display: none;
+}
+.body-title .body-content .body-content-imgbox .img_t{
+    display: none;
+}
+/*左边结束*/
+.body-title .body-content .body-content-text{
+    width: 398px;
+    padding: 50px 53px 72px 25px;
+    float: right;
+}
+.body-title .body-content .body-content-text ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.body-title .body-content .body-content-text ul li{
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    padding: 0;
+    margin:0;
+}
+.body-title .body-content .body-content-text ul li:nth-of-type(2){
+    /*margin-bottom: 12px;*/
+}
+.body-title .body-content .body-content-text ul li:nth-of-type(3){
+    margin: 12px 0 16px 0;
+}
+.body-title .body-content .body-content-text ul li .one{
+    width: 63px;
+    height: 28px;
+    margin-left: 39px;
+    padding: 0;
+}
+.body-title .body-content .body-content-text ul li .span_1{
+    width: 216px;
+    height: 60px;
+    float: right;
+    margin-bottom: 18px;
+}
+.body-title .body-content .body-content-text ul li .span_2{
+    float: right;
+    width: 210px;
+}
+.body-title .body-content .body-content-text ul li .two{
+    width: 108px;
+    height: 28px;
+    float: left;
+}
+.body-title .body-content .body-content-text ul li strong{
+    font-family: PingFangSC;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    /*letter-spacing: 1.6;*/
+    color: #333333;
+    /*text-align: right;*/
+    /*float: left;*/
+}
+.body-title .body-content .body-content-text ul li span{
+    font-family: PingFangSC;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 1.6px;
+    color: #333333;
+    /*float: right;*/
+    /*padding-left:15px;*/
+}
+/*地图结束*/
+.b-b{
+    width: 960px;
+    margin: 140px auto 0;
+    padding-top: 1px;
+    max-width: 990px;
+}
+.body-header{
+    width: 960px;
+    margin: 0 auto;
+    margin-top: 6px;
+    margin-bottom: 7px;
+}
+.body-header h4{
+    height: 28px;
+    font-family: PingFangSC;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+.body-header h5{
+    height: 16px;
+    font-family: DINAlternate;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #999999;
+    margin: 0;
+}
+/*岗位开始*/
+.container-fluid{
+    padding: 0;
+    margin: 0;
+}
+.row{
+    margin: 0 auto 63px auto;
+    padding:0;
+}
+.gangwei{
+    width: 1000px;
+    margin: 0 auto;
+}
+.gangwei .b-b-item{
+    margin:20px 19px 0 0;
+    width: 307px;
+    height: 554px;
+    padding: 0;
+}
+.gangwei .b-b-item:nth-of-type(1){
+    padding-left: 0;
+}
+.gangwei .b-b-item:nth-of-type(4){
+    padding-left: 0;
+}
+.gangwei .b-b-item:nth-of-type(3){
+    padding-right: 0;
+}
+.gangwei .b-b-item .b-b-textbox{
+    width:100%;
+    background: #ffffff;
+    font-size: 16px;
+}
+.gangwei .b-b-item .b-b-imgbox{
+    width: 307px;
+    height: 137px;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.gangwei .b-b-item .body-content-imgbox .img_t{
+    display: none;
+}
+.gangwei .b-b-item .b-b-textbox .list-unstyled p {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 1.1px;
+    color: #171717;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+    .p_1{
+        margin-bottom: 34px;
+    }
+    .p_2{
+        margin-bottom: 16px;
+    }
+    .last{
+        width: 259px;
+        height: 20px;
+        font-family: PingFangSC;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.1px;
+        color: #666666;
+        display: flex;
+        justify-content: space-between;
+    }
+
+.gangwei .b-b-item .b-b-textbox {
+    padding: 23px 24px 20px 24px;
+    margin: 0;
+}
+    h4{
+        height: 33px;
+        font-family: PingFangSC;
+        font-size: 24px;
+        font-weight: 600;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 1.9px;
+        color: #171717;
+        margin: 0 auto 16px auto;
+    }
+/*岗位结束*/

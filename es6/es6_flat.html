@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组扁平化</title>
+</head>
+
+<body>
+    <!-- 把多维数组转化为一维数组 -->
+    <script>
+        let array = [1, 2, 3, 4, 5, [4, 4],[4, 5]];
+        let flat =  [].concat.apply([],array);
+        console.log(flat)
+        let flat1=[].concat(...array);
+        console.log(flat1)
+        let flat2 = array.reduce((prev,next)=>{
+            // return Array.isArray(next)?prev.concat(next):prev.push(next)
+        },[])
+        console.log(flat2)
+        let flat3=array.join(',').split(',')
+        console.log(flat3)
+//  递归方法进行数组扁平化 
+        function flater(array){
+            let flatarray=[]
+            for(let i=0;i<array.length;i++){
+                if(Array.isArray(array[i])){
+                    // 如果是数组 继续循环 递归
+                    flatarray=flatarray.concat((array[i]))
+                }else{
+                    flatarray.push(array[i])
+                }
+            }
+            return flatarray
+        }
+        console.log(flater(array))
+    </script>
+</body>
+
+</html>

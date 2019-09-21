@@ -1,0 +1,3 @@
+// cmd 规范
+// 导出当前模块 module 模块 export 导出
+module.exports=["https://img12.360buyimg.com/n7/jfs/t27265/167/2109000803/145264/a4c3e7d/5bf7a60cN5ac4a5cf.jpg","https://img10.360buyimg.com/n7/jfs/t3667/353/1850595426/194928/89444a97/5833a155Nb692c054.jpg","https://img11.360buyimg.com/n7/jfs/t14422/92/2122183395/255201/cdbb5c44/5a6eb88cNe8415bc0.jpg","https://img13.360buyimg.com/n7/jfs/t21484/9/1880896082/209959/e0261d1/5b3c7259Nb70f01ba.jpg",1,2,3,4,5,6,7,8,9]

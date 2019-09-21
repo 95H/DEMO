@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       .box{
+       	width: 500px;
+       	height: 40px;
+       	background: red;
+       	font-size: 25px;
+       	position: absolute;
+       	top: 0;
+       	left: 0;
+       	bottom: 0;
+       	right: 0;
+       	margin: auto;
+       	line-height: 40px;
+       	text-align: center;
+       }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="inner"></div>
+	<script>
+       var box=document.querySelector('.box');
+       var inner=document.querySelector('.inner')
+       var timer;
+       function getdate(obj,end){
+       var now=new Date()      
+       var cha=end-now;
+       var day=Math.floor(cha/1000/60/60/24);
+       var hour=Math.floor(cha/1000/60/60%24);
+       var min=Math.floor(cha/1000/60%60);
+       var sec=(cha/1000%60).toFixed(1);
+       obj.innerHTML='放假倒计时：'+day+'天'+hour+'时'+min+'分'+sec+'秒！';
+       if(day==0&&hour==0&&min==0&&sec==0.0){
+          clearInterval(timer)
+       }
+   }
+   var end=new Date(2017,7,2,14,39,0);
+   getdate(box,end)
+   var timer=setInterval(function(){
+   	getdate(box,end)
+   },10)
+   var end1=new Date(2017,9,1,0,0,0);
+   getdate(inner,end1)
+   var timer=setInterval(function(){
+   	getdate(inner,end1) 
+   },10)
+	</script>
+</body>
+</html>

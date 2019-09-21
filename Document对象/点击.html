@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+       .box{
+       	width: 600px;
+       	height: 500px;
+       	box-shadow: 0 0 5px #000;
+       	margin:50px auto;
+       }
+       .left{
+       	float: left;
+       	width: 500px;
+       	height: 500px;
+       }
+       .right{
+       	width: 100px;
+       	height: 500px;
+       	float: left;
+       }
+       .left img{
+       	width: 500px;
+       	height: 500px;
+       }
+       .right img{
+       	width: 100px;
+       	height: 100px;
+       	float: left;
+       }
+	</style>
+</head>
+<body>
+	<div class="box">
+        <div class="left">
+           <img src="2.jpg" alt="">
+        </div>
+        <div class="right" alt="">
+           <img src="1.jpg" alt="">
+           <img src="2.jpg" alt="">
+           <img src="3.jpg" alt="">
+           <img src="4.jpg" alt="">
+           <img src="5.jpg" alt="">
+        </div>
+	</div>
+	<script>
+       var leftImg=document.querySelector('.left img');
+       var rightImg=document.querySelectorAll('.right img');
+       for(var i=0;i<rightImg.length;i++){
+       	rightImg[i].index=i;
+       	rightImg[i].onclick=function(){
+       		var src=rightImg[this.index].getAttribute('src');
+       		leftImg.setAttribute('src',src)
+       	}
+       }
+       
+	</script>
+</body>
+</html>

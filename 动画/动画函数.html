@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画函数</title>
+	<style>
+     .box{
+     	width: 100px;
+     	height: 100px;
+     	background:red;
+     }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script src='animate.js'></script>
+	<script>
+       var box=document.querySelector('.box');
+       animate(box,{width:200,height:200,backgroundColor:'green'},1000,Tween.Quad.easeIn,
+       	function(){
+       		alert('动画完成')
+       	})
+	</script>
+</body>
+</html>

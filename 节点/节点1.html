@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#box{
+		width:300px;height:300px;
+		background:#abcdef;
+	}
+	.inner,h1,a{
+		width:100px;
+		height:100px;
+		background: pink;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		盒子基本内容
+		<h1 id='aa'>标题标签</h1>
+		<div class="inner">
+			<span>内部盒子</span>
+		</div>
+		<!-- <em>注释</em> -->
+		<a href="aa.html">链接</a>
+	</div>
+	<script src='function.js'></script>
+	<script>
+	var box=document.getElementById('box');
+	alert(getChilds(box).length);  //5
+	var aa=document.getElementById('aa');
+	// alert(box.parentNode);
+	// alert(box.childNodes.length);
+	// alert(box.firstChild);
+	// alert(box.lastChild);
+	// alert(box.nextSibling);
+	// alert(box.previousSibling);
+	/*var child=box.childNodes;
+	// alert(child.length);
+	alert(child[5].nodeType);
+	alert(child[5].nodeName);
+	alert(child[5].nodeValue);*/
+	/*var href=child[7].getAttributeNode('href');
+	alert(href.nodeType);
+	alert(href.nodeName);
+	alert(href.nodeValue);*/
+	</script>
+</body>
+</html>

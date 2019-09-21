@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+        //obj:对象
+        //attr:样式 自定义属性
+        function getstyle(obj,attr){
+        	if(document.getElementsByClassName){
+        		return getComputedStyle(obj,null)[attr]
+        	}else{
+        		return obj.currentStyle[attr]
+        	} 
+        }
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跨越</title>
+</head>
+<body>
+	<script>
+       //手动创建script
+      var jsonp=document.createElement("script");
+      jsonp.type="text/javascript";
+      jsonp.src="http://192.168.188.24/read.js?callback=jsonpCallback";
+      document.getElementsByTagName('body')[0].append(jsonp);
+      function jsonpCallback(date){
+      	console.log(date)
+      }
+	</script>
+</body>
+</html>                  

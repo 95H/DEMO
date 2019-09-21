@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+      .head{
+      	width: 100%;
+      	height: 100px;
+      	background: #ccc;
+      }
+      .body{
+      	width: 100%;
+      	height: 500px;
+      	background: yellow;
+      }
+      .foot{
+      	width: 100%;
+      	height: 200px;
+      	background-color: blue;
+      }
+
+	</style>
+</head>
+<body>
+	<div class="head">
+      <a href="#/shuiguo">水果</a>
+      <a href="#/shucai">蔬菜</a>
+      <a href="#/lingshi">零食</a>
+	</div>
+	<div class="body"></div>
+	<div class="foot"></div>
+	<script src="jquery.min.js"></script>
+	<script>
+   window.addEventListener('hashchange',function(){
+   	var hash=location.hash;
+   	var url='';
+   	// console.log(hash);
+   	if(hash=='#/shuiguo'){
+   		url='shui.json'
+   	}else if(hash=='#/shucai'){
+   		url='shu.json'
+   	}else {url='lin.json'}
+
+
+   $.ajax({
+   	type:'get',
+   	url:'url',
+   	success:function(data){
+   		$('.body').html(data)
+   	}
+   })
+   })	
+	</script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>object.object.defineproperty</title>
+</head>
+<body>
+	<input type="text" id="huanhuan">
+	<script>
+  var Obj={
+  	name:'huanhuan'
+  }
+  var tempName='';
+  Object.defineProperty(Obj,'name',{
+  	set:function(newv){
+  		console.log('后台数据设置了指定属性');
+  		tempName=newv;
+  		document.querySelector('#huanhuan').value=newv;
+  	},
+  	get:function(){
+  		console.log('后台数据被获取到了');
+  		return tempName;
+  	}
+  })
+	</script>
+</body>
+</html> -->

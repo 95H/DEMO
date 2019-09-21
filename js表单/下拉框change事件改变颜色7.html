@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求和加变色</title>
+</head>
+<body> 
+	<!-- onchange  下拉选项改变时的事件
+	    selected  设置或返回下拉框的选中状态
+	                true 选中     false 未选中
+	    selectedIndex  设置或返回下拉框被选中的索引号 -->
+
+   <form action="" name="myform">
+      <input type="text" name="dan" value="100">
+      <input type="button" value="*">
+      <select name="index" id="">
+         <option value="red">1</option>
+         <option value="green" selected>2</option>
+         <option value="blue">3</option>
+      </select>
+      <input type="button" value="=">
+      <input type="text" name="he" value="100">
+   </form>
+	<script>
+        var dan=document.myform.dan;
+        var index=document.myform.index;
+        var he=document.myform.he;
+        index.onchange=function(){
+        	var val=parseInt(dan.value);
+        	var xb=index.selectedIndex+1;
+        	he.value=val*xb;
+        	document.bgColor=index[this.selectedIndex].value;
+        	if(index[0].selected==true){
+        	}
+        }
+	</script>
+</body>
+</html>

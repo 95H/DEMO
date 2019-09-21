@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      .box{
+      	width: 520px;
+      	height: 280px;
+      	border: 10px solid yellow;
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	left: 0;
+      	right: 0;
+      	margin: auto;
+      }
+      .inner{
+      	width: 520px;
+      	height: 280px;
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      }
+	</style>
+</head>
+<body>
+<div class="box">
+   <div><img class="inner" src="images/1.jpg"></div>
+   <div><img class="inner" src="images/2.jpg"></div>
+   <div><img class="inner" src="images/3.jpg"></div>
+   <div><img class="inner" src="images/4.jpg"></div>
+   <div><img class="inner" src="images/5.jpg"></div>
+   <div><img class="inner" src="images/6.jpg"></div>
+   <div><img class="inner" src="images/7.jpg"></div>
+   <div><img class="inner" src="images/8.jpg"></div>
+   <div><img class="inner" src="images/9.jpg"></div>
+   <div><img class="inner" src="images/10.jpg"></div>
+</div>
+	<script src='animate.js'></script>
+	<script>
+       var inner=document.querySelectorAll('.inner');
+       //num代表显示出来的图的下标
+       var num=0;
+       //让循环函数循环起来
+       setInterval(move,1200)
+       //循环函数
+       function move(){
+        //循环让所有图层级为1，透明度为0
+       	for(var j=0;j<inner.length;j++){
+       		animate(inner[j],{zIndex:1,opacity:0},500)
+       	}
+        //让指定的图显示出来
+       	animate(inner[num],{zIndex:2,opacity:1},500);
+        //让图循环起来
+       	num++;
+        //判断：图到了第五张时，回到第一张
+       	if(num>inner.length-1){
+       		num=0
+       	}
+       }
+	</script>
+</body>
+</html>

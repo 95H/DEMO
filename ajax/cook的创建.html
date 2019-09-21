@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cook创建</title>
+</head>
+<body>
+	<script>
+      /* //document.cookie="usename=bom";
+       //alert(document.cookie)
+       document.cookie="usename=bom;expires=Tue,Aug 16 2017 14:40:00 GMT";
+       document.cookie="usename=ttom;expires=Tue,Aug 16 2017 14:40:00 GMT";//修改直接再写一遍 删除设置时间
+       document.cookie="usename=;expires=Tue,Aug 16 2010 14:40:00 GMT";// 删除是值删除再设置时间
+       var date=new Date()
+       //console.log(date)
+      // alert(document.cookie)*/
+
+
+
+     //获取cookie
+     function getCookie(key){
+     	var strArr=document.cookie.split(";");
+     	for(var i=0;i<strArr.length;i++){
+     		var c=strArr[i].split("=");
+     		if(c[i]==key){
+     			return key+"="+c[i];
+     		}
+     	}
+     }
+  //创建cookie
+      function createCookie(key,value, time){
+      	var d=new Date();
+      	d.setDate(d.getDate()+time);
+      	document.cookie=key+"="+value+";expires="+d;
+      }
+   //删除cookie
+      function deleteCookie(key){
+      	var d=new Date();
+      	d.setDate(d.getDate()-1);
+      	document.cookie=getCookie(key)+";expires="+d;
+      }
+      createCookie("cat","mimi",2);
+      alert(getCookie("cat"));
+      deleteCookie("cat");
+      alert(getCookie("cat"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

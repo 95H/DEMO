@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+       /*.box{
+       	width: 200px;
+       	height: 200px;
+       	background:lime;
+       }
+       .box:before{
+       	content: "aaaaa";
+       	display: block;
+       	width: 100px;
+       	height: 50px;
+       	background:yellow; 
+       }
+       .box:after{
+       	content: "aaaaa";
+       	display: block;
+       	width: 100px;
+       	height: 50px;
+       	background:pink; 
+       }
+       :target{
+         border: 1px solid red;
+         background:#ccc;
+       }*/
+      /*  a[target]{
+      	background:red; 
+      }
+      a[title]{
+      	background:blue;
+      }
+      a[href="aa.html"]{
+      	background:yellow;
+      }
+      div[class="aa bb"]{
+      	background:pink;
+      } */
+      /*  a[title~="flower"]{
+      	background:purple; */
+      	input:enabled{
+      		background: red;
+      	}
+      	input:disabled{
+      		background: yellow;
+      	}
+      	p::selection{
+      		background: pink;
+      	}
+      	p::-moz-selection{
+      		background: pink;
+      	}
+      	.box :not(h2){
+      		background: orange;
+      	}
+	</style>
+</head>
+<body>
+	<!-- <div class="box">
+     <span>box盒子</span>
+	</div>
+	<p><a href="#con1">跳转到内容1</a></p>
+	<p><a href="#con2">跳转到内容2</a></p>
+	<p id="con1">内容1</p>
+	<p id="con2">内容2</p> -->
+	<!-- <a href="aa.html" title="flower to in">第一个1</a>
+	<a href="bb.html" target="blank" title="flower and">第二个1</a>
+	<a href="" title="百度">第三个1</a>
+	<a href="">第四个1</a>
+	<div class="aa bb">1111</div>
+	<div class="aa">1111</div> -->
+	<!-- <input type="text" name="">
+	<input type="text" name="" disabled="" ><br>
+	男<input type="radio" name="sex" checked=""><br>
+	女<input type="radio" name="sex"><br>
+	<p>每天都要开开心心</p> -->
+	<div class="box">
+	    <div class="aa">我是div标签</div>
+	    <h2>我是h2标签</h2>
+	    <p>我是P标签</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+// 1 let const  共同点：没有变量提升 不能重复定义
+// const   定义必须赋值  只读
+// 2 解构赋值
+// 对象解构赋值 属性名    null 和 undefined会报错
+// 数组的解构赋值 按照顺序  右边不是数组和类数组会报错
+let obj = {
+  name: 'lilei',
+  age: 3
+}
+
+function fn({
+  name,
+  age
+}) {
+  console.log(name, age)
+}
+fn(obj)
+//3 .箭头函数   没有this 上级作用域的this  只有一个参数的时候 省略 () 省略大括号的时候要去return  没有function 关键字  对象不是作用域 
+let obj1 = {
+  fn: () => {
+    console.log(this, 'aa')
+  }
+}
+obj1.fn()
+//4.模块字符串 用``表示模板字符串  变量用${}  
+let a = 'word'
+let b = `hello${a}`
+console.log(b)
+//5.数组的方法 reduce map filter find some every  
+let goodlist = [{
+  name: '苹果',
+  count: 4,
+  price: 100
+}, {
+  name: '鸭梨',
+  count: 4,
+  price: 30
+}, {
+  name: '菠萝',
+  count: 4,
+  price: 89
+}]
+let totalPrice = goodlist.reduce((prev, next, index, Array) => {
+  return prev + next.count * next.price
+}, 0)
+console.log(totalPrice)
+//promise  三种状态 2个参数  resolve reject 
+function fn1() {
+  return new Promise((resolve, reject) => {
+    if (true) {
+      resolve('data')
+    } else {
+      reject('err')
+    }
+  })
+}
+let fn2 = function() {
+  return new Promise((resolve, reject) => {
+    resolve('sucesss')
+  })
+}
+Promise.all([fn2(), fn1()]) //axios.all 
+Promise.race([fn2(), fn1()])
+//async await  async 表示函数里面有异步 返回的是一个promise  await 后面通常是跟着promise的  
+//对象深拷贝 
+let objo = {
+  name: 'lili'
+}
+let clone = JSON.parse(JSON.stringify(objo));
+console.log(clone)
+//vue 项目  轮播图 swiper  props 2中传值方式  []  {type:Boolean ,default:false} 
+//导航  路由  重定向 redirect  懒加载：组件名：()=>import('路径')
+// 路由传参  params /:id  query ?id=1&&name=lili
+//头部  slot 插槽  匿名插槽 和具名插槽
+// axios defaults.baseURL   请求拦截 和响应拦截 
+ // instance  
+const instance = axios.create({
+  baseURL: 'https://some-domain.com/api/',
+  timeout: 1000,
+  headers: {
+    'X-Custom-Header': 'foobar'
+  }
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded'
+  },
+})
+//vuex 
+// dispatch  -> commit  -> mutations  
+// commit  -> mutations 
+//辅助函数    方法 mapActions mapMutations 都放组件methods里面   值 mapState  mapGetters 都放computed  
+// localStorage  sessionStorage
+// setItem  getItem  removeItem clear 
+localStorage['a'] = 1;
+consoole.log(localStorage['a'])
+//vue双向绑定的底层原理
+Object.defineProperty(obj, 'name', {
+  get() {},
+  set(val) {}
+})

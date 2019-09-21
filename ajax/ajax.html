@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<style>
+   .box{
+    width: 100px;
+    height: 100px;
+    border:1px solid;
+  } 
+</style>
+<body>
+<div class="box"></div>
+<button class="btn">按钮</button>
+     <script>
+     var box=document.querySelector('.box')
+     var btn=document.querySelector('.btn')
+     btn.onclick=function(){
+        var xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=callBack;
+        xhr.open('get','aa.txt',true);
+        xhr.send();
+        function callBack(){
+               if(xhr.status==200){
+                if(xhr.readyState==4){
+                  box.innerHTML=xhr.responseText;
+                }
+               }
+        }
+
+     }
+// // "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --allow-file-access-from-files
+ /*//创建一个xhr对象
+var xhr=new XMLHttpRequest();
+//监听事件()监听服务器的响应
+xhr.onreadystatechange=callBack;
+//初始化请求,传三个参数 
+(1)请求方式get和post
+// get的形式是把参数拼接在请求路径的后面传给服务器
+// post是把参数进行打包，单独传输
+// get速度快，数据小(当不在服务器数据进行更改时建议使用get方式)
+// post速度慢，数据大，安全(当对服务器数据进行更改时建议使用post方式)
+(2)请求路径地址，url
+(3)方式同步还是异步，异步true，同步false
+xhr.open('get','test.txt',true);      //***  xhr.open("get","world.txt?a=1&b=2",true);
+//发送一个请求
+ //如果初始化时使用的是get方法请求数据，send不需要传参数
+ //如果初始化时使用的是post方法请求数据，send需要传参数(给服务器的信息)
+xhr.send(); 
+//等待服务器返回数据
+function callBack(){
+ if(xhr.status==200){
+  if(xhr.readyState==4){
+      //处理服务器响应数据
+      console.log(xhr.responseText)
+  	}
+  }
+}
+    
+   
+  /*var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = callBack;
+   xhr.open("post","world.txt",true);
+    xhr.send();
+  function callBack(){
+     if (xhr.status == 200 || xhr.status == 304) {
+      if (xhr.readyState == 4) {
+        console.log(xhr.responseText);
+      }
+     }
+  }*/
+
+  // JSON 语法是 JavaScript 对象表示法语法的子集。
+  // 数据在名称/值对中
+  // 数据由逗号分隔
+  // 大括号保存对象
+  // 中括号保存数组
+  // json的值
+    // var json = {
+    //  name:"laogao",  //字符串
+    //  age:18,     //number
+    //  arr:["老王","老张","老李"], //数组
+    //  b:true,  //false   逻辑值
+    //  num:{a:1},   //大对象
+    //  a:null   
+    // }
+    // console.log(json.arr[2])
+  //循环对象
+    // var person = {
+    //  name:"老高",
+    //  age:18,
+    //  height:"180"
+    // }
+    // for(i in person){
+    //  // console.log(i); //所有键
+    //  console.log(person[i]) //所有的值
+    // }
+    // 访问对象值
+    /*var person = {
+      name:"老高",
+      age:18,
+      height:"180",
+     // #man:'man',   //#开头访问不到 $可以访问到 访问不到的加‘’可以访问
+      '#m an':'man' 
+    }
+    console.log(person.name)
+    console.log(person['name'])
+    console.log(person['#m an'])*/
+
+    /*var person={
+    name:'huanhuan',
+    age:18,
+    height:'180',
+        type:{
+          a:'11',
+          b:'22'
+        }
+   }
+   alert(person.type.a)
+     alert(person.type['a'])*///两种访问方式
+  //嵌套json对象
+    /*var person = {
+      name:"老高",
+      age:18,
+      height:"180",
+      type:{
+        a:"11",
+        b:"22",
+        c:"33"
+      }
+    }
+    console.log(person.type.a)
+    console.log(person.type['a'])
+    console.log(person.type.a)*/
+ 
+   //修改json值
+  /* var person = {
+      name:"老高",
+      age:18,
+      height:"180",
+      type:{
+        a:"11",
+        b:"22",
+        c:"33"
+      }
+    }*/
+    //console.log(person.type.a)
+    //console.log(person.type['a'])
+    /*console.log(person.name+'****')
+    //alert(person.name='laowang');
+    //alert(person['name']='laowang');
+    delete person.name; //删除属性后再弹出一次
+    alert(person.name);*/
+
+    //嵌套json对象中的数组
+  /*var myObj = {
+    "name":"网站",
+    "num":3,
+    "sites": [
+        { "name":"Google", "info":[ "Android", "Google 搜索", "Google 翻译" ] },
+        { "name":"Runoob", "info":[ "菜鸟教程", "菜鸟工具", "菜鸟微信" ] },
+        { "name":"Taobao", "info":[ "淘宝", "网购" ] }
+    ]
+}
+  console.log(myObj.sites[2].info[1])*/
+  //
+  //JSON.parse() 字符串转换成对象 加''
+  /* var myObj = '{"name":"网站","num":3}'
+   alert(JSON.parse(myObj))  //[object Object]
+   alert(typeof JSON.parse(myObj))*/
+
+   //JSON.stringify()  将对象转换成字符串
+   /*var myObj = {"name":"网站","num":3}
+   alert(JSON.stringify(myObj))
+   alert(typeof JSON.stringify(myObj))*/
+     </script>
+</body>
+</html>

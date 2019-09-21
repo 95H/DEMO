@@ -1,0 +1,137 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<select id="pro">
+			<option>请选择</option>
+		</select>
+		<select id="cit">
+			<option>请选择</option>
+		</select>
+		<input type="text" name="" readonly="readonly" id="inp">
+		<button id="btn">查询</button>
+		<script type="text/javascript">
+			var jsPro = document.getElementById('pro');
+			var jsCit = document.getElementById('cit');
+			var jsInp = document.getElementById('inp');
+			var jsBtn = document.getElementById('btn');
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = callBack;
+			xhr.open("get","Json文件/caidanJson.json",true);
+			xhr.send();
+			function callBack (){
+				if (xhr.status == 200) {
+					if (xhr.readyState == 4) {
+						
+						var data = JSON.parse(xhr.responseText);
+			            console.log();
+						var proArr = data["城市代码"];
+						
+						for (var i=0;i<proArr.length;i++){
+							jsPro.innerHTML += '<option>'+ proArr[i]["省"]+'</option>'
+						}
+
+
+						var cityArr = null;
+						jsPro.onchange = function(){							
+							jsCit.innerHTML = ""; //jscit清空
+							jsInp.value = "";
+							// console.log(this.value)
+							var proString = this.value;//获取当前值
+							for (var i = 0; i < proArr.length; i++) {
+								if (proString == proArr[i]["省"]) {
+									cityArr = proArr[i]["市"];//相应省对应的市
+								}
+							}
+
+							for (var i = 0; i < cityArr.length; i++) {
+								jsCit.innerHTML += '<option>'+ cityArr[i]["市名"]+'</option>';
+							}
+
+							jsBtn.onclick = function(){
+								var cityString = jsCit.value;
+								for (var i = 0; i < cityArr.length; i++) {
+									if (cityString == cityArr[i]["市名"]) {
+										jsInp.value = cityArr[i]["编码"];
+									}
+								}
+
+							}
+							jsCit.onchange = function(){
+								jsInp.value = "";
+							}
+						}
+					}
+				}
+			}
+
+
+		</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<select name="" id="pro">
+		<option value="">请选择</option>
+	</select>
+	<select name="" id="cit">
+		<option value="">请选择</option>
+	</select>
+	<input type="text" style="width:200px" id="inp">
+	<input type="button" value='查询' id='btn'>
+	<script>
+		var jspro=document.getElementById('pro');
+		var jscit=document.getElementById('cit');
+		var jsinp=document.getElementById('inp');
+		var jsbtn=document.getElementById('btn');
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=callBack;
+		xhr.open('get','Json文件/city.json',true);
+		xhr.send();
+		function callBack(){
+			if(xhr.status==200){
+				if(xhr.readyState==4){
+					var date=JSON.parse(xhr.responseText);
+					var proArr=date['城市代码'];
+					for(var i=0;i<proArr.length;i++){
+						jspro.innerHTML+='<option>'+proArr[i]['省']+'</option>'
+					}
+					var cityArr=null;
+					jspro.onchange=function(){
+						jsinp.value='';
+						jscit.innerHTML='';
+						var proString=this.value;
+						for(var i=0;i<proArr.length;i++){
+							if(proString==proArr[i]['省']){
+								cityArr=proArr[i]['市'];
+							}
+						}
+						for(var i=0;i<cityArr.length;i++){
+							jscit.innerHTML+='<option>'+cityArr[i]['市名']+'</option>'
+						}
+					}
+					jsbtn.onclick=function(){
+						var cityString=jscit.value;
+						for(var i=0;i<cityArr.length;i++){
+							if(cityString==cityArr[i]['市名']){
+								jsinp.value=cityArr[i]['编码'];
+							}
+						}
+					}
+					jscit.onchange=function(){
+						jsinp.value='';
+					}	
+				}
+			}
+		}
+	</script>
+</body>
+<html>

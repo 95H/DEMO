@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+</head>
+<body>
+<script type="text/javascript" src="Queue.js"></script>
+<script>
+  // 创建一个队列实例
+  const queue = new Queue()
+  console.log(queue.size(), queue.isEmpty()) // 0 true
+  // 调用方法进行测试
+  queue.enqueue(2)
+  queue.enqueue('abc')
+  console.log(queue.size(), queue.isEmpty(), queue)
+  console.log(queue.dequeue()) // 2
+  console.log(queue.peek()) // 'abc'
+  console.log(queue.size(), queue.isEmpty(), queue) // 1, false
+</script>
+</body>
+</html>

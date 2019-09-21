@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>define</title>
+    <style>
+        #inp{
+            width: 400px;
+            height: 60px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <input id="inp" type="text" value="">
+    <script>
+        //改变inp的值的时候 obj.name会改变 ，改变obj.name的时候 inp的值跟着改变
+        //defineProperty(target,key,{})  // es5 的方法  
+       // 参数 target 目标对象，key 目标对象的属性名 , {get,set}
+       // 1. 作业 可以看着别人的写observer 
+       //vue 的实现原理  通过Object上面的defineProperty 的get 和set 进行数据劫持 ，只是vue用 observer 来深层监控对象，vue 通过compile 把最后的结果编译成dom  
+        let obj ={};
+        Object.defineProperty(obj,'name',{
+          get(){ //获取值
+               return val
+          },
+          set(newval){//设置值 
+            console.log('触发了新的方法')
+            inp.value = newval;
+            val  = newval; //让val等于新设置大newVal
+            
+          }
+        })
+       obj.name= 1;
+       inp.addEventListener('input',function(e){ 
+            obj.name = e.target.value;
+            //触发了set方法  
+            // console.log(obj.name);
+        })
+       
+    </script> 
+</body>
+</html>

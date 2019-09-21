@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var request=new XMLHttpRequest();
+		//创建一个xml对象
+		request.open("get","aa.txt",true);
+		request.send();
+		request.onreadystatechange=function(data){
+		//监听事件
+			 if (request.readyState==4 && request.status==200){
+   					console.log("成功")
+    		}else{
+    			console.log('失败')
+    		}
+		}
+
+
+
+
+
+
+	</script>
+	<!--<form action="" method="post" target="_blank">-->
+		<!--<input type="text">-->
+		<!--<input type="submit" value="提交">-->
+	<!--</form>-->
+</body>
+</html>

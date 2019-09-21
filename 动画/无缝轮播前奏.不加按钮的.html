@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝轮播前奏</title>
+	<style>
+      .box{
+      	width: 520px;
+      	height: 280px;
+      	border:30px outset gold;
+      	position: absolute;
+      	top: 0;
+      	bottom: 0;
+      	left: 0;
+      	right: 0;
+      	margin:auto;
+      	overflow: hidden;
+      }
+      .innerbox{
+      	width: 5720px;
+      	height: 280px;
+      	
+      }
+      .inner{
+      	width: 520px;
+      	height: 280px;
+      	float: left;
+      }
+      .inner img{
+      	width: 520px;
+      	height: 280px;
+      }
+	</style>
+</head>
+<body>
+<!-- .box>.innerbox>.inner*5>img[src=img/1.jpg] -->
+   
+	<div class="box">
+       <div class="innerbox">
+           <div class="inner"> <img src="images/1.jpg"></div>
+           <div class="inner"> <img src="images/2.jpg"></div>
+           <div class="inner"> <img src="images/3.jpg"></div>
+           <div class="inner"> <img src="images/4.jpg"></div>
+           <div class="inner"> <img src="images/5.jpg"></div>
+           <div class="inner"> <img src="images/6.jpg"></div>
+           <div class="inner"> <img src="images/7.jpg"></div>
+           <div class="inner"> <img src="images/8.jpg"></div>
+           <div class="inner"> <img src="images/9.jpg"></div>
+           <div class="inner"> <img src="images/10.jpg"></div>
+       </div>
+	</div>
+	<script src="animate.js"></script>
+	<script>
+        var innerbox=document.querySelector('.innerbox');
+        var inner=document.querySelectorAll('.inner');
+        var num=0;
+	      setInterval(move,1000)
+	      function move(){
+		    num++
+		    if(num>=inner.length-1){
+			  animate(innerbox,{marginLeft:-520*num},500,function(){
+				num=0;
+				innerbox.style.marginLeft=0;
+			})
+		}else{
+			  animate(innerbox,{marginLeft:-520*num},500)
+		}
+	}
+    </script>
+</body>
+</html>

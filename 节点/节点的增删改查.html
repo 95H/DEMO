@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	      a{
+	      	width: 100px;
+	      	height: 100px;
+	      	background: green;
+	      }
+	      .box{
+	      	width: 200px;
+	      	height: 200px;
+	      	background:green;
+	      }
+	      .btn{
+	      	width: 50px;
+	      	height: 50px;
+	      	background:pink;
+	      }
+	</style>
+</head>
+<body>
+<div class="box">
+	<div class="btn"></div>
+</div>
+<script>
+    var box=document.querySelector('.box');
+    var btn=document.querySelector('.btn');
+    var box=document.createElement(a);
+    a.innerHTML='链接';
+    box.appendChild(a);
+	//元素、属性、文本
+	//一、创建节点
+	//1.1创建元素节点
+    /*var div=document.createElement('div');
+    div.className='a1';*/
+    /*var cla=document.createAttribute('class');
+    cla.value='a1';
+    div.setAttributeNode(cla);
+    document.body.appendChild(div);*/
+    // 注意：
+    // 对象.getAttribute(属性名)；
+    // 对象.setAttribute(属性名,属性值);
+    // 对象.setAttributeNode(属性名);
+    // 对象.getAttributeNode(属性名);//验证节点属性
+    // div.id='a1';
+    // div.setAttribute('class','a2');
+    // alert(div.getAttribute('class','a2'));
+    //通过这种方式创建的在内存中，不会显示，要显示还需要后续操作
+    //1.3创建文本节点
+     /*var div=document.createElement('div');
+    div.className='a1';
+    //1.div.innerHTML='box盒子';
+    var text=document.createTextNode('box盒子2');
+    div.appendChild(text)
+    document.body.appendChild(div);*/
+    //例子
+    /*var a=document.createElement('a');
+    a.href='aa.html';
+    a.className='aa';//a.
+    a.style.display='in-block';
+    a.style.height='100px';
+    a.style.width='100px';
+    a.style.background='yellow';
+    a.innerHTML='链接';
+    document.body.appendChild(a);*/
+   //二、追加到页面当中
+   /*window.onload=function(){// onload表示页面加载完后，在加载JS代码
+   var a=document.createElement('a');
+   a.innerHTML='我是链接';
+   document.body.appendChild(a)*/
+  // 三、修改，替换节点
+    box.replaceChild(a,btn);
+    //四
+    //删除
+    box.removeChild(h1)
+    h1=null
+    //五、克隆节点
+    for(var i=0;i<5;i++){
+    var a1=a.cloneNode(true)
+    box.appendChild(a1)
+}
+}
+</script>
+</body>
+</html>

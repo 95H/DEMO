@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>楼层跳转</title>
+	<style>
+       *{
+       	margin: 0;
+       	padding: 0;
+       }
+       .top{
+       	width: 100%;
+       	height: 700px;
+       	background: #ccc;                            
+       }
+       .middle{
+       	width: 100%;
+       	height: 4800px;
+       }
+       .floor{
+       	width: 1000px;
+       	height: 4800px;
+       	background: orange;
+       	margin: 0 auto;
+       }
+       .ff{
+       	width: 100%;
+       	height: 600px;
+       	border: 3px solid #fff;
+       	box-sizing: border-box;
+       	font-size: 100px;
+       	line-height: 800px;
+       	text-align: center;
+       }
+       .btnbox{
+       	width: 0;
+       	height: 0;
+       	position: fixed;
+       	left:40px;
+       	bottom: 200px;
+       	background: green;
+        line-height: 35px;
+        text-align: center;
+        overflow: hidden;
+        display: none;
+       }
+       .btn{
+       	width: 35px;
+       	height: 35px;
+       	border: 1px solid blue;
+       	box-sizing: border-box; 
+        cursor: pointer;	
+       }
+       .zhi{
+            width: 35px;
+            height: 35px;
+            background: #abcdff;
+            cursor: pointer;
+            border:1px solid #000;
+       }
+       .bottom{
+       	width: 100%;
+       	height: 700px;
+       	background: #ddd;
+       }
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div class="middle">
+      <div class="floor">
+      	<div class="ff">1楼</div>
+      	<div class="ff">2楼</div>
+      	<div class="ff">3楼</div>
+      	<div class="ff">4楼</div>
+      	<div class="ff">5楼</div>
+      	<div class="ff">6楼</div>
+      	<div class="ff">7楼</div>
+      	<div class="ff">8楼</div>
+      </div>
+      <div class="btnbox">
+      	<div class="btn">01</div>
+      	<div class="btn">02</div>
+      	<div class="btn">03</div>
+      	<div class="btn">04</div>
+      	<div class="btn">05</div>
+      	<div class="btn">06</div>
+      	<div class="btn">07</div>
+      	<div class="btn">08</div>
+      	<div class="zhi">置顶</div>
+      </div>
+	</div>
+	<div class="bottom"></div>
+      <script src="../animate.js"></script>
+      <script>
+         var btn=document.querySelectorAll('.btn');
+         var btnbox=document.querySelector('.btnbox');
+         var ff=document.querySelectorAll('.ff');
+         var zhi=document.querySelector('.zhi')
+         var bgcolor=['red','yellow','green','blue','pink','orange','black','#aaa'];
+         var num=0;
+         document.onscroll=function(){
+            //第一步：让btnbox对应的显示与隐藏
+            var objt=document.body.scrollTop||document.documentElement.scrollTop;
+            if(objt>=600){
+                  btnbox.style.display='block';
+                  animate(btnbox,{width:35,height:315},200)
+            }else{
+                  btnbox.style.display='none';
+                  animate(btnbox,{width:0,height:0},200)
+            }
+            //滚动到相应位置时，对应的按钮变色
+            for(var i=0;i<btn.length;i++){
+                  if(objt>=ff[i].offsetTop){
+                        for(var j=0;j<btn.length;j++){
+                              btn[j].style.backgroundColor='#ccc';
+                        }
+                        num=i;
+                        btn[i].style.backgroundColor=bgcolor[i]
+                  }
+            }
+         }
+        //点击小按钮，调到对应的楼层
+        for(var i=0;i<btn.length;i++){
+            btn[i].index=i;
+            btn[i].onclick=function(){
+                  var obj=document.body.scrollTop==0?document.documentElement:document.body;
+                  var ft=ff[this.index].offsetTop;
+                  animate(obj,{scrollTop:ft},200)
+            }
+        }
+        //鼠标放上小按钮变到相应的颜色，离开变成默认的颜色
+        for(var i=0;i<btn.length;i++){
+            btn[i].index=i;
+            btn[i].onmouseover=function(){
+                  //num=this.index;
+                  btn[num].style.backgroundColor=bgcolor[num]
+
+                  this.style.backgroundColor=bgcolor[this.index]
+            }
+            btn[i].onmouseout=function(){
+                  this.style.backgroundColor='#ccc';
+                  btn[num].style.backgroundColor=bgcolor[num]
+            }
+        }
+        //鼠标离开，点击过的颜色不变
+        //用num记录i值,
+        //点击顶部回到顶部
+        zhi.onclick=function(){
+            var obj=document.body.scrollTop==0?document.documentElement:document.body;
+            animate(obj,{scrollTop:0},200)
+        }
+      </script>
+</body>
+</html>
+
+

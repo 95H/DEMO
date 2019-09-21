@@ -1,0 +1,87 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>let const 定义变量</title>
+	</head>
+	<body>
+		<ul id="box">
+			<li class="li">aa</li>
+			<li class="li">ss</li>
+			<li class="li">qq</li>
+			<li class="li">cc</li>
+		</ul>
+		<script type="text/javascript">
+			// let定义的特点 1.没有变量提升
+			//               2.不可以重复申明【let申明的变量，只能在当前代码块中访问和使用】
+			//               3.for循环中使用变量
+			//
+			//在es6里面，有{}的地方 就是块级作用域
+			//在块级作用域里面不可以提前使用被申明的变量 这种情况叫做暂时性死区
+			//{
+			    // let a = 1;
+			// }
+			// console.log(a)  // 报错 a is not defined
+
+			// console.log(a);
+			// let a = 1;
+			// let a = 2;
+			// console.log(a);
+			// var b = 3;
+			// let b = 2;
+			// {
+			// console.log(b);
+			// var b = 3
+			// let b = 3;
+			// es6总{}等于一个自执行函数
+			// }
+			//
+			//
+			// for (var i = 0; i < 10; i++) {
+			// 	setTimeout(function() {
+			// 		console.log(i);
+			// 	}, 1000)
+			// }
+			// for (let i = 0; i < 10; i++) {
+			// 	setTimeout(function() {
+			// 		console.log(i);
+			// 	}, 1000)
+			// }
+
+			// let lis = document.querySelectorAll("li");
+			// console.log(lis)
+			// for (var i = 0; i < lis.length; i++) {
+			// 	lis[i].onclick = function() {
+			// 		console.log(i)
+			// 	}
+			// }
+			// for (let i = 0; i < lis.length; i++) {
+			// 	lis[i].onclick = function() {
+			// 		console.log(i)
+			// 	}
+			// }
+			// 4.let被定义的属性不会被挂载到window上
+			var name='lilei';
+			console.log(window.name);//lilei
+
+			// const 常量  只读属性（不能被修改）  一旦定义必须赋值；
+			// 特点：1.不能给常量变量赋值
+			//       2.不能重复定义
+			//       3.不存在变量提升
+
+			// const a = 2;
+			// const a = 4;
+			// console.log(a)
+			//
+			//
+			const obj = {
+				name: 'lilei'
+				// 因为指向的是引用地址 所以属性可以被修改
+			}
+			obj.name = 'lili'
+			console.log(obj.name) //lili
+
+			
+		</script>
+	</body>
+	</html>

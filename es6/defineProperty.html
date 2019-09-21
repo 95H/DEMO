@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        vue 的实现原理  通过Object上面的defineProperty的get和set进行数据劫持,只是vue用 observer 来深层监控对象，vue 通过compile 把最后的结果编译成dom  
+    <!-- oberserve -->
+    <!-- 
+        defineProperty(target,key,{}) 参数 target 目标对象 key 目标对象的属性名 {get,set} 
+     -->
+    <input type="texY">
+    <script>
+        let obj={};
+        obj.name=1;
+        Object.defineProperty(obj,'name',{
+           writable:false,//false的 情况下，无法修改属性的 value值 是否可以写入
+           enumerable:false, //是否可以枚举 for in
+           configurable:false, //是否可以配置
+        })
+        // delete obj.name / 在configurable:false的时候 不能被删除
+        obj.name='2'
+        console.log(obj)
+        // for(key in obj)  
+    </script>
+</body>
+
+</html>

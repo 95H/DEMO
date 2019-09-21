@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>现在时刻</title>
+		<style type="text/css">
+			div{
+				width: 400px;
+				height: 50px;
+				border: 1px red solid;
+				font-size: 25px;
+				margin:100px auto;
+				text-align: center;
+				line-height: 50px;
+				color: white;
+			}
+			#nav,#nav1{
+				text-align: center;
+			}
+			body{
+				background: black;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="div"></div>
+		<nav id="nav1">
+			<img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+			<img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/colon.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/colon.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+		</nav>
+		<nav id="nav">
+			<img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/colon.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/colon.JPG"/>
+	        <img src="img/0.JPG"/>
+	        <img src="img/0.JPG"/>
+		</nav>
+		<script type="text/javascript">
+			var odiv=document.getElementById('div');
+			var onav=document.getElementById('nav');
+			var onavimg=onav.getElementsByTagName('img');
+			var onav1=document.getElementById('nav1');
+			var onavimg1=onav1.getElementsByTagName('img');
+
+			function fun(){
+				var zong=new Date();
+			    var nian=zong.getFullYear();
+			    var yue=zong.getMonth();
+			    var ri=zong.getDate();
+			    var shi=zong.getHours();
+			    var fen=zong.getMinutes();
+			    var miao=zong.getSeconds();
+			    var nowtime=nian+"年"+to(Number(yue)+1)+'月'+to(ri)+'日'+to(shi)+'时'+to(fen)+'分'+to(miao)+'秒';
+			    odiv.innerHTML=nowtime;
+					for ( var i=0; i<2; i++ ) {
+						onavimg[i].src = 'img/' + nowtime.charAt(i+11) + '.JPG';
+			    }  
+			    	for ( var i=3; i<5; i++ ) {
+						onavimg[i].src = 'img/' + nowtime.charAt(i+11) + '.JPG';
+			    }
+			    	for ( var i=6; i<8; i++ ) {
+						onavimg[i].src = 'img/' + nowtime.charAt(i+11) + '.JPG';
+			    }
+					for ( var j=0; j<4; j++ ) {
+						onavimg1[j].src = 'img/' + nowtime.charAt(j) + '.JPG';
+			    } 
+			    	for ( var j=5; j<7; j++ ) {
+						onavimg1[j].src = 'img/' + nowtime.charAt(j) + '.JPG';
+			    } 
+			        for ( var j=8; j<10; j++ ) {
+						onavimg1[j].src = 'img/' + nowtime.charAt(j) + '.JPG';
+			    } 
+
+			};
+			setInterval(fun,1000);
+			function to(i){
+			    	return i<10?"0"+i:i;
+			};
+
+		</script>
+	</body>
+</html>

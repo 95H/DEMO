@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>透明度轮播</title>
+	<style>
+	.box{
+		width:520px;
+		height:280px;
+		border:10px solid #aaa;
+		position: absolute;
+		top:0;left:0;bottom: 0;right:0;
+		margin: auto;
+	}
+	.inner{
+		width:520px;
+		height:280px;
+		position: absolute;
+		top:0;
+		left:0;
+		z-index: 1;
+		opacity: 1;
+	}
+	.inner img{
+		width: 520px;
+		height: 280px;
+	}
+	.btnbox{
+		width:90px;
+		height:14px;
+		position: absolute;
+		bottom: 20px;
+		left:220px;
+		z-index: 9;
+	}
+	.btn{
+		width:14px;
+		height:14px;
+		margin:0 2px;
+		float: left;
+		border-radius: 50%;
+		background: #ccc;
+	}
+	.inner:first-of-type{
+		z-index: 2;
+	}
+	.left,.right{
+		width:30px;
+		height:40px;
+		position: absolute;
+		top:120px;
+		background: rgba(0,0,0,0.3);
+		text-align: center;
+		line-height: 40px;
+		color:#fff;
+		font-size: 24px;
+		z-index: 99;
+	}
+	.left{
+		left:0;
+	}
+	.right{
+		right:0;
+	}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="inner"><img src="images/1.jpg"></div>
+		<div class="inner"><img src="images/2.jpg"></div>
+		<div class="inner"><img src="images/3.jpg"></div>
+		<div class="inner"><img src="images/4.jpg"></div>
+		<div class="inner"><img src="images/5.jpg"></div>
+		<div class="btnbox">
+			<div class="btn"></div>
+			<div class="btn"></div>
+			<div class="btn"></div>
+			<div class="btn"></div>
+			<div class="btn"></div>
+		</div>
+		<div class="left">&lt;</div>
+		<div class="right">&gt;</div>
+	</div>
+	<script src='animate.js'></script>
+	<script>
+	// 获取包每一张图片的盒子
+	var inner=document.querySelectorAll('.inner');
+	// 获取每一个小按钮
+	var btn=document.querySelectorAll('.btn');
+	var box=document.querySelector('.box');
+	var left=document.querySelector('.left');
+	var right=document.querySelector('.right');
+	// 设置初始变化值[代表下标]
+	var num=0;
+	// 循环轮播函数，每一秒自动轮播一次
+	var t=setInterval(move,1000)
+	var flag=true;
+	// 自动轮播函数move
+	function move(){
+		if(flag){
+			flag=false;
+			for(var i=0;i<inner.length;i++){
+				animate(inner[i],{zIndex:1,opacity:0},500,function(){
+					flag=true;
+				})
+				// 点击前为每一个小按钮初始化
+				btn[i].style.backgroundColor='#ccc';
+			}
+			animate(inner[num],{zIndex:2,opacity:1},500,function(){
+				flag=true;
+			});
+			// 点击时让对应的小按钮变化为相应的颜色
+			btn[num].style.backgroundColor='orange';
+			num++;
+			if(num>inner.length-1){
+				num=0;
+			}
+		}
+	}
+	// 实现小按钮的点击切换效果
+	for(var i=0;i<btn.length;i++){
+		btn[i].index=i;
+		btn[i].onclick=function(){
+			num=this.index
+			for(var j=0;j<btn.length;j++){
+				animate(inner[j],{zIndex:1,opacity:0},500);
+				// 点击前为每一个小按钮初始化
+				btn[j].style.backgroundColor='#ccc';
+			}
+			animate(inner[num],{zIndex:2,opacity:1},500);
+			// 点击时让对应的小按钮变化为相应的颜色
+			btn[num].style.backgroundColor='orange';
+		}
+	}
+	// 设置小按钮的初始色
+	btn[0].style.backgroundColor='orange';
+	// 鼠标放于box盒子上，box盒子停止
+	box.onmouseover=left.onmouseover=right.onmouseover=function(){
+		clearInterval(t)
+	}
+	box.onmouseout=left.onmouseout=right.onmouseout=function(){
+		t=setInterval(move,1000)
+	}
+	// 点击左按钮
+	left.onclick=function(){
+		move()
+	}
+	// 点击右按钮
+	right.onclick=function(){
+		if(flag){
+			flag=false;
+			for(var i=0;i<inner.length;i++){
+				animate(inner[i],{zIndex:1,opacity:0},500,function(){
+					flag=true;
+				})
+				// 点击前为每一个小按钮初始化
+				btn[i].style.backgroundColor='#ccc';
+			}
+			animate(inner[num],{zIndex:2,opacity:1},500,function(){
+				flag=true;
+			});
+			// 点击时让对应的小按钮变化为相应的颜色
+			btn[num].style.backgroundColor='orange';
+			num--;
+			if(num<0){
+				num=inner.length-1;
+			}
+		}
+	}
+	</script>
+</body>
+</html>

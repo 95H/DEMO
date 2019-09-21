@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>String</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 特点：1.模板字符串 ``
+        //  2.变量用${}解析
+
+        let a = 'word';
+        let str = `<p>hello'+a+'<p>'+
+        '<p>hello'+a+'</p>`;
+        console.log(str);
+
+        let a1 = 'word';
+        let str1 = `<p>hello${a1}</p>'+'<p>hello${a1}</p>`;
+        console.log(str1);
+
+        // (padStart padEnd) 补全
+        // padStart 往前补
+        // padEnd   往后补
+        // 第一个参数是不足几位补全
+        // 第二个参数表示不足什么补什么
+        console.log('1'.padStart(2, 0)); //01
+        console.log('1'.padEnd(2, 0)); //10
+
+        // includes  是否包含 返回一个布尔值  包含true 不包含 false
+        console.log('abc'.includes('a')); //true
+        console.log('abc'.includes('d')); //false
+
+        //...
+        // 剩余运算符
+        [a, ...arg] = [1, 2, 3, 4];
+
+        function fn(x, ...arg) {
+
+        }
+        // 展开运算符
+        console.log([3, 4].concat([5, 6]));
+        [...[3, , 4], ...[5, 6]]
+        // {name:'lilei'} {age:30} 合到一起
+        console.log({ ...{
+                name: 'lilei'
+            },
+            ...{
+                age: 30
+            }
+        });
+
+        // 浅拷贝
+        let obj = {
+            name: 'lilei'
+        };
+        let cloneobj = { ...obj
+        };
+        cloneobj.name = 'lili';
+        console.log(obj.name);
+
+        // 如何对一个对象进行深拷贝
+        // let obj1={name:'lilei',age:30,like:{name:'lili'}};
+        // cloneobj1=JSON.parse(JSON.stringify(obj1));
+        // console.log(cloneobj1)
+
+        // let obj1={name:'lilei',age:30,b:function(){}};
+        // cloneobj1=JSON.parse(JSON.stringify(obj1));
+        // console.log(cloneobj1)
+
+        //  let obj1={name:'lilei',age:30,b:null};
+        let obj1 = {
+            name: 'lilei',
+            age: 30,
+            b: function () {}
+        };
+        console.log(obj1.constructor());
+        cloneobj1 = JSON.parse(JSON.stringify(obj1));
+        console.log(cloneobj1)
+
+        // 上面这种方式不能拷贝函数
+        // undefined...
+
+        function deepClone(obj1) {
+            if (typeof obj1 !== 'Object') {
+                return obj1;
+            } else if (typeof obj1 === null) {
+                return null;
+                // typeof(new Date());
+                // 判断数据类型的一个方法
+                // Object.prototype.toString.call(new Data([1,2,3])) 
+                if (Object.prototype.toString.call(obj) === '[Object Date]')
+                    return new Date(obj)
+                if (Object.prototype.toString.call(obj) === '[Object RegExp]')
+                    return new RegExp(obj)
+                let cloneobj2 = new obj1.constructor(); //保留继承关系
+                // 关键
+                for (key in obj1) {
+                    cloneobj2[key] = typeof obj1[key] === 'object' ? deepClone(obj1[key]) : obj1[key];
+                }
+                return cloneobj2;
+            }
+        }
+        console.log(deepClone(obj1));
+
+        // es7新语法进行深拷贝
+        // Object.getPrototypeOf();
+        // Object.setPrototypeOf();
+        // constructor 找的是对象的构造函数 new之后就是对象的实例化
+        // constructor 属性是专门为function而设置的，它存在于每一个function的Prototype属性中，这个constructor保存了 指向function的一个引用
+    </script>
+</body>
+
+</html>
