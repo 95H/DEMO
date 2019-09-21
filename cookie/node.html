@@ -1,0 +1,27 @@
+封装cookie:
+	功能：
+		增、删、改、查
+		设置cookie 
+		移出cookie
+		查询cookie的值
+		改 cookie值
+		
+完整形式：[]中是可选项
+	1、name=value:设置cookie的名字，必须要写的内容
+	2、[;expires=date]:可写可不写，过期时间的设置
+	3、[;path=path-to-resource]:cookie限定的路径
+	4、[;domain=域名]:cookie限定的域名
+	5、[;secure]:协议，限定是否是https协议
+	
+	encodeURIComponent(url): 函数可把字符串作为 URI 组件进行编码。
+	
+	设置cookie的依据:(无上心法)
+			document.cookie  = “name=value[;expires=date]
+			[;path=path-to-resource][;domain=域名][;secure]”
+			
+优点：Cookie是由服务器端生成，发送给User-Agent（一般是浏览器），浏览器会将
+Cookie的key/value保存到某个目录下的文本文件内，下次请求同一网站时就
+发送该Cookie给服务器（前提是浏览器设置为启用cookie）。
+
+缺点：Cookie 数量最多为 300 个，并且每个不能超过 4KB，每个 Web 站点能设置的 Cookie 
+总数不能超过 20 个

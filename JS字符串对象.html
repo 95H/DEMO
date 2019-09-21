@@ -1,0 +1,91 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串对象</title>
+</head>
+<body>
+
+	<script>
+
+  var a='abcdefghi';
+alert(a.split())
+        //属性
+        /*var a='ddfv1  23v'
+        alert(a.length)
+        alert(a.constructor)*/
+        // function String(){[native code]}
+        // function Number(){[native code]}
+        // function Array(){[native code]}
+        // function Boolean(){[native code]}
+      //方法
+      //获取类型
+      // var a='123abc456def'
+      // alert(a.charAt(4))
+      // alert(a.charAt(a.length-1))
+      // alert(a.charAt(-3))//返回空
+      // alert(a.charAt(100))
+      //返回空
+      /*var a='dcsjf2332';
+      alert(a.charCodeAt(3))*///返回指定位置的字符的Unicode编码
+      //将a字符串的每个字符与每个字符对应的Unicode 编码写出来
+	/*var a='1234567 abcdefg ABCDEFG 你好2017年6月26日!';
+	for(var i=0;i<a.length;i++){
+		document.write('我是下标为'+i+'的'+a.charAt(i)+',我的Unicode编码为'+a.charCodeAt(i)+'<br>')
+	}
+	 var a=String.fromCharCode(20320,65,22909,55);
+	 var b=String.fromCharCode(22909);
+	 alert(a)
+	 alert(b)*/
+	//2.查找类型
+	//2.(1.2.)
+	/*var a='123aaa456aaa789aaaavdbd';
+	alert(a.indexOf('aaa'))
+	alert(a.indexOf('ppp'))
+	alert(a.lastIndexOf('aaa'))
+	alert(a.lastIndexOf('ppp'))*/
+	//2.(3)
+   /*var a='你好，我是一个好人，abcdefg';
+   var b=a.match('abcd');
+   alert(b)
+   var c=a.replace('好人','坏人')
+   alert(c)*/
+  /*var a='练习法轮功大法，可以修仙得道，法论大法真好';
+  if(a.match('法轮功')||a.match('法轮大法'));
+  {
+  	var b=a.replace('法轮功','***').replace('法论','**')
+  }
+  document.write(b)*/
+  //截取类型
+  //var a='absdefgkkjm';
+  //alert(a.slice(2,5))
+  //alert(a.slice(2))
+  //alert(a.slice(5,-5))//支持负数
+  //alert(a.substring(2,5))
+  //alert(a.substring(2))
+  //alert(a.substring(2,-5))//不支持负数，自动转换为0
+  //alert(a.substr(2,5))//第一个值是开始的位置，第二个是截取的长度
+  //转换类型
+  // var a='abcdefghijklmn';
+  // var b=a.split([]);
+  // alert(b)
+  // alert(typeof b)
+  // alert(b.length)
+  // var a='AAAAAAAAOOOOOiiiii';
+  // alert(a.toLowerCase())
+  // alert(a.toUpperCase())
+  // var a='AAAAAAAAOOOOOiiiii';
+  // var b=a.fontcolor('red').fontsize(7);
+  // document.write(b)
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

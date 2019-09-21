@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环结构</title>
+	<!-- <style>
+	span{
+		display: block;
+		width: 20px;
+		height: 20px;
+	}
+	</style> -->
+</head>
+<body>
+	<script>
+	// 三、循环结构
+  //for循环语句
+  //var i=0  1
+  //i<4      2
+  //i++      3
+  //alert(i) 4
+  /*for(var i=0;i<4;i++){
+  alert(i)}//0 1 2 3
+  	/1/2/3/4/2/3/4/2/3/4/2/3/4/*/
+  	//分别输出一到10
+  	// for(var a=1;a<=10;a++){alert(a)}
+  	// 求出0到100以内的所有偶数
+  	/*for(a=0;a<100;a++){
+  		if(a%2==0){alert(a)}
+  	}*/
+  //求100到200的所有基数
+  /*for(var a=100;a<=200;a++){
+  	if(a%2==1){
+  		document.write(a+'&nbsp')
+  	}
+  }*/
+  //求0到10的和
+  /*var num=0;
+  for(var a=0;a<=10;a++){
+  	num+=a;
+  }
+  alert(num)
+  num=num+a
+  第一步num=0+0;
+  第二步num=0+1;
+  第三步num=1+2;
+  第四步num=3+3;
+  第五步num=6+4;
+  第六步num=10+5;
+  第七步num=15+6;
+  第八步num=21+7;
+  第九步num=28+8;
+  第十步num=36+9;
+  第十一步num=45+10;*/
+  //求0到100所有偶数的和
+  /*var num=0;
+  for(var a=0;a<=100;a++){
+  	if(a%2==0){
+  		num+=a
+  	}
+  }
+  alert(num)*/
+  // 头40，脚88
+ /*for(var i=0;i<=40;i++){
+ 	if(2*i+4*(40-i)==88){
+ 		alert(i)
+ 		alert(40-i)
+ 	}
+ }*/ 
+// 48头，98脚
+  /*for(var a=0;a<=48;a++){
+     if(2*a+4*(48-a)==98){
+  	alert(a)
+  	alert(48-a)
+  }
+ }*/
+ // 求100以内3与5的公倍数
+  /*for(var a=0;a<=100;a++){
+     if(a%3==0&&a%5==0){
+     	document.write(a+'&nbsp')
+     }
+  }*/
+  //求1000以内3和5的公倍数
+  /*for(var a=0;a<=1000;a++){
+  	if(a%3==0&&a%5==0){
+  		document.write(a+'&nbsp')
+  	}
+  }*/
+  /*document.write('<table border=1>')
+  for(var i=0;i<10;i++){
+  	document.write('<tr>')
+  	for(var j=0;j<10;j++){
+  		document.write('<td>123</td>')
+  	}
+  	document.write('</tr>')
+  }
+  document.write('</table>')*/
+  /*document.write('<table>')
+  for(var a=0;a<100;a++){
+  	document.write('<tr>')
+  	for(var b=0;b<100;b++){
+  		document.write('<td>欢欢女王大人</td>')
+  	}
+  	document.write('</tr>')
+  }
+  document.write('</table>')
+  /*for(var i=0;i<10;i++){*/
+  	/*for(var j=0;j<10;j++){
+  		document.write(i+'&nbsp;&nbsp')
+  	}
+  	document.write('<br>')
+  }*/
+  /*for(var i=0;i<3;i++){
+  	for(var j=0;j<3;j++){
+  		document.write(i+'&nbsp;&nbsp')
+  	}
+  	document.write('<br>')
+  }*/
+  /*for(var a=0;a<=100;a++){
+  	if(a%3==0&&a%4==0){
+  		document.write(a+'&nbsp;&nbsp')
+  	}
+  }*/
+// 九九乘法表
+
+/*for(var i=1;i<10;i++){
+	for(var j=1;j<=i;j++){
+		document.write(i+'*'+j+'='+i*j+'&nbsp;&nbsp')
+	}
+	document.write('<br>')
+}*/
+/*for(var i=1;i<10;i++){
+for(var j=1;j<=i;j++){
+document.write(i+'*'+j+'='+i*j+'&nbsp;&nbsp')
+}
+document.write('<br>')
+}*/
+for(var i=0;i<4;i++){
+	for(var k=4;k>i;k--){
+		document.write('&nbsp')
+	}
+	for(var j=0;j<=i;j++){
+		document.write('*&nbsp;')
+	}
+	document.write('<br>')
+}
+
+/*
+for(var i=0;i<=4;i++){
+	for(var k=4;k>i;k--){
+		document.write('&nbsp')
+	}
+ for(var k=1;k<=4-i;k++){
+ 	document.write('<span></span>')
+ }
+	for(var j=1;j<=i;j++){
+		document.write('<span>*</span><span></span>')
+	}
+	document.write('<br>')
+}*/
+/*var aa=prompt('请输入指定的行','')
+var bb=prompt('请输入指定的列','')
+for(var i=1;i<=number(aa);i++){
+	/*for(var k=number(aa);k>i;k--){
+		document.write('&nbsp')
+	}*/
+	/*for(var k=1;k<=number(aa)-i;k++){
+		document.write('<span></span>')
+	}
+	  for(var j=1;j<=number(bb);j++){
+	  	document.write('<span>*</span><span></span>')*/
+	  
+// 	  document.write('<br>')
+// }
+// var aa=prompt('请输入指定的行','')
+
+
+
+
+
+
+
+// while(1表达式){2循环体}
+/*var i=0
+while(i<10){
+	alert(i);
+	i++;
+}*/
+
+
+	</script>
+
+</body>
+</html>

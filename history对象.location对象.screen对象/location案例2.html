@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+      .box{
+      	width: 300px;
+      	height: 300px;
+      	background: lightyellow;
+      	box-shadow: 0 0 2px orange;
+      	position: absolute;
+      	top: 0;
+      	right: 0;
+      	left: 0;
+      	bottom: 0;
+      	margin:auto;
+      }
+      .top{
+      	width: 100%;
+      	height: 60px;
+      	line-height: 60px;
+      	font-size: 32px;
+      	text-align: center;
+      	/*border-bottom: 1px solid yellow;*/
+      }
+      .bottom{
+      	width: 100%;
+      	height: 239px;
+      	font-size: 100px;
+      	line-height: 240px;
+      	text-align: center;
+      }
+	</style>
+</head>
+<body>
+	<div class="box">
+        <div class="top">3秒以后关闭</div>
+        <div class="bottom">3<div>
+	</div>
+	<script>
+        var bottom=document.getElementsByClassName('bottom')[0];
+        var num=3;
+        setInterval(function(){
+        	num--;
+        	bottom.innerHTML=num;
+        	if(num<=0){
+        		location.href='location案例1.html'
+        	}
+        },1000)
+	</script>
+</body>
+</html>

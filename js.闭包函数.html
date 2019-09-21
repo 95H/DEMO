@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包函数</title>
+</head>
+<body>
+	<script>
+        
+        function aa(){
+        	var a=123;
+        	function bb(){
+        		alert(a)
+        	}
+        	return bb;
+        } 
+        var cc=aa();//cc=function aa(){}
+        cc()
+
+        //闭包函数可以访问到局部变量
+	</script>
+</body>
+</html>

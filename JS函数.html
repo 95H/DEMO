@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数申明</title>
+	<style>
+	        .box{
+	        	width: 100px;
+	        	height: 100px;
+	        	background: yellow;
+	        }
+	        .box2{
+	        	width: 100px;
+	        	height: 100px;
+	        	background: blue;
+	        }
+	        .box3{
+	        	width: 100px;
+	        	height: 100px;
+	        	background: pink;
+	        }
+	</style> 
+</head>
+<body>
+	<script>
+     function he(){
+        
+     }
+     return result;
+    // 1.申明方式
+    // （1）基本语法
+     function he(){var num1=parseInt(prompt('输入第一个数','')); 
+      var num2=parseInt(prompt('输入第二个数',''));
+      var fu=prompt('输入符号','');
+      switch(fu){
+      	case'+':result=num1+num2;
+      	break;
+      	case'-':result=num1-num2;
+      	break;
+      	case'*':result=num1*num2;
+      	break;
+      	case'/':result=num1/num2;
+      	break;
+        }
+        return result;
+       }
+    	</script>
+    	 <div class="box" onclick="alert(he())"></div> 
+    	 <div class="box2" onclick="alert(he())"></div> 
+    	<div class="box3" onclick="alert(he())"></div> 
+</body>
+</html>

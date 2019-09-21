@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+	<script>
+	    //对象名词解释
+        // function iphone(){
+        // 	this.color='white',
+        // 	this.brand='huawei',
+        // 	this.call=function(){
+        // 		return '打电话'
+        // 	},
+        // 	this.play=function(){
+        // 		return '玩游戏'
+        // 	}
+        // } 
+        // var shouji1=new iphone()
+        // var shouji2=new iphone()
+        // var shouji3=new iphone()
+        // alert(shouji1.color)
+        // alert(shouji2.brand)
+        // alert(shouji3.call())
+        // 二 创建对象
+        //2.1  构造函数方法
+        // function aa(){}
+        // var obj=new aa();
+        // alert(typeof obj)
+        // 2.2  Object方法
+        // var obj1=new Object();
+        // alert(typeof obj1)
+        //2.3  json方法
+        // var obj2={};
+        // alert(typeof obj2)
+        三、如何对象添加属性和方法
+        //A.声明的时候添加
+        // function ren(){
+        // 	this.height=180,
+        // 	this.white=40,
+        // 	this.age=23,
+        // 	this.sex='男',
+        // 	this.name='张三',
+        // 	this.hobby=function(){
+        // 		return '跑步'
+        // 	},
+        // 	this.eat=function(){
+        // 		return '吃冰淇淋'
+        // 	}	
+        // }
+        // var obj=new ren()
+        // alert(obj.name)
+        // alert(obj.hobby())
+        //B.声明以后再添加
+        // function ren(){}
+        // var obj=new ren();
+        // obj.name='小张';
+        // obj.eat=function(){
+        // 	return '吃东西'
+        // }
+        // alert(obj.name)
+        // alert(obj.eat())
+        // 
+        // 
+        // A.声明以后再添加
+        // var obj=new Object();
+        // obj.name='小刘';
+        // obj.play=function(){
+        // 	return '玩耍'
+        // }
+        // alert(obj.name)
+        // alert(obj.play())
+        //A.声明的时候添加
+        // var obj={
+        // 	name:'小妞',
+        // 	age:23,
+        // 	play:function(){
+        // 		return '玩'
+        // 	}
+        // }
+        // alert(obj.name)
+        // alert(obj.play())
+        // B.声明以后再添加
+        // var obj={};
+        // obj.name='小妞',
+        // obj.age=23,
+        // obj.play=function(){
+        // 	return '玩'
+        // }
+        // alert(obj.name)
+        // alert(obj.play())
+        //alert(obj['age'])
+        //alert(obj['play']())
+        //如何销毁 对象
+        /*function aa(){
+        	this.age=16
+        }
+        function bb(){
+        	this.name='xxx'
+        }
+        var a1=new aa()
+        var b1=new bb()
+        //b1=a1 函数自己销毁
+        //b1=null 人为销毁(清空)
+        delete b1.name;删除
+        alert(a1.age)
+        alert(b1.name)*/
+
+	</script>
+</body>
+</html>

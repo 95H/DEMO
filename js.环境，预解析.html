@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>环境</title>
+</head>
+<body>
+	<script>
+	     /*var a=456;
+	     var a=234;
+	     function aa(a){
+	     	function bb(){
+	     		alert(a)
+	     	}
+	     	bb()
+	     }
+	     aa()*/
+         /*环境{
+         	1.宿主环境(浏览器)
+         	2.执行环境(作用域){
+         		全局环境(全局作用域)在代码的任何位置都能访问到
+         		局部环境(局部作用域)
+         		    只能在代码片段中(函数中)访问到
+         	}       
+         	 }*/
+         	 //3.作用域链、、
+         	 /*var a=123;
+         	 function aa(){
+         	 	var a=456;
+         	 	a=789;
+         	 	alert(a)
+         	 }
+         	 aa()
+         	 alert(a)*///123
+         	 /*alert(a)
+var a=123;
+alert(a)
+
+aa()
+function aa(){
+	alert(1)
+}
+*/
+
+/*alert(a)
+var a=123;
+alert(a)
+var a=456;
+alert(a)
+var a=789;
+alert(a)*/
+
+/*alert(a)
+var a=123;
+function a(){
+	var a=456;
+}
+alert(a)*/
+         	 //1.预解析(var function)
+         	 //2、var undefined 整个；
+             //3.正常解析
+            /*alert(a)//444
+            var a=111;
+            alert(a)//111
+            function a(){
+            	alert(222)
+            }
+            alert(a)//111
+            var a=333;
+            alert(a)//333
+            function a(){
+            	alert(444)
+            }
+            alert(a)//333
+            a()//报错*/
+            //回调函数(把一个函数的函数名当做另一个函数的参数)
+            //1.通过指针来调用
+        /*function aa(n1,n2,fun){
+       	return fun(n1,n2);
+       }
+       aa(3,4,bb)
+       aa(3,4,cc)
+       aa(3,4,dd)
+       aa(3,4,ee)
+       function bb(n1,n2){
+       	alert((n1+n2)*4-9)
+       }
+       function cc(n1,n2){
+       	alert((n1-n2)*5+4)
+       }
+       function dd(n1,n2){
+       	alert((n1-n2)*9+6)
+       }
+       function ee(n1,n2){
+       	alert((n1+n2)*8-1)
+       }*/
+       //2.通过匿名函数来调用
+       /*function aa(n1,n2,fun){
+       	return fun(n1,n2);
+       }
+       aa(3,4,function(n1,n2){
+       	alert((n1+n2)*3+4)
+       })*/
+       //3.自调用
+       /*(function aa(n1,n2,fun){
+       	return fun(n1,n2)
+       })(3,4,function(n1,n2){
+       	alert((n1+n2)*3+4)
+       })*/
+       /*function money(fun){
+          return fun()
+       }
+       money(mai1);
+       money(mai2);
+       money(mai3);
+       function mai1(){
+       	alert('买吃的')
+        }
+        function mai2(){
+       		alert('买用的')
+       }
+       function mai3(){
+       	alert('存起来')
+       }*/
+       /*function mai1(fun){
+          return fun()
+       }
+        mai1(function(){
+         	alert('买吃的')
+         })*/
+       (function money(fun){  
+          return fun()
+       })
+        mai(function(){
+        	alert('买东西')
+        })
+
+
+
+
+
+
+
+
+
+
+
+       // function zi(n){
+       // 	return n()
+       // }
+       // zi(san)
+       // zi(qi)
+       // zi(shiyi)
+       // function san(){
+       // 	setTimeout('console.log("我是3秒后出现")',3000)
+       // }
+       // function qi(){
+       // 	setTimeout('console.log("我是7秒后出现")',7000)
+       // }
+       // function shiyi(){
+       // 	setTimeout('console.log("我是11秒后出现")',11000)
+       // }
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        javascript回调函数、递归函数
+一、回调函数
+    通过函数的指针来调用函数。
+    (把一个函数的指针做为另一个函数的参数 ，当调用这个参数的时候，这个函数就叫做回 调函数。)
+
+1.通过指针来调用。
+function aa(n1,n2,fun){
+	return fun(n1,n2)
+}
+alert(aa(2,3,bb))
+function bb(x,y){
+   return (x*2+y*3-5)/4-1
+}
+
+2.通过匿名函数调用。
+function aa(num1,num2,fun) {
+     return fun(num1,num2)
+  }
+var result=aa(2,3,function bb(x,y){
+ return (x+y)*3-1;
+})
+alert(result)
+
+3.定义与执行同时进行（自调用）。
+((function aa (num1,num2,fun) {
+        return fun(num1,num2)
+    })(2,3,function  (num1,num2) {
+     return (num1+num2)*2
+   }))
+
+	</script>
+</body>
+</html>

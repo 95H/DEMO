@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 构造函数、
+        var Fn = function () {
+            // 1、js隐式创建一个空对象{}
+            // 2、js将当前构造函数的this指向空对象 this={} this指向谁就是谁
+            // 3、使用this给空对象绑定属性
+            // 4、js隐式返回绑定好属性的对象
+            // 4.1、return 函数的返回值就是函数调用的值
+            return 23
+            // 第一种情况 返回数字或者字符串
+            // 二 返回一个引用类型的话 会按引用类型执行的 return [] (一般不会在构造函数中写返回值)
+            this.name = "echo";
+            this.age = 20;
+            this.sex = "ssss"
+        }
+        var obj = new Fn();
+        var fn = function () {
+            return 520;
+        }
+        console.log(fn()); //520
+        // 忘了写new 出现函数污然
+        // 工厂函数
+        // 为了解决构造函数new调用的问题而出现的函数
+        // 工厂函数的调用可以写new 也可以不写new
+        // 工厂函数的第一种写法 （弊端 类型比较弱（有些对象打印不出来））
+
+
+        var createObj = function () {
+            // 1.js 隐式创建{}
+            // 2.this---{}
+            // this绑定属性
+            var obj = {};
+            obj.name = "allen";
+            obj.age = 25;
+            obj.sex = "swf";
+            // 隐式返回不执行
+            return obj;
+        }
+        var allen = createObj();
+        console.log(allen); //Object age:25name:"allen"sex:"swf"
+        var allen1 = new createObj();
+        console.log(allen1); //__proto__ :Object
+
+
+        // 工厂函数的强类型写法
+        // 闭包 外层函数嵌套内层构造函数
+        // 经典闭包函数
+        var createObj1 = function () {
+            var Haha = function () {
+                this.name = "haha"
+            }
+            return new Haha();
+        }
+
+
+        // 原型  爹
+        var son = {
+            name: "儿子",
+            ege: 18
+        }
+        console.log(son); //{name:'儿子' age：18}
+        // 对象找原型的属性__proto__  非标准属性（EAMA没有定义 用的广泛）
+        console.log(son.__proto__); //{constructor:}
+        // constructor 属性（是个函数） 值是创建出当前对象的构造函数
+        // 原型查找构造函数 原型.constructor
+        console.log(son.__proto__.constructor); //ƒ Object() { [native code] }
+        // Object 构造函数是js中默认用来创建对象的构造函数
+        // {} \ new Object()\
+
+
+        // 原型链 起点 对象 终点 null
+        // 定义：从当前对象到object.prototype 中间存在一条以__proto__ 属性为链接的链式结构 就是原型链
+        // Object.prototype 没有__proto__这个属性 (一切皆对象)
+
+
+        // 对象的原型链
+        // 对象--->Object.prototype
+        var heheda = {};
+        console.log(heheda); //Object ->__proto__:object
+
+
+        // 数组的原型链
+        // 数组--->Array.prototype--->Object.prototype
+        var arr = [];
+        console.log(arr);
+
+        // 函数的原型链
+        // 函数--->Function.prototype--->Object.prototype
+
+
+        // 数组 字符串...
+        // new String
+        var aa = 'aaa';
+        console.log(aa.__proto__);
+
+
+        // this指向 调用方式
+        // 普通函数调用 this指向window [函数名()]
+        // 构造函数调用 this指向实例化的对象
+        // 闭包函数的调用 this指向window 【为什么指向window？(种类上来讲最后是普通函数调用)】
+        var fn1 = function () {
+            var fn2 = function () {
+                return this
+            }
+            return fn2;
+            // 返回内层函数的调用
+        }
+        console.log(fn1());
+        // 方法函数调用 this指向调用者
+        // 上下文调用 call/apply  call后可以传多参数 第一个参数是this指向 
+        // (call和apply 还有一种叫法 立即执行函数)
+        var fn3 = function (age, sex) {
+            this.name = 'hhh';
+            this.age = age;
+            this.sex = sex
+        }
+        var obj3 = {
+            name: 'ggg'
+        };
+        fn3.call(obj3, 100);
+        fn3.apply(obj3, [100, 'kkk']);
+        console.log(obj3); //hhh
+
+        // (apply 可以解决)
+        // 数组降维[1,2,3,[1,2,3,[1,2,3]]]
+        // 数组合并 【高维数组和低维数组合并】
+
+        // 递归函数  函数自身调用自身
+        // 所有的递归函数都必须事先设置递归结束条件
+        // var fn5=function(){
+        // 	fn5()
+        // }
+        // 不要运行 会无限调用
+        // 
+        var a = 0;
+        var fn5 = function () {
+            // 如果10次以内 调用并打印
+            if (a <= 10) {
+                console.log('aaa');
+                a++
+            }
+            // 超过十次 返回
+            else {
+                return false;
+            }
+            fn5()
+        }
+        fn5();
+
+
+        var a = 0;
+        var fn5 = function () {
+            if (a >= 10) {
+                return false
+            }
+            console.log('qq')
+            a++
+            fn5()
+        }
+        fn5()
+
+
+        // 生兔子
+        // 1 1 2 3 5
+        // 1+1 1+2 2+3 3+5
+        var fib = function (mouth) {
+            // 前两个月都是一对
+            // 递归的结束条件
+            if (mouth == 1 || mouth == 2) {
+                return 1
+            } else {
+                return fib(mouth - 1) + fib(mouth - 2)
+            }
+            // 后面从第三个月开始 兔子数是前两个月的和
+        }
+        console.log(fib(10))
+        // 1个细胞，一个小时分裂一次，生命周期是3小时，求n小时后容器内，有多少细胞。
+        // 思路：1、a状态：新生态 --> 不分裂
+        //          b状态：生长态-->分裂一次
+        //          c状态：成熟态-->分裂一次
+        //          d状态：死亡-->分裂一次
+        //       2、第一个小时 1a【一个细胞a状态】 
+        //          第二个小时 1a 1b
+        //          第三个小时 2a 1b 1c
+        //          第四个小时 4a 2b 1c
+        //函数要做的就是将当前时间段内的各种状态的细胞个数求出来
+        //本小时a细胞个数==上一个小时的a细胞+b细胞+c细胞
+        //本小时b细胞个数==上一个小时的a细胞
+        // 本小时c细胞个数==上一个小时的b细胞
+        // a个数
+        var numberA = function (hour) {
+            if (hour == 1) {
+                return 1
+            } else {
+                return numberA(hour - 1) + numberB(hour - 1) + numberC(hour - 1)
+            }
+        }
+
+
+        var numberB = function (hour) {
+            if (hour == 1) {
+                return 0
+            } else {
+                return numberA(hour - 1)
+            }
+        }
+
+
+        var numberC = function (hour) {
+            if (hour == 1 || hour == 2) {
+                return 0
+            } else {
+                return numberB(hour - 1)
+            }
+        }
+        // var sum=numberA()+numberB()+numberC()
+        var sum = numberA(5) + numberB(5) + numberC(5)
+        console.log(sum); //13
+    </script>
+</body>
+
+</html>

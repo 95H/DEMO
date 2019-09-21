@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数重载，return语句，变量作用域，</title>
+</head>
+<body>
+	<script>
+	//重载、
+	//1.数量
+	function aa(){
+		if(arguments.length==1){
+			alert('函数的参数为一个')
+		}else if(arguments.length==2){
+			alert('函数的参数为两个')
+		}else if(arguments.length>=3){
+			alert('函数的参数为三个')
+		}
+	}
+	aa(1,2)
+	//2.类型
+	/*function bb(){
+		if(typeof arguments[0]=='boolean'){
+			alert('第一个参数为布尔类型')
+		}else if(typeof arguments[0]=='number'){
+			alert('第一个参数是数值类型')
+		}else if(typeof arguments[0]=='object'){
+			alert('第一个参数是空类型')
+		}
+	}
+	bb(null)*/
+     //return
+    //停止并执行当前语句
+    //1.在函数体内return语句后面的所有内容不会输出
+       /*function cc(){
+       	return 5
+       	alert(10)
+       }
+       alert(cc())*/
+
+    // 2.函数体内可以有多个return语句单只执行一个
+       /*function dd(){
+       	return '123'
+       	return  214
+       }
+       alert(dd())*/
+   // 给return返回一个值
+   // 1.返回的值可以是任何数据类型
+      /*function dd(){
+      	return false
+      	return 456
+      	return '123'
+      }
+      alert(dd())*/
+    //2.只返回一个返回值
+       /*function dd(){
+       	return 123 '123'
+       }
+       alert(dd())*/
+     // 3.未赋值的会返回undefined
+       /*function dd(){
+       	return
+       }
+       alert(dd())*/
+     // 全局变量
+         /*var a=456;//创建一个全局变量
+         function dd(){ //创建一个函数dd
+         	 a=123;
+         	alert(a)   //弹出的结果为123
+         }
+         dd()
+         alert(a)  *///弹出的结果为123
+
+         /*var a=456; //创建一个全局变量
+         function bb(){
+         	alert(a) //弹出的结果为456
+         	function cc(){
+         		alert(a)  //弹出的结果为456
+         		function dd(){
+         			alert(a)  //弹出的结果为456
+         		}
+         		dd()
+         	}
+         	cc()
+         }
+         bb()*/
+
+        //2.局部变量
+           /*function aa(){
+           	var a=123;  //创建一个局部变量
+           	alert(a)    //弹出的结果为123
+           }
+           aa()*/
+
+         /* function aa(n){
+          	var a=n; 
+          	alert(a)
+          }
+          aa(456)*/  //实参也是局部变量
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

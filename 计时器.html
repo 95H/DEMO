@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BOM-计时器</title>
+</head>
+
+<body>
+    <div id="box"> </div>
+    <input type="button" value='点击倒计时' id='btn'>
+    <script>
+        // 1、从0执行到7，到8停止；
+        /*var i=0;
+        var t=setInterval(function(){
+        	alert(i);
+        	i++;
+        	if(i>=8){
+        		clearInterval(t)
+        	}
+        },1000)*/
+
+        // 2、点击出现1，再点击出现2，在点击循环[判断||开关]；
+        /*var i=0;
+        document.onclick=function(){
+        	if(i%2==0){
+        		alert(2)
+        	}else{
+        		alert(1)
+        	}
+        	i++;
+        }*/
+        /*var flag=true;
+        document.onclick=function(){
+        	if(flag){
+        		alert(2);
+        		flag=false;
+        	}else{
+        		alert(1);
+        		flag=true;
+        	}
+        }*/
+        // 3、小说形式改编；
+
+        // 4、文字闪烁出现；
+        var str = '很抱歉，您要访问的页面不存在！';
+        var step = 0;
+        var t = setInterval(function () {
+            a = str.substring(0, step + 1);
+            document.getElementById('box').innerHTML = a;
+            step++;
+            if (step >= str.length) {
+                clearInterval(t);
+            }
+        }, 100)
+
+        // 5、倒计时；
+        // var t=setTimeout("alert(123)",1000)
+        // clearTimeout(t)
+
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            setTimeout(function () {
+                alert('2秒时间到')
+            }, 2000)
+        }
+    </script>
+</body>
+
+</html>

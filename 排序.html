@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 冒泡排序法  双层for循环嵌套
+        // 二叉排序法 /快速排序法 性能比冒泡好
+        var arr2 = [9, 3, 4, 1, 2, 7, 5, 6, 8]
+        // 从小到大排序
+        // 封装函数
+        function sortArr(arr) {
+            // 5.结束条件 当数组长度已经小于等于1 那么就表示我们已经将数组细化到极致了
+            if (arr.length <= 1) {
+                return arr
+            }
+            // 思路：1.选取中间项（基准值）将基准值切掉
+            var center = arr.splice(Math.ceil(arr.length / 2), 1)
+            console.log(center)
+            // 2.创建左右两个数组
+            var left = [],
+                right = [];
+            // 3.循环要排序的数组，获取每一项和刚刚获取到的基准值 并作比较 如果小于基准值 放进左数组 反之放右
+            for (var i = 0; i < arr.length; i++) {
+                // 判断
+                if (arr[i] < center) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            // 4.填充玩left right 将left和right拼接
+            return sortArr(left).concat(center, sortArr(right));
+        }
+        console.log(sortArr([3, 2, 1, 54, 6]));
+
+
+        // 数据类型之间的转换
+        // 其他类型-->数字类型
+        // Number(数据) js中内置的转换方法
+        // parseInt/parseFloat  转整形和浮点型
+        // 其他类型-->数字类型  隐式转换 -0  /1  *1
+        // 
+        // 
+        console.log(null - 0); //0
+        console.log(undefined * 1); //NaN
+        // 其他类型-->字符串类型
+        // String(数据)
+        // 数据.toString() 【Object自带 继承来的 万能的】
+        // 隐式转换  +‘’
+        // 
+        // 
+        // [object Object]
+        // 
+        // 
+        // 其他类型-->布尔类型()
+        // Boolean(数据)
+        // 隐式转换  !!数据
+        // 
+        // 引用类型
+        // 对象（广义的对象 包括数组）转布尔 true
+        console.log(!!undefined) //false
+        // 123||{}==123
+        // []&&""==""
+
+        // 等号运算符 = == ===
+        // 赋值 比较值 比较值和类型
+        // why？
+        // == 中js隐式将运算符两边的操作数转换了类型
+        //原则：1.如果连等的两端有一个数字就把另一个转换为数字
+        //      2.如果两端有一个布尔 就把另一个转换为布尔
+        //      3.如果两端操作数有一个是对象就先把对象tostring 然后再比较（参考红皮书）
+        //      
+        //      
+        // 字符串方法   字符串的所有方法都会返回一个新的字符串 原字符串不受影响
+        // chartAt() 返回指定的位置的字符
+        // concat() 拼接字符串
+        // slice(start,end) 截取字符串
+        // substring(start,end) 截取字符串
+        // start可得到 end得不到
+        // substr(start,length) 截取字符串 从start开始截取length位
+        // "aaaaaaa"
+        //split("")传的参数是切割的标识
+        //<-->join
+        var str = "hahaha";
+        var arr5 = str.split("a");
+        console.log(arr5)
+
+        var arr6 = [1, 2, 3];
+        var str1 = arr6.join("%");
+        console.log(str1);
+
+        // trim 去除左右空格
+        var str2 = "  a ";
+        var str3 = str2.trim();
+        console.log(str3);
+
+        // DOM基础
+        // 增删改查
+        // 查 获取dom元素
+        // id tag class【有兼容性问题 需自己封装函数】
+        //增加
+        //克隆 clone() 深客隆【里面传true】
+        //创建 document.createElement()
+        //添加 appendChild() / insertBefore() //传的参数不一样
+        //删除 removeChild
+        //修改 innerText  value
+        //
+        //类名
+        //className
+        //classlist.add
+        //classlist.remove
+        // h5新增的
+    </script>
+</body>
+
+</html>

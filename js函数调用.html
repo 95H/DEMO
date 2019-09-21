@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数调用</title>
+</head>
+<body>
+	<script>
+	//函数后面直接加小括号调用
+	  var aa=function(){
+	   	for(var i=0;i<10;i++){
+	   		for(var j=0;j<10;j++){
+	   			document.write('888&nbsp;&nbsp')
+	   		}
+	   		document.write('<br>')
+	   	} 
+	   }() 	 
+        /* (function aa(){ 
+	   	var t=0;                                                                                   
+	   while(t<3){
+	   	document.write(t+'&nbsp;')
+	   	t++
+	   }
+	})()*/  
+	/*var a=function(){
+		var t=0;
+	   while(t<3){
+	   	document.write(t+'&nbsp;')
+	   	t++
+	   }
+    }()*/
+     /*在SCRIPT标签对中代码会按照从上到下从左到右的执行顺序解析，基础语法申明会提前存储到内存中，如果调用方式放到前面会报错。
+     参数可以动态改变函数体的内容，使同一函数得到不同的结果*/
+     /*function aa(a){
+     	alert(a)
+     }
+    aa('北工商')
+    aa(true)
+    aa(123)
+    1.求任意两个数的和
+    function aa(a,b){
+    	var num=a+b;
+    	alert(num)
+    }
+    aa(88,77)
+    aa(66,55)
+    aa(22,1)
+    2.求1-10的和
+    function bb(){
+    var num=0;
+    for(var a=1;a<=10;a++){
+        num+=a;
+    }
+     alert(num)}
+     bb()
+     bb(100,200)*/
+    // 求a到b的和
+     /*function bb(a,b){
+       var num=0;
+       for(var i=a;i<=b;i++){
+       	num+=i;
+       }
+       alert(num)
+     }
+     bb(100,200)
+     bb(3,5)
+     bb(12,23)*/
+     //形参多于实参
+     /*function aa(a,b){
+     	alert(a);
+     	alert(b);
+     }
+     aa(1)
+     传入的参数--对应，不传的自动赋值为undefind*/
+     //实参大于形参
+     /*function aa(a){
+     	alert(a);
+     	alert(b);
+     }
+     aa(4,2,4)
+     不会报错，但要得到多出的值,下标从0开始*/
+     /*function aa(a){
+     	alert(a);
+     	alert(arguments.length);
+     	alert(arguments.callee);
+     	alert(arguments[5])
+     }
+     aa(4,2,4,3,4,5,6,7,)*/
+     
+
+	</script>
+	<!-- 先申明，后调用 -->
+	<!-- b.事件后，链接，调用 -->
+	<!-- <div style="width: 100px;height: 100px;background: yellow;" onclick='aa()'></div>
+	<a href="javascript:aa()">点我</a>
+	<form action="javascript:aa()">
+	     <input type="text">
+	     <input type="submit">
+	</form> -->
+</body>
+</html>

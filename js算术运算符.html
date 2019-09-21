@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    //js中的算术运算符
+    //+
+    //1.数字类型+数字类型
+    var a = 1;
+    var b = 2;
+    var c = a + b;
+    console.log(c);//3
+    //2.数字+数字字符串
+    var d = 2+'456';
+    console.log(d);//2456
+    console.log(typeof(d));//string
+    //3.数字类型和布尔类型相加  true = 1  false = 0
+    var e = 5 + false;
+    console.log(e);//5
+    console.log(typeof(e));//number
+    //4.数字+非数字字符串
+    var f = 10 + 'heheda';
+    console.log(f);//10heheda
+    console.log(typeof(f));//string
+
+    //-
+    //数字和数字字符串相减
+    var g = 9 - '5';
+    console.log(g);//4
+    console.log(typeof(g));//number
+    //数字类型和布尔类型相减
+    var h = 7 - true;
+    console.log(h);//6
+    console.log(typeof(h));//number
+    //数字类型 - 非数字字符串
+    var i = 8 - 'heheda';
+    console.log(i);//nan
+    console.log(typeof(i));//number
+
+    console.log(NaN == NaN);//false
+    //3.数字字符串和数字字符串相减
+    var j = '456' - '123';
+    console.log(j);//333
+    console.log(typeof(j));//number
+
+    //4.非数字字符串-非数字字符串
+    var k = 'hahaha' - 'heiheihei';
+    console.log(k);//nan
+    console.log(typeof(k));//number
+
+    //乘运算
+    //1.数字*数字字符串
+    var l = 8 * '8';
+    console.log(l);//64
+    console.log(typeof(l));//number
+    //2.数字字符串*数字字符串
+    var m = '9'*'6';
+    console.log(m);//54
+    console.log(typeof(m));//number
+    //4.数字和布尔值相乘
+    var n = 10 * false;
+    console.log(n);//0
+    console.log(typeof(n));//number
+    //除运算
+    //1.除数为0的时候
+    var o = 100/0;
+    console.log(o);//Infinity
+    console.log(typeof(o));//number
+
+    //2.数字/数字字符串
+    var p = 10/'5';
+    console.log(p);//2
+    console.log(typeof(p));//number
+
+    //非数字字符串/非数字字符串
+    var q = 'heheda'/'heiheihei';
+    console.log(q);//nan
+    console.log(typeof(q));//number
+
+    //取余
+    var r = 13%7
+    console.log(r);//6
+    console.log(typeof(r));//number
+
+</script>
+</html>

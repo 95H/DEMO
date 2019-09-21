@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回调函数</title>
+</head>
+<body>
+<script>
+	//回调函数(把一个函数的函数名当做另一个函数的参数，当调用这个参数的时候，这个函数就叫做回调函数。)
+    //1.通过指针来调用
+        /*function aa(n1,n2,fun){
+       	return fun(n1,n2);
+       }
+       aa(3,4,bb)
+       aa(3,4,cc)
+       aa(3,4,dd)
+       aa(3,4,ee)
+       function bb(n1,n2){
+       	alert((n1+n2)*4-9)
+       }
+       function cc(n1,n2){
+       	alert((n1-n2)*5+4)
+       }
+       function dd(n1,n2){
+       	alert((n1-n2)*9+6)
+       }
+       function ee(n1,n2){
+       	alert((n1+n2)*8-1)
+       }*/
+       //2.通过匿名函数来调用
+       /*function aa(n1,n2,fun){
+       	return fun(n1,n2);
+       }
+       aa(3,4,function(n1,n2){
+       	alert((n1+n2)*3+4)
+       })*/
+       //3.自调用（定义与执行同时进行）
+       /*(function aa(n1,n2,fun){
+       	return fun(n1,n2)
+       })(3,4,function(n1,n2){
+       	alert((n1+n2)*3+4)
+       })*/
+       //1.1
+       /*function money(fun){
+          return fun()
+       }
+       money(mai1);
+       money(mai2);
+       money(mai3);
+       function mai1(){
+       	alert('买吃的')
+        }
+        function mai2(){
+       		alert('买用的')
+       }
+       function mai3(){
+       	alert('存起来')
+       }*/  
+         //1.3
+       
+       /*(function mai(fun){  
+          return fun()
+       })
+        (function(){
+        	alert('买东西')
+        })*/
+        //1.2
+        /*function mai(fun){
+           return fun()
+        }
+        mai(function(){ 
+        	alert('买东西')
+        })*/
+   
+
+
+/*function aa(n){
+	console.log('我是主体函数');
+	return n();
+}
+aa(san);
+aa(qi);
+function san(){
+	console.log('我是回调函数')
+	setTimeout("console.log('我是3秒后出现')",3000)
+}
+function qi(){
+	console.log('我是回调函数')
+	setTimeout("console.log('我是7秒后出现')",7000)
+}
+*/
+/*function aa(n){
+	console.log('我是主体函数');
+	return n();
+}
+aa(function(){
+	console.log('我是回调函数')
+	setTimeout("console.log('我是3秒后出现')",3000)
+})*/
+/*(function aa(n){
+	console.log('我是主体函数');
+	return n();
+})(function(){
+	console.log('我是回调函数')
+	setTimeout("console.log('我是3秒后出现')",3000)
+})*/
+
+
+
+       // function zi(n){
+       // 	return n()
+       // }
+       // zi(san)
+       // zi(qi)
+       // zi(shiyi)
+       // function san(){
+       // 	setTimeout('console.log("我是3秒后出现")',3000)
+       // }
+       // function qi(){
+       // 	setTimeout('console.log("我是7秒后出现")',7000)
+       // }
+       // function shiyi(){
+       // 	setTimeout('console.log("我是11秒后出现")',11000)
+       // }
+
+//2.1
+/*function tuzi(fun){
+	return fun()
+}
+tuzi(qincao)
+  function qincao(){
+  	alert('吃青草')
+}
+
+function tuzi(n)
+   return*/
+/*1.通过指针来调用。
+function aa(n1,n2,fun){
+	return fun(n1,n2)
+}
+alert(aa(2,3,bb))
+function bb(x,y){
+   return (x*2+y*3-5)/4-1
+}
+
+2.通过匿名函数调用。
+function aa(num1,num2,fun) {
+     return fun(num1,num2)
+  }
+var result=aa(2,3,function bb(x,y){
+ return (x+y)*3-1;
+})
+alert(result)
+
+3.定义与执行同时进行（自调用）。
+((function aa (num1,num2,fun) {
+        return fun(num1,num2)
+    })(2,3,function  (num1,num2) {
+     return (num1+num2)*2
+   }))*/
+</script>
+</body>
+</html>

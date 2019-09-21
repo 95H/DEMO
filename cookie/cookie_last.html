@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function setCookie(name, value,day) { //（名 值 天数）
+
+	var oDate = new Date();
+
+	oDate.setDate(oDate.getDate() + day);
+
+	document.cookie = decodeURIComponent(name) + "=" + 
+	decodeURIComponent(value) + ";expires=" + 
+	oDate + ";path=/";
+
+}
+
+//console.log(document.cookie); 获得的所有cookie字符串数据类型。
+
+function getCookie(name) {
+
+	var str = document.cookie;
+
+	var arr = str.split(";");
+
+	for(var i = 0; i < arr.length; i++) {
+
+		var newArr = arr[i].split("=");
+
+		if(name === decodeURIComponent(newArr[0])) {
+
+			return decodeURIComponent(newArr[1]);
+		}
+
+	}
+
+}
+
+function removeCookie(name) {
+
+	setCookie(name, 1, -1);
+
+}
+
+var btn = document.getElementById('submitSomething');
+btn.onclick = function() {
+	var names = '123456hfj';
+	var obj = {
+		id: '剑哥哥'
+	};
+	setCookie("zimo","hfj121121",1000);
+
+	setCookie("zimogod","zimogod0526",1000);
+}
+
+var del = document.getElementById('del');
+del.onclick = function() {
+	removeCookie('zimo');
+}
+
+	</script>
+</body>
+</html>

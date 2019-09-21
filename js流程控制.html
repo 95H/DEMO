@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js流程控制</title>
+</head>
+<body>
+	<script>
+       // 按照规定的语句，有条件的执行
+       //一、顺序结构
+       //二、选择结构
+       //1.if else
+       //1.1单路分支
+       /*var a=100;
+       if(a==100){alert('恭喜你得了一百分')}
+       	if(true){}*/
+       /*var a=18;
+      if(a>=18){
+      	alert('你成年了')}*/
+       /*var a=10;
+       if(a<20){alert('今天是阴天')}*/
+       	//1.2双路分支
+       	/*var a=70;
+       	if(a>=70){alert('及格')}else{alert('不及格')}*/
+        /*var a=10;
+       if(a>=20){alert('成年了')}else{alert('未成年')}*/
+       	//1.3多路分支
+       	/*var a=78;
+       	if(a<60){
+       		alert('未及格')
+       	}else if(a>=60&&a<80){
+       		alert('中等成绩')
+       	}else if(a>=80&&a<100){
+       		alert('上等成绩')
+       	}else{alert('优等成绩')}*/
+       	/*var a=27
+       	if(a<10){
+       		alert('冬天')
+       	}else if(a>=10&&a<16){
+       		alert('春天')
+       	}else if(a>=20&&a<36){
+       		alert('夏天')
+       	}else if(a>=16&&a<20){
+       		alert('秋天')
+       	}*/
+       	//1.4嵌套分支
+	/*if(a>60){
+		if(a>=60&&a<80){
+			alert('良好')
+		}else if(a>=80&&a<=100){
+			alert('优秀')
+		}
+	}else{
+		alert('继续努力')
+	}
+	var b=90;
+	if(b>60){
+		if(b>70){
+			if(b>80){
+				if(b>90){
+					alert('合格')
+				}
+			}
+		}
+	}
+*/ /*var a=90;
+        if(a>60){
+        	if(a<80){
+        		alert('中等')
+        	}else if(a>=80&&a<90){
+        		alert('良好')
+        	}else if(a>=90&&a<100){
+        		alert('优秀')
+        	}else{
+        		alert('满分')
+        	}
+        }*/
+      /*var a=prompt('请输入你的成绩','');
+      switch(a){
+      	case '60':alert('及格');
+      	break;
+      	case '80':alert('良好');
+      	break;
+      	case '90':alert('优秀');
+      	break;
+      	case '100':alert('满分');
+      	break;
+      	default:alert('以上条件都不满足')
+      }*/
+      /*var a=prompt('今天星期几？','');
+      switch(a){
+      	case '1':alert('星期一');
+      	break;
+      	case '2':alert('星期二');
+      	break;
+      	case '3':alert('星期三');
+      	break;
+      	case '4':alert('星期四');
+      	break;
+      	case '5':alert('星期五');
+      	break;
+      	case '6':alert('星期六');
+      	break;
+      	case '7':alert('星期日');
+      	break;
+      	default:alert('以上条件都不满足')
+      }*/
+      /*var a=prompt('今天星期几?','');
+      switch(a){
+      	case '1':alert('星期一');
+      	break;
+      	case '2':alert('星期二');
+      	break;
+      	default:alert('都错 ');
+      }*/
+ // 三、循环结构
+  //for循环语句
+  //var i=0  1
+  //i<4      2
+  //i++      3
+  //alert(i) 4
+  /*for(var i=0;i<4;i++){alert(i)}//0 1 2 3
+  	/1/2/3/4/2/3/4/2/3/4/2/3/4/*/
+  	//分别输出一到10
+  	// for(var a=1;a<=10;a++){alert(a)}
+  	// 求出0到100以内的所有偶数
+  	/*for(a=0;a<100;a++){
+  		if(a%2==0){alert(a)}
+  	}*/
+  //求100到200的所有基数
+  /*for(var a=100;a<=200;a++){
+  	if(a%2==1){
+  		document.write(a+'&nbsp')
+  	}
+  }*/
+  //求0到10的和
+  /*var num=0;
+  for(var a=0;a<=10;a++){
+  	num+=a;
+  }
+  alert(num)
+  num=num+a
+  第一步num=0+0;
+  第二步num=0+1;
+  第三步num=1+2;
+  第四步num=2+3;
+  第五步num=3+4;
+  第六步num=4+5;
+  第七步num=5+6;
+  第八步num=6+7;
+  第九步num=7+8;
+  第十步num=8+9;
+  第十一步num=9+10;*/
+  //求0到100所有偶数的和
+  /*var num=0;
+  for(var a=0;a<=100;a++){
+  	if(a%2==0){
+  		num+=a
+  	}
+  }
+  alert(num)*/
+  // 头40，脚88
+ /*for(var i=0;i<=40;i++){
+ 	if(2*i+4*(40-i)==88){
+ 		alert(i)
+ 		alert(40-i)
+ 	}
+ }*/
+// 48头，98脚
+  /*for(var a=0;a<=48;a++){
+     if(2*a+4*(48-a)==98){
+  	alert(a)
+  	alert(48-a)
+  }
+ }*/
+ // 求100以内3与5的公倍数
+  /*for(var a=0;a<=100;a++){
+     if(a%3==0&&a%5==0){
+     	document.write(a+'&nbsp')
+     }
+  }*/
+	</script>
+</body>
+</html>

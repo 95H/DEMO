@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+// 		var o={
+// 			a:10,
+// 			b:{
+// 				a:12,
+// 				fn:function(){
+// console.log(this.a);//undefind
+// console.log(this);//window
+
+// 				}
+// 			}
+// 		}
+// 		var j=o.b.fn;//此处没有调用
+// 		j();
+//
+//
+     // function  fn (){
+     // 	this.name="sss";
+     // }
+     // var a=new fn();
+     // console.log(a);//fn
+     // console.log(this);//window
+     // console.log(a.name);//sss
+     // // 变量a创建了一个fn实例，（相当于复制了一份fn到a里面）但仅仅是创建，并没有执行，而调用fn的对象是a 所以this指向a对象
+
+
+    function fn(){
+    	this.name="sss";
+    	// return {}
+    	return '';
+    }
+    var a=new fn;
+    console.log(this);
+    console.log(a.name);//undefind
+    //当解决this碰到return之类的问题中，函数体内返回对象，则this指向当前返回的对象，如果返回的是其他的东西 则this还是指向实例化它的对象，null空对象比较特殊 也是谁调用this this就指向谁
+    //在严格模式下，默认的this不再指向window 而是undefind 
+
+
+	</script>
+</body>
+</html>
+
+
+普通函数中的this
+（1） this指向直接调用者 （js的this是执行上下文）obj.func中this指向obj
+（2） 默认情况（非严格模式，未使用‘use strict’），没有找到直接调用者 this指向window
+      <script>
+ function test() {
+   console.log(this);//window
+ }
+ test();
+</script>
+原因：test（）是一个全局函数，也就是说挂在window对象下的，所以test()等价于window.test(),所以此时的this是window
+常见的window的属性和方法有：alert，location，document，parseInt，setTimeout，setInterval等，window的属性默认可以省略window前缀
+（3） 严格模式下，没有直接调用者的函数中的this是undefined
+1.       <script>
+2.   function test() {
+3.     'use strict';
+4.     console.log(this);
+5.   }
+6.   test();
+7.  </script>
+结果是: undefined
+
+（4） 使用call，apply，bind（es5新增）绑定的，this指的是绑定的对象
+箭头函数中的this
+（1） 箭头函数中没有自己的this，它的this是继承而来的默认指向定义它时所处的对象（宿主对象），而不是执行时的对象定义它的时候，可能环境是window
+（2） 箭头函数可以方便的让我们在setTimeout，setInterval中方便的使用this
+（3） 箭头函数的this绑定看的是this所在的函数定义在哪个对象下，绑定到哪个对象则this就指向哪个对象
+（4） <script>
+（5）  var obj = {
+（6）    say: function () {
+（7）      setTimeout(() => {
+（8）        console.log(this)
+（9）      });
+（10）       }
+（11）     }
+（12）     obj.say(); // obj
+（13）    </script>
+此时的 this继承自obj, 指的是定义它的对象obj, 而不是 window!
+多层嵌套的箭头函数):
+1.  <script>
+2.  var obj = {
+3.  say: function () {
+4.    var f1 = () => {
+5.      console.log(this); // obj
+6.      setTimeout(() => {
+7.        console.log(this); // obj
+8.      })
+9.    }
+10.   f1();
+11.   }
+12. }
+13. obj.say()
+14. </script>
+因为f1定义时所处的函数 中的 this是指的 obj, setTimeout中的箭头函数this继承自f1, 所以不管有多层嵌套,都是 obj
+ 普通函数和箭头函数混杂嵌套)
+1.  <script>
+2.  var obj = {
+3.  say: function () {
+4.    var f1 = function () {
+5.      console.log(this); // window, f1调用时,没有宿主对象,默认是window
+6.      setTimeout(() => {
+7.        console.log(this); // window
+8.      })
+9.    };
+10.   f1();
+11.   }
+12. }
+13. obj.say()
+14. </script>
+结果: 都是 window,因为 箭头函数在定义的时候它所处的环境相当于是window, 所以在箭头函数内部的this函数window
+(严格模式下的混杂嵌套)
+1.  <script>
+2.  var obj = {
+3.  say: function () {
+4.    'use strict';
+5.    var f1 = function () {
+6.    console.log(this); // undefined
+7.    setTimeout(() => {
+8.      console.log(this); // undefined
+9.    })
+10.   };
+11.   f1();
+12.  }
+13. }
+14. obj.say()
+15. </script>
+结果都是undefined
+说明: 严格模式下,没有宿主调用的函数中的this是undefined!!!所以箭头函数中的也是undefined!
+总结：使用箭头函数，可以让我们解决一些在匿名函数中this指向不正确的问题，但是要注意在和普通函数混合的时候this的指向可能是window
+（14）    如果有对象嵌套的情况，this就绑定到最近的一层对象上
+作用域链：
+当在函数中使用一个变量的时候，首先在本函数内部查找该变量，如果找不到则找其父级函数，最后直到window，全局变量默认挂载在window对象下
+匿名函数，定时器中的函数，由于没有默认的宿主对象，所以默认this指向window。如果想要在setTimeout/setInterval中使用这个对象的this引用，就用一个变量提前把正确的this引用保存起来，我们通常使用that=this，或者_this=this来保存我们需要的this指针
+1.  <script>
+2.   var obj = {
+3.     func: function() {},
+4.     say: function () {
+5.       var that = this;   //此时的this就是obj对象
+6.       setTimeout(function () {
+7.         console.log(this)
+8.         that.func()
+9.       });
+10.    }
+11.  }
+12.  obj.say();
+13. </script>
+或者也可以使用func.bind（this）给回调函数直接绑定宿主对象，bind绑定宿主对象后依然返回这个函数，这是更优雅的做法
+1.  <span style="font-family:'Times New Roman';"><script>  
+2.    var obj = {  
+3.      func: function() {},  
+4.      say: function () {  
+5.         // 此时的this就是obj对象  
+6.        setTimeout(function () {  
+7.          console.log(this)  
+8.          this.func()  
+9.        }.bind(this));  
+10.     }  
+11.   }  
+12.   obj.say(); // obj  
+13. </script></span> 
+14. 
+ window.val = 1;
+15.  var obj = {
+16.    val: 2,
+17.    dbl: function () {
+18.      this.val *= 2;
+19.      val *= 2;
+20.      console.log(val);
+21.      console.log(this.val);
+22.    }
+23.  };
+24.  // 说出下面的输出结果
+25.  obj.dbl();
+26.  var func = obj.dbl;
+27.  func();
+结果是:  2   4    8   8
+<1> 12行代码调用
+val变量在没有指定对象前缀,默认从函数中找,找不到则从window中找全局变量
+即 val *=2 就是 window.val *= 2
+this.val默认指的是 obj.val ;因为 dbl()第一次被obj直接调用
+<2>14行代码调用
+func() 没有任何前缀,类似于全局函数,即  window.func调用,所以
+第二次调用的时候, this指的是window, val指的是window.val
+第二次的结果受第一次的影响
+
+ES6 箭头函数this指向
+箭头函数有几个使用注意点。
+（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用Rest参数代替。
+（4）不可以使用yield命令，因此箭头函数不能用作Generator函数。
+上面四点中，第一点尤其值得注意。this对象的指向是可变的，但是在箭头函数中，它是固定的。
+function foo() {
+  setTimeout(() => {
+    console.log('id:', this.id);
+  }, 100);
+}
+
+var id = 21;
+
+foo.call({ id: 42 });
+// id: 42
+上面代码中，setTimeout的参数是一个箭头函数，这个箭头函数的定义生效是在foo函数生成时，而它的真正执行要等到100毫秒后。如果是普通函数，执行时this应该指向全局对象window，这时应该输出21。但是，箭头函数导致this总是指向函数定义生效时所在的对象（本例是{id: 42}），所以输出的是42。
+箭头函数可以让setTimeout里面的this，绑定定义时所在的作用域，而不是指向运行时所在的作用域。下面是另一个例子。
+function Timer() {
+  this.s1 = 0;
+  this.s2 = 0;
+  // 箭头函数
+  setInterval(() => this.s1++, 1000);
+  // 普通函数
+  setInterval(function () {
+    this.s2++;
+  }, 1000);
+}
+
+var timer = new Timer();
+
+setTimeout(() => console.log('s1: ', timer.s1), 3100);
+setTimeout(() => console.log('s2: ', timer.s2), 3100);
+// s1: 3
+// s2: 0
+上面代码中，Timer函数内部设置了两个定时器，分别使用了箭头函数和普通函数。前者的this绑定定义时所在的作用域（即Timer函数），后者的this指向运行时所在的作用域（即全局对象）。所以，3100毫秒之后，timer.s1被更新了3次，而timer.s2一次都没更新。
+箭头函数可以让this指向固定化，这种特性很有利于封装回调函数。下面是一个例子，DOM事件的回调函数封装在一个对象里面。
+var handler = {
+  id: '123456',
+
+  init: function() {
+    document.addEventListener('click',
+      event => this.doSomething(event.type), false);
+  },
+
+  doSomething: function(type) {
+    console.log('Handling ' + type  + ' for ' + this.id);
+  }
+};
+上面代码的init方法中，使用了箭头函数，这导致这个箭头函数里面的this，总是指向handler对象。否则，回调函数运行时，this.doSomething这一行会报错，因为此时this指向document对象。
+this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。正是因为它没有this，所以也就不能用作构造函数。
+所以，箭头函数转成ES5的代码如下。
+// ES6
+function foo() {
+  setTimeout(() => {
+    console.log('id:', this.id);
+  }, 100);
+}
+
+// ES5
+function foo() {
+  var _this = this;
+
+  setTimeout(function () {
+    console.log('id:', _this.id);
+  }, 100);
+}
+上面代码中，转换后的ES5版本清楚地说明了，箭头函数里面根本没有自己的this，而是引用外层的this。
+请问下面的代码之中有几个this？
+function foo() {
+  return () => {
+    return () => {
+      return () => {
+        console.log('id:', this.id);
+      };
+    };
+  };
+}
+
+var f = foo.call({id: 1});
+
+var t1 = f.call({id: 2})()(); // id: 1
+var t2 = f().call({id: 3})(); // id: 1
+var t3 = f()().call({id: 4}); // id: 1
+上面代码之中，只有一个this，就是函数foo的this，所以t1、t2、t3都输出同样的结果。因为所有的内层函数都是箭头函数，都没有自己的this，它们的this其实都是最外层foo函数的this。
+除了this，以下三个变量在箭头函数之中也是不存在的，指向外层函数的对应变量：arguments、super、new.target。
+function foo() {
+  setTimeout(() => {
+    console.log('args:', arguments);
+  }, 100);
+}
+
+foo(2, 4, 6, 8)
+// args: [2, 4, 6, 8]
+上面代码中，箭头函数内部的变量arguments，其实是函数foo的arguments变量。
+另外，由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。
+(function() {
+  return [
+    (() => this.x).bind({ x: 'inner' })()
+  ];
+}).call({ x: 'outer' });
+// ['outer']
+上面代码中，箭头函数没有自己的this，所以bind方法无效，内部的this指向外部的this。
+长期以来，JavaScript语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。箭头函数”绑定”this，很大程度上解决了这个困
+各种函数的this指向和变量声明的提升
+1.构造函数中this指向实例化出来的对象 
+例如：var a = new A()  A构造函数中的this就指向a（注：this指向谁，this就是谁）
+2.  普通函数中this指向Window对象。
+(1) ***Window对象就是js中的全局对象，它表示js中的全局作用域，因此，在js全局作用域中声明的所有变量都会成为window对象的属性，属性名就是变量名，属性值就是变量值。
+3.  方法函数中的this指向方法的调用者，也就是说哪一个对象调用这个方法，这个方法中的this就指向哪一个对象。
+(1) 例如c.say()   c对象调用了say方法，因此say方法中的this就指向调用者c
+
+函数类型的判断
+1.  判断构造函数：要看函数调用的方式，如果调用的时候使用了new关键字，就表示这个函数是一个构造函数。反之则不是。
+2.  判断普通函数：也要看调用方式，如果调用的时候写法如下：函数名()；就表示函数是一个普通函数。
+3.  判断方法函数:看调用方式，如果调用的时候写法如下:对象名.方法名()；就表示函数是一个方法函数。
+
+构造函数如果只调用，不赋值  例如new d()
+This指向就是js隐式创建的那个对象，那个对象的名称是构造函数名。
+
+闭包函数的this指向window；
+
+Instanceof  这个方法使用来判断一个变量是不是某一个数据类型的。
+
+注意 这个方法和普通的js方法不太一样，有两个操作数。用法如下：
+要检测的变量 instanceof 数据类型
+规律：当要检测的变量属于指定的数据类型的时候，返回值就是true，否则返回值是false。
+
+Instanceof这个方法已经适用于所有形式的对象了。在之前这个方法只适用于构造函数创建出来的对象。
+
+typeof
+
+深层克隆和浅层克隆
+
+Js的内置对象。
+Object（对象）、Array（数组）、Function（函数）、String（字符串）、Date（日期时间对象）、Math（数学对象）、正则对象。
+
+Array（数组对象）
+数组对象的方法就是数组对象的属性值为函数的属性。
+
+对象的方法调用模式：对象名.方法名();
+数组的转换方法：
+valueOf();是用来获取数组对象本身的一个方法
+toString();是用来将指定数组转换为字符串的。
+Join();join方法是用来将数组中的数组项一一取出进行拼接的，默认使用逗号将各个数组项进行分隔，如果在join方法中传入字符串参数，会使用传入的字符串进行分隔。
+数组的检查方法：
+instanceof
+Array.isArray(要检测的变量)；
+
+// 		var o={
+// 			a:10,
+// 			b:{
+// 				a:12,
+// 				fn:function(){
+// console.log(this.a);//undefind
+// console.log(this);//window
+
+// 				}
+// 			}
+// 		}
+// 		var j=o.b.fn;//此处没有调用
+// 		j();
+// 		
+// 		
+     // function  fn (){
+     // 	this.name="sss";
+     // }
+     // var a=new fn();
+     // console.log(a);//fn
+     // console.log(this);//window
+     // console.log(a.name);//sss
+     // // 变量a创建了一个fn实例，（相当于复制了一份fn到a里面）但仅仅是创建，并没有执行，而调用fn的对象是a 所以this指向a对象
+
+
+    function fn(){
+    	this.name="sss";
+    	// return {}
+    	return '';
+    }
+    var a=new fn;
+    console.log(this);
+    console.log(a.name);//undefind
+    //当解决this碰到return之类的问题中，函数体内返回对象，则this指向当前返回的对象，如果返回的是其他的东西 则this还是指向实例化它的对象，null空对象比较特殊 也是谁调用this this就指向谁
+    //在严格模式下，默认的this不再指向window 而是undefind 
+
+
+
+

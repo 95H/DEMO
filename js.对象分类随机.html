@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background: yellow;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id=box></div>
+    <script>
+        //window.onload=function(){}(延迟JS加载)
+        /*var box=document.getElementById('box');
+	box.onclick=function(){
+		this.style.backgroundColor='rgb('+floor(0,255)+','+floor(0,255)+','+floor(0,255)+')';
+	} 
+	function floor(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min)}*/
+        //1.常数 π（PI）
+        // var a=2*Math.PI;
+        // alert(a)
+        //2.取绝对值 (不管是正的还是负的取绝对值都是正的)
+        // var a=-12345;
+        // alert(Math.abs(a))
+        //3.取近似整数(四舍五入)
+        // var a=1.234;
+        // alert(Math.round(a)) 
+        //对数进行向下取整（只保留整数，不会进一，去掉小数点后面所有的数，负数取比它小的数）
+        // var a=1.6;
+        // alert(Math.floor(a))
+        // var a=-2.2;
+        // alert(Math.floor(a))
+        //向上取整（同上,负数也一样）
+        // var a=2.33;
+        // alert(Math.ceil(a))
+        //取最大值
+        // var a=Math.max(1,3456,66,23,6,2,8);
+        // alert(a)
+        //取最小值
+        // var a=Math.min(1,3456,66,23,6,-1,2,8);
+        // alert(a)
+        //取随机数
+        // var a=Math.random();//默认的0-1的数
+        // alert(a)
+        // var a=Math.random()*3;//默认的0-3的数
+        // alert(a)
+        //  var a=Math.random()*20+10;//默认的10-30的数
+        //  alert(a)
+        // var a=Math.floor(Math.random()*(68-34+1)+34) 
+        // alert(a)
+        // var a=Math.ceil(Math.random()*(68-34+1)+34-1) 
+        // alert(a)
+        // function random(min,max){
+        // 	return Math.floor(Math.random()*(max-min+1)+min)
+        // }
+        // alert(random(4,8))
+        // function(min,max){
+        // 	return Math.ceil(Math.random()*(max-min+1)+min-1)
+        // }
+        // alert(random(4,8))
+        // 求最小值到最大值的随机整数
+        //function floor(min,max){
+        //return Math.floor(Math.random()*(max-min+1)+min)}
+        //
+        //
+        //
+        //指数运算
+        //var a=Math.pow(2,3);//表示2的三次方 三个二相乘
+        //alert(a)
+        //平方根  解平方根
+        // var a=Math.sqrt(81);
+        // alert(a)
+        //自然对数  Math.E  e的多少次为e
+        // var a=Math.log(10);
+        // alert(a)
+        //e的指数
+        // var a=Math.exp(2)
+        // alert(a)
+        //三角函数
+        // var a =Math.sin(Math.PI/4)
+        // alert(a)
+        // π=180度
+        // 1角度=π/180
+        // 45=45*π/180
+        // sin对边比斜边
+        /*var a=Math.sin(Math.PI/6)w
+        alert(a)
+        var a=Math.cos(Math.PI/6)
+        alert(a)
+        var a=Math.tan(Math.PI/6)
+        alert(a)
+        var a=Math.sin(Math.PI*2/3)
+        alert(a)
+        var a=Math.cos(Math.pI*2/3)
+        alert(a)
+        var a=Math.tan(Math.PI*2/3)
+        alert(a)
+        var a=Math.sin(Math.PI*3/2)
+        alert(a)
+        var a=Math.cos(Math.PI*3/2)
+        alert(a)
+        var a=Math.tan(Math.PI*3/2) 
+        alert(a)*/
+    </script>
+</body>
+
+</html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'></div>
+    <script>
+        var box = document.getElementById('box');
+        box.onclick = function () {
+            this.style.backgroundColor = 'rgb(' + floor(0, 255) + ',' + floor(0, 255) + ',' + floor(0, 255) + ')';
+        }
+        // 求最小值到最大值的随机整数 
+        function floor(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        console.log(floor(2, 7))
+    </script>
+</body>
+
+</html>

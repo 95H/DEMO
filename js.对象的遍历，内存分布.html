@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//对象的遍历
+       /*function aa(){
+       	this.name='老牛';
+       	this.age=23;
+       	this.sex='男';
+       	this.play=function(){
+       		return '打麻将'
+       	}
+       }
+       var a1=new aa()
+       for(var i in a1){
+       	alert(i)
+       	alert(a1[i])
+       }
+       var obj={
+       	name:'老牛',
+       	sex:'男',
+       	age:56,
+        play:function(){
+        	return '打麻将'
+        }
+       }
+       for(var i in obj){
+       	alert(i)
+       	alert(obj[i])
+       }*/
+       
+       /*function ren(height,age,name,){
+       	 function a1(){
+       		this.height=height,
+       		this.age=age,
+       		this.name=name,
+       		this.play=function(){
+       			return '吃喝玩乐'
+       		}
+       	}
+       	var aa=new a1();
+       	return aa
+       }
+       var p1=new ren(160,24,'小张')
+       alert(p1.name)*/
+
+       //alert(ren(160,24,'小张').height)
+
+
+       /*function ren(height,age,name,){
+       	var a1={
+       		height:height,
+       		age:age,
+       		name:name,
+       		play:function(){
+       			return '吃喝玩乐'
+       		}
+       	}
+       	return a1;
+       }
+       var aa=new ren(160,24,'小张')
+       alert(aa.age)*/
+
+
+
+/*function ren(height,age,name){
+	function people(){
+		this.height=height;
+		this.age=age;
+	}
+	var people1=new people();
+	people1.name=name;
+	people1.play=function(){
+		return '吃喝玩乐'
+	}
+	return people1;
+}
+var p1=new ren(160,24,'xiaozhang')
+alert(p1.name)
+alert(p1.age)
+alert(p1.play())
+
+function ren(height,age,name){
+	var people={
+		height:height,
+		age:age,
+		name:name,
+		play:function(){
+			return '吃喝玩乐'
+		}
+	}
+	return people;
+}
+var p1=new ren(150,24,'xxx')
+alert(p1.name)*/
+
+
+
+
+
+//prototype方法
+/*function tv(size,brand,color){
+	this.size=size;
+	this.brand=brand;
+	this.color=color;
+}
+tv.prototype.play=function(){
+	return '看电视'
+}
+var tv1=new tv('32inch','长虹','#ccc')
+alert(tv1.size)
+*/
+
+/*function benzi(color,size,height){
+	this.color=color;
+	this.size=size;
+	this.height=height;
+	this.play=function(){
+	   return '折纸1'}
+}
+	benzi.prototype.play=function(){
+		return '折纸2'
+	};
+	benzi.prototype.write=function(){
+		return '写字'
+	};
+	var benzi1=new benzi('red','16k',);
+	alert(benzi1.color)
+	alert(benzi1.play())*/
+
+/*function ren(){
+	this.say='说';
+	this.eat='吃';
+	this.drike='喝';
+	this.sleep='睡';
+}
+function student(){
+	this.study='学习';
+	this.sk='上课';
+}
+student.prototype=new ren();
+var st=new student();
+alert(st.say)*/
+
+
+/*       四、对象的特性之封装
+把对象所有的组成部分组合起来，尽可能的隐藏对象的部分细节，使其受到保护。
+只保留有限的接口和外部发生联系。
+
+1、工厂函数
+     方便维护，节省内存，但格式不规范；
+
+function dianshi(color,size,brand){
+  var ds={};
+  ds.color=color;
+  ds.size=size;
+  ds.brand=brand;
+  ds.look=function(){
+  	return "看电视"
+  }
+  ds.play=function(){
+  	return "玩游戏"
+  }
+  return ds;
+}
+var aa=dianshi("blue","32inch","wangpai");
+
+2、构造函数
+优点同上，但是相比于prototype还是比较占内存；
+
+function ds(color,size,brand){
+  this.color=color;
+  this.size=size;
+  this.brand=brand;
+  this.look=function(){
+  	return "看电视"
+  }
+  this.play=function(){
+  	return "玩游戏"
+  }
+}
+var dianshi=new ds("blue","20inch","suoni")
+alert(dianshi.color)
+
+3、prototype方法
+可以实现共享，将特定内容存于代码段，可以随时调用，只有浏览器关闭时才会消失，
+
+ function ds(color,size,brand){
+  this.color=color;
+  this.size=size;
+  this.brand=brand;
+}
+ds.prototype.look=function(){
+  	return "看电视"
+  }
+ds.prototype.play=function(){
+  	return "玩游戏"
+  }
+var tv1=new ds("red","20inch","changhong")
+var tv2=new ds("green","32inch","changhong")   
+
+  当调用对象的属性时，如果对象本身无该属性，那么，对象会在原型（prototype）上去找该属性或方法，当对象本身有其属性时，会直接得到属性值；
+
+
+五、对象属性   
+1、constructor：查看一个对象的构造函数；
+    作用：是分辨对象到底属于哪个构造函数。
+
+function aa(){}
+function bb(){}
+var tv1=new aa();
+var tv2=new bb();
+alert(tv1.constructor)
+alert(tv2.constructor)
+
+2、instanceof运算符：
+用来检测某个对象是否是某个构造函数的实例；
+（instanceof运算符的左边是实例对象，右边是构造函数。它的运算实质是检查左边对象是否是右边构造函数的实例，是，返回true；否，返回false；）
+function aa(){}
+function bb(){}
+var tv1=new aa();
+var tv2=new bb();
+alert(tv1 instanceof bb)
+
+3、prototype 原型（对象）
+作用：
+A.对象的共享属性存放到代码段当中。
+B.可以实现继承。
+function ren(){
+  this.name="张三";
+  this.say=function(){
+    return this.name
+  }
+}
+function student(){
+  this.height="178cm"
+}
+student.prototype=new ren();
+var stu=new student();
+alert(stu.say())
+
+4、Object.keys()：
+查看一个对象本身的所有属性
+var obj={
+name:'xiao',
+age:15
+}
+alert(Object.keys(obj))
+
+
+
+六、对象的继承
+1、概念：
+对象的一个类可以从现有的类中派生，并且拥有现有的类的方法或是属性，这个过程叫做继承。被继承的类叫做父类或是基类，继承的类叫做子类。
+  (一个对象拥有另一个对象的属性和方法)
+
+2、优点:   
+  提高代码的重用性
+  提高代码的可维护性
+  提高代码的逻辑性
+
+3、对象的继承顺序
+Object.prototype.say=function(){
+  alert("我是顶层的原型")
+}
+function ren(){
+  this.say=function(){
+    alert("我是父类")
+  }
+}
+ren.prototype.say=function(){
+  alert("我是父类的原型")
+}
+student.prototype=new ren();
+function student(){
+  this.say=function(){
+    alert("我是子类")
+  }
+}
+student.prototype.say=function(){
+  alert("我是子类的原型")
+}
+var stu=new student();
+alert(stu.say)
+*/
+
+
+    /*function aa(){}
+	function bb(){}
+	var a1=new aa();
+	var b1=new bb();
+	alert(a1.constructor)
+	alert(b1.constructor)
+
+	function aa(){}
+	function bb(){}
+	var a1=new aa();
+	var b1=new bb();
+	alert(a1 instanceof bb)*/
+  //constructor  查看一个对象的构造函数
+	/*function aa(){}
+	function bb(){}
+	var a1=new aa()
+	var b1=new bb()
+	alert(a1.constructor)
+	alert(b1.constructor)*/
+  //instanceof  检测某个对象是否是某个构造函数的实例
+    /*function aa(){}
+    function bb(){}
+    var a1=new aa()
+    var b1=new bb()
+    alert(a1 instanceof aa)*/
+  // Object.keys()
+    /*var obj={
+    	name:'欢欢女王',
+    	age:'24',
+    	play:function(){
+    		return '健身'
+    	}
+    }
+    alert(Object.keys(obj))*/
+
+
+
+    Object.prototype.say=function(){
+		return '顶层的原型在说话'//5
+	}
+	function renlei(){
+		/*this.say=function(){
+			return '人的父类在说话'//3
+		}*/
+	}
+	/*renlei.prototype.say=function(){
+		return '人的父类的原型在说话'//4
+	}*/
+	ren.prototype=new renlei();
+	function ren(){
+		/*this.say=function(){
+			return '人本身在说话'//1
+		}*/
+	}
+	/*ren.prototype.say=function(){
+		return '人的原型在说话'//2
+	}*/
+	var people=new ren();
+	alert(people.say())
+
+
+
+	</script>
+</body>
+</html>

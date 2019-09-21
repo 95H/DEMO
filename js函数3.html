@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //1.Boolean
+        var a = undefined;
+        var b = Boolean(a);
+        console.log(b); //false
+        //1.1引用数据类型
+        var c = {};
+        var d = Boolean(c);
+        console.log(d); //true
+        console.log('heiheihei' / false); //nan
+
+        var aa = 1;
+        var bb = aa++;
+        console.log(bb); //1
+        bb = aa;
+        console.log(bb); //2
+    </script>
+    <script>
+        //1.String(指定的数据) 可以将任意类型的数据转换为字符串
+        //    var a = {name: 'echo', age: 20};
+        //    var b = String(a);
+        //    console.log(b);
+        //    console.log(typeof(b));
+        //2.toString
+        //2.1成功案例
+        //    var c = false;
+        //    var d = c.toString();
+        //    console.log(d);
+        //2.2失败案例
+        //    var e = null;
+        //    var f = e.toString();
+        //    console.log(f);
+        //拼接空串
+        var aaa = undefined;
+        var bbb = aaa + '';
+        console.log(bbb);
+    </script>
+    <script>
+        //1.Number(要转换的数据)
+        var a = undefined;
+        var b = Number(a);
+        console.log(b);
+        //2.parseInt/parseFloat
+        var c = 'heheda';
+        var d = parseFloat(c);
+        console.log(d);
+        //3.小技巧：+要转换的数据
+        var e = '123';
+        var f = e / 1;
+        console.log(f);
+    </script>
+    <script>
+        //1.a++
+        var a = 8;
+        var b = a++;
+        console.log(b); //8
+        console.log(a); //9
+        b = a;
+        console.log(b); //9
+        //++a
+        var c = 9;
+        var d = ++c;
+        console.log(d); //10
+        console.log(c); //10
+    </script>
+    <script>
+        var a = false;
+        if (a == true) {
+            console.log('a的值是true');
+        } else if (a == false) {
+            console.log('a的值不是true');
+        } else {
+            console.log('a的值是false');
+        }
+    </script>
+    <script>
+        //1.与 &&
+        var a = false && false;
+        console.log(a); //false
+
+        //2.或 ||
+        var b = false || true;
+        console.log(b); //true
+
+        //3.非 !
+        var c = '';
+        var d = !!c;
+        console.log(d); //false
+
+        //4.短路运算
+        var e = 'heheda' || '';
+        console.log(e); //heheda
+
+        var f = 0 && 'hehehe';
+        console.log(f); //0
+
+        var g = [] && {};
+        console.log(g); //Object
+        [] && {}
+        true && true
+    </script>
+    <script>
+        //js中的算术运算符
+        //+
+        //1.数字类型+数字类型
+        var a = 1;
+        var b = 2;
+        var c = a + b;
+        console.log(c); //3
+        //2.数字+数字字符串
+        var d = 2 + '456';
+        console.log(d); //2456
+        console.log(typeof (d)); //string
+        //3.数字类型和布尔类型相加  true = 1  false = 0
+        var e = 5 + false;
+        console.log(e); //5
+        console.log(typeof (e)); //number
+        //4.数字+非数字字符串
+        var f = 10 + 'heheda';
+        console.log(f); //10heheda
+        console.log(typeof (f)); //string
+        //数字和数字字符串相减
+        var g = 9 - '5';
+        console.log(g); //4
+        console.log(typeof (g)); //number
+        //数字类型和布尔类型相减
+        var h = 7 - true;
+        console.log(h); //6
+        console.log(typeof (h)); //number
+        //数字类型 - 非数字字符串
+        var i = 8 - 'heheda';
+        console.log(i); //nan
+        console.log(typeof (i)); //number
+
+        console.log(NaN == NaN); //false
+        //3.数字字符串和数字字符串相减
+        var j = '456' - '123';
+        console.log(j); //333
+        console.log(typeof (j)); //number
+
+        //4.非数字字符串-非数字字符串
+        var k = 'hahaha' - 'heiheihei';
+        console.log(k); //nan
+        console.log(typeof (k)); //number
+
+        //乘运算
+        //1.数字*数字字符串
+        var l = 8 * '8';
+        console.log(l); //64
+        console.log(typeof (l)); //number
+        //2.数字字符串*数字字符串
+        var m = '9' * '6';
+        console.log(m); //54
+        console.log(typeof (m)); //number
+        //4.数字和布尔值相乘
+        var n = 10 * false;
+        console.log(n); //0
+        console.log(typeof (n)); //number
+        //除运算
+        //1.除数为0的时候
+        var o = 100 / 0;
+        console.log(o); //Infinity
+        console.log(typeof (o)); //number
+
+        //2.数字/数字字符串
+        var p = 10 / '5';
+        console.log(p); //2
+        console.log(typeof (p)); //number
+
+        //非数字字符串/非数字字符串
+        var q = 'heheda' / 'heiheihei';
+        console.log(q); //nan
+        console.log(typeof (q)); //number
+
+        //取余
+        var r = 13 % 7
+        console.log(r); //6
+        console.log(typeof (r)); //number
+    </script>
+    <script>
+        //数组声明的两种方法
+        //1.数组字面量
+        var arr = [1, 2, 3, 4, 5, 6];
+        console.log(arr);
+        //2.构造函数声明数组  Array() js中内置的构造函数，
+        // 当需要使用构造函数来创建数组的时候，直接调用就可以了
+        //调用方法： new Array();
+        var arr1 = new Array('hahaha', 'heheda');
+        console.log(arr1);
+
+        //数组的赋值和取值
+        //取值
+        var a = arr1[1];
+        console.log(a);
+        //赋值
+        var b = [];
+        //1.手动赋值
+        //    b[0] = 'heiheihei';
+        //    b[1] = '尼玛旺财';
+
+        //2.自动赋值 使用for循环来进行赋值
+        for (var i = 0; i <= 99; i++) {
+            b[i] = i + 1;
+        }
+        console.log(b);
+        //i=0 i<=100 进入循环体 b[0]=0
+        //i++ i=1 i<=100 进入循环体 b[1]=1
+        //i++ i=2 i<=100 进入循环体 b[2]=2
+        //...... i=100 i<=100 进入循环体 b[100]=100
+
+        //数组的遍历
+        var c = ['a', 'b', 'c'];
+        for (var i = 0; i <= 2; i++) {
+            console.log(c[i]);
+        }
+        //i=0 i<=2 进入循环体 c[0]
+        //i++ i<=2 进入循环体 c[1]
+        //i++ i<=2 进入循环体 c[2]
+        //i++ i<=2 跳出循环
+        // 当循环数据量较大的数组的时候，怎么办呢？
+        var d = [];
+        for (var i = 0; i <= 100; i++) {
+            d[i] = i;
+        }
+        //打印d数组的长度
+        console.log(d.length);
+        for (var i = 0; i <= d.length - 1; i++) {
+            console.log(d[i]);
+        }
+        //也可以定义数组的length属性
+        var e = ['echo'];
+        e.length = 5;
+        console.log(e);
+
+        //反向遍历数组
+        //    var f = [];
+        //    for(var i = 0;i<=99;i++){
+        //        f[i]=i+1;
+        //    }
+        //    console.log(f);
+        //反向遍历f数组，
+        //要求以100,99,98,97.。。。3,2,1的顺序输出100-1之间的数字
+        //正序遍历
+        //    for(var i=0 ; i <= f.length-1; i++){
+        //        console.log(f[i]);
+        //    }
+        //倒序遍历
+        //    for(var i = f.length;i>=0;i--){
+        //        console.log(f[i])
+        //    }
+        //i=99 99>=0 打印f[99] i--
+        //i=98 98>=0 打印f[98] i--
+        //i=97 97>=0 打印f[97] i--
+        //....
+        //i=1 1>=0  打印f[1]  i--
+        //i=0 0>=0  打印f[0]  i--
+        //i=-1
+        //    console.log(f[100]);
+
+        //1.写一个数组
+        var f = [];
+        for (var i = 0; i <= 99; i++) {
+            f[i] = i + 1;
+        }
+        for (var i = f.length - 1; i >= 0; i--) {
+            console.log(f[i]);
+        }
+    </script>
+    <script type="text/javascript">
+        //双层while循环嵌套 求100以内质数和
+        var n = 0;
+        var sum = 0;
+        while (n <= 100) {
+            var flag = 0;
+            var i = 2;
+            while (i < n) {
+                if (n % i == 0) {
+                    flag = 1;
+                    break;
+                }
+                i++;
+            }
+            if (flag == 0 && n != 1) {
+                // console.log(n);
+                sum += i;
+            }
+            n++;
+        }
+        console.log(sum);
+        // 封装一个函数，实现将用户传入的数组按从大到小的顺序排列并输出的功能
+        var aa = function (s) {
+            for (var i = 0; i < s.length; i++) {
+                for (var j = 0; j < s.length; j++) {
+                    if (s[j] < s[j + 1]) {
+                        var n = 0;
+                        n = s[j];
+                        s[j] = s[j + 1];
+                        s[j + 1] = n;
+                    }
+                }
+            }
+            console.log(s);
+        }
+        aa([33, 44, 34, 221, 42, 454, 543]);
+
+
+        //以下代码的执行结果是什么？
+        //1.
+        function f1(a, b) {
+            a = a + 1;
+            b = b + 1;
+            console.log("a = " + a); //6
+            console.log("b = " + b); //7
+        }
+        var x = 5;
+        var y = 6;
+        f1(x, y);
+        console.log("x = " + x); //5
+        console.log("y = " + y); //6
+
+        //2.
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        function f2(p) {
+            p = new Person("ls", 50);
+            p.name = "ww";
+            console.log(p.name); //ww
+        }
+        var p2 = new Person("zs", 18);
+        f2(p2);
+        console.log(p2.name); //zs
+    </script>
+    <script>
+        var a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //小括号中 1.循环控制变量,这个变量是由实际情况来确定值的，
+        // 因为数组项的索引是从0开始的，因此变量初始值为0
+        //2.循环结束时控制变量的值
+        //3.每次循环的递增量
+        for (var i = 0; i <= 9; i++) {
+            console.log(a[i])
+        }
+
+        //输出10以内的偶数
+        var b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //           0 1 2 3 4 5 6 7 8 9
+        for (var i = 1; i <= 9; i = i + 2) {
+            console.log(b[i]);
+        }
+        //输出10以内的奇数
+        var c = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        for (var i = 0; i <= 9; i += 2) {
+            console.log(c[i]);
+        }
+        //输出奇数的新方法
+        var d = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        //一个数/2 如果除不尽且余数是1，就说这个数是奇数
+        //    3/2 = 1...1
+        //    13/2 = 6...1
+        for (var i = 0; i <= 9; i++) {
+            //判断是否是奇数，如果是就输出，
+            //如果不是，就不输出，继续执行下次循环
+            if (d[i] % 2 == 1) {
+                console.log(d[i]);
+            }
+        }
+    </script>
+    <script>
+        // 1.创建一个构造函数来实例化人类对象，包括姓名、年龄、性别、体重等属性
+        var CP = function (name, age, gender, weight) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        var LR = new CP('小芳', '19', '女', '105斤');
+        console.log(LR);
+        // 2.创建一个构造函数来实例化动物对象，包括颜色、性别、大小等属性以及一个说话的方法，打印hello world；
+        var DX = function (name, colour, gender, size, speak) {
+            this.name = name;
+            this.colour = colour;
+            this.gender = gender;
+            this.size = size;
+            this.speak = speak;
+        }
+        var dada = new DX('大象', 'gray', '公', '大', 'hello world');
+        console.log(dada);
+        // 3.创建一个工厂函数，来实例化城市对象，包括名字、人口、pm2.5、风力等属性，并包含一个方法是广播：XXX欢迎您。
+        var ZJK = function (name, population, breath, windpower, broadcast) {
+            var G = {};
+            G.name = name;
+            G.population = population;
+            G.breath = breath;
+            G.windpower = windpower;
+            G.broadcast = broadcast;
+            return G;
+        };
+        var WQ = new ZJK('张家口', '1320050300', 'pm2', 2, '张家口欢迎你');
+        console.log(WQ);
+
+        // 1 使用工厂函数创建学生对象，要求包括姓名，年龄，学号和成绩等属性
+        var RT = function (name, age, studentnumber, grade) {
+            var xs = {};
+            xs.name = name;
+            xs.age = age;
+            xs.studentnumber = studentnumber;
+            xs.grade = grade;
+            return xs;
+        };
+        var PZ = new RT('肉陀', 20, 12345, '100分');
+        console.log(PZ);
+        // 2 使用工厂函数创建日期对象，要求包括当天的天气，温度，污染水平和风力等属性
+        var ZR = function (weather, temperature, pollutionlevel, windpower) {
+            var tq = {};
+            tq.weather = weather;
+            tq.temperature = temperature;
+            tq.pollutionlevel = pollutionlevel;
+            tq.windpower = windpower;
+            return tq;
+        };
+        var dzr = new ZR('晴天', '10度', '20%', '4级');
+        console.log(dzr);
+        // 3 使用构造函数创建教师对象，要求包括姓名，年龄，所属学院，性别等属性
+        var JS = function (name, age, college, gender) {
+            this.name = name;
+            this.age = age;
+            this.college = college;
+            this.gender = gender;
+        }
+        var XS = new JS('小米', 18, '数字媒体', '女');
+        console.log(XS);
+    </script>
+    <script>
+        // 1.封装一个函数，实现将用户传入的数组按从大到小的顺序排列并输出的功能
+        var ads = function (a) {
+            for (var i = 0; i < a.length - 1; i++) {
+                for (var j = 0; j < a.length - 1; j++) {
+                    if (a[j + 1] > a[j]) {
+                        var n = 0;
+                        n = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = n;
+                    }
+                }
+            }
+            console.log(a);
+        }
+        ads([2, 3, 1, 5, 4, 9, 6, 7]);
+        // 2.使用函数输出x-y之间的所有质数的和
+        var hehe = function (x, y) {
+            var li = 0;
+            for (var i = x; i <= y; i++) {
+                add = 1;
+                for (var r = x + 1; r <= i - 1; r++) {
+                    if (i % r == 0) {
+                        add = 0;
+                        break;
+                    }
+                }
+                if (add == 1) {
+                    li = li + i;
+                }
+            }
+            li = li - 1;
+            console.log(li);
+        }
+        hehe(10, 50);
+        // 3.使用函数输出x-y之间所有能被3整除的数字的和。
+        var w = function (x, y) {
+            var zz = 0;
+            for (var i = x; i <= y; i++) {
+                if (i % 3 == 0) {
+                    zz += i;
+                }
+            }
+            console.log(zz)
+        }
+        w(1, 50);
+        // 4.使用for循环输出0-100之间能被3整除的数字和包含3的数字
+
+        // 5.声明一个函数，功能是在控制台打印’哈哈哈’字符串，返回值是’你是250’
+        function w() {
+            console.log('哈哈哈');
+            return '你是250';
+        }
+        console.log(w());
+        //6.声明一个函数，功能是求1-100之间所有能被7整除的数字的和，返回值是求得的和
+        var nn = function (x, y) {
+            var he = 0;
+            for (var i = x; i <= y; i++) {
+                if (i % 7 == 0) {
+                    he += i;
+                }
+            }
+            return he;
+        }
+        console.log(nn(0, 50));
+
+
+        // 1.   封装一个函数，实现将用户传入的数组按从大到小的顺序排列并输出的功能
+        var aa = function (q) {
+            for (var i = 0; i < q.length; i++) {
+                for (var j = 0; j < q.length; j++) {
+                    if (q[j] < q[j + 1]) {
+                        var s = 0;
+                        s = q[j];
+                        q[j] = q[j + 1];
+                        q[j + 1] = s;
+                    }
+                }
+            }
+            console.log(q);
+        }
+        aa([99, 2, 44, 1, 888, 123, 456, 778, 9, 7]);
+
+        // 2. 使用函数输出x-y之间的所有质数的和
+        // var han=function(x,y){
+        //      var he=0;  
+        //   for(var i=x; i<y;i++){
+        //          var a=1;
+        //     for(var j=2;j<i-1;j++){
+        //       if(i%j==0){
+        //         a=0;
+        //         break;
+        //       }
+        //     }
+        //     if(a==1){
+        //       he+=i;
+        //     }
+        //   }
+        //   he-=1;
+        //   console.log(he);
+        // }
+        // han(0,100);
+        // 3. 使用函数输出x-y之间所有能被3整除的数字的和。
+        // var shu=function(x,y){
+        //   var he=0
+        //   for(var i=x;i<y;i++){
+        //     if(i%3==0){
+        //       he+=i;
+        //       console.log(i);
+        //     }
+        //   }
+        //   console.log(he)
+        // } 
+        // shu(0,10);
+        // 4. 使用for循环输出0-100之间能被3整除的数字和包含3的数字
+        // var hanshu=function(x,y){
+        //   for(var i=x;i<y;i++){
+        //     if(i%3==0){
+
+        //       console.log('能被3整除的数是：'+i)
+        //     }
+        //     else if(parseInt((i/10))==3||i%10==3){
+        //       console.log('1-100以内包含3的数是：'+ i);
+
+        //     }
+        //   }
+        // }
+        // hanshu(0,100);
+        // 5. 声明一个函数，功能是在控制台打印’哈哈哈’字符串，返回值是’你是250’
+        // var a=function(){
+        //   console.log('哈哈哈');
+        //   return '你是250'
+        // }
+        // console.log(a());
+        //6.  声明一个函数，功能是求1-100之间所有能被7整除的数字的和，返回值是求得的和
+        // var a=function(){
+        //   var he=0;
+        //   for(var i=0;i<100;i++){
+        //     if(i%7==0){  
+        //       he+=i 
+        //       console.log('能被7整除的数是：'+i)
+        //     }
+        //   }
+        //  return '被7整除的数的和：'+ he;
+        // } 
+        // console.log(a())
+    </script>
+</body>
+
+</html>

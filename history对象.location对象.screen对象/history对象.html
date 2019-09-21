@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <a href="history对象2.html">点击去列首页</a>
+    <h1>我是首页面</h1>
+    <input type="button" value="前进" id="btn">
+    <script>
+        //1.属性
+        //返回浏览器历史记录的数量
+        //alert(window.history.length)
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            //history.forward();
+            history.go(1)
+        }
+    </script>
+</body>
+
+</html>
